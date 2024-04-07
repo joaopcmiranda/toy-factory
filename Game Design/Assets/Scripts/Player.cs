@@ -22,8 +22,8 @@ public class Player : MonoBehaviour
         //Tag Manager -> component -> InputManager
         GameObject
             .FindWithTag("Player")
-            .GetComponent<InputManager>();
-           //.RegisterPlayer(this);
+            .GetComponent<InputManager>()
+            .RegisterPlayer(this);
     }
 
     // Update is called once per frame
