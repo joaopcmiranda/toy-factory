@@ -6,30 +6,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public Vector2 _movementDirection;
-    public Vector2 _currentMovement;
     public float speed = 5.0f;
-    public float damping = 0.1f;
-
-    public void SetMovementDirection(Vector2 direction)
-    {
-        _movementDirection = direction.normalized;
-    }
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     private void Start()
     {
-        //Tag Manager -> component -> InputManager
-        GameObject
-            .FindWithTag("Player")
-            .GetComponent<InputManager>()
-            .RegisterPlayer(this);
+        rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.position += new Vector3(_currentMovement.x, _currentMovement.y, 0) * (speed * Time.deltaTime);
-        _currentMovement = Vector2.Lerp(_currentMovement, _movementDirection, damping);
+        float movementHorizontal = Input.GetAxis("Horizontal");
+        float movementVertical = Input.GetAxis("Vertical");
+
+        rb.velocity = new Vector2(movementHorizontal * speed, movementVertical * speed);
     }
 }
