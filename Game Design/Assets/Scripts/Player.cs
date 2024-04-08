@@ -20,10 +20,10 @@ public class Player : MonoBehaviour
     private void Start()
     {
         //Tag Manager -> component -> InputManager
-       GameObject
-           .FindWithTag("Manager")
-           .GetComponent<InputManager>()
-           .RegisterPlayer(this);
+        GameObject
+            .FindWithTag("Player")
+            .GetComponent<InputManager>()
+            .RegisterPlayer(this);
     }
 
     // Update is called once per frame
