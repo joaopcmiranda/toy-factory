@@ -22,7 +22,17 @@ public class PickUp : MonoBehaviour
         {
             if (itemHolding) 
             {
+                Rigidbody2D itemRigidbody = itemHolding.GetComponent<Rigidbody2D>();
+                if (itemRigidbody != null)
+                {
+                    itemRigidbody.simulated = true;
+                    itemRigidbody.velocity = Vector2.zero; // Stop any movement, or you could apply a throwing force here.
+                }
 
+                // Detach the item from the player and reset itemHolding
+                itemHolding.transform.SetParent(null);
+                itemHolding.transform.position = (Vector2)transform.position + playerMovement.GetFacingDirection(); // Drop at the current player position plus direction.
+                itemHolding = null;
             }
             else 
             {
