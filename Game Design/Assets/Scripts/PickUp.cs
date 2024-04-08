@@ -27,18 +27,27 @@ public class PickUp : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F)) 
         {
-            if (itemHolding) 
+            if (itemHolding)
             {
-                if (Vector2.Distance(printerManager.transform.position, transform.position) <= printerManager.dropRadius)
+                //putting plastic in printer
+                if (Vector2.Distance(printerManager.transform.position, transform.position) <= printerManager.dropRadius && itemHolding.CompareTag("Plastic"))
                 {
-                    printerManager.HoldItem(itemHolding); // The printer takes the item
-                    itemHolding = null; // Clear the reference as the printer now holds the item
+                    printerManager.HoldItem(itemHolding);
+                    itemHolding = null;
                 }
+                //dropping item on floor
                 else
                 {
-                    DropItem(); // Normal drop procedure
+                    DropItem();
                 }
             }
+            //taking item from printer
+            else if (Vector2.Distance(printerManager.transform.position, transform.position) <= printerManager.dropRadius && printerManager.IsHoldingItem())
+            {
+                TakeItemFromPrinter();
+
+            }
+            //taking item from floor
             else 
             {
                 PickUpItem();
@@ -72,6 +81,20 @@ public class PickUp : MonoBehaviour
             itemHolding.transform.parent = transform;
             if (itemHolding.GetComponent<Rigidbody2D>())
                 itemHolding.GetComponent<Rigidbody2D>().simulated = false;
+        }
+    }
+
+    private void TakeItemFromPrinter()
+    {
+        itemHolding = printerManager.TakeItem();
+
+        itemHolding.transform.position = holdSpot.position;
+        itemHolding.transform.SetParent(holdSpot);
+
+        Rigidbody2D itemRigidbody = itemHolding.GetComponent<Rigidbody2D>();
+        if (itemRigidbody != null)
+        {
+            itemRigidbody.simulated = false;
         }
     }
 }

@@ -12,14 +12,15 @@ public class PrinterManager : MonoBehaviour
     public float dropRadius = 1f;
 
     private GameObject itemHolding;
+    public Sprite trainSprite;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Plastic")
         {
             uiText.text = "3D Print Plastic done";
         }
-    }
+    }*/
 
     public void HoldItem(GameObject item)
     {
@@ -39,4 +40,52 @@ public class PrinterManager : MonoBehaviour
             uiText.text = "3D Printing..."; // Update UI to show printing status
         }
     }
+
+    public GameObject TakeItem()
+    {
+        if (itemHolding != null)
+        {
+            // Retrieve the item from the printer
+            GameObject item = itemHolding;
+
+            // Optionally, if you disabled physics when putting the item in the printer, re-enable it here
+            Rigidbody2D itemRb = itemHolding.GetComponent<Rigidbody2D>();
+            if (itemRb != null)
+            {
+                itemRb.simulated = true;
+            }
+
+            item.transform.SetParent(null);
+
+            TransformPlastic(item);
+
+            itemHolding = null;
+
+            return item;
+        }
+        return null;
+    }
+
+    private void TransformPlastic(GameObject itemHolding)
+    {
+        if (itemHolding.CompareTag("Plastic"))
+        {
+            uiText.text = "3D Print Plastic done";
+            SpriteRenderer plasticSpriteRenderer = itemHolding.GetComponent<SpriteRenderer>();
+            plasticSpriteRenderer.sprite = trainSprite;
+            itemHolding.tag = "Train";
+        }
+    }
+
+    public bool IsHoldingItem()
+    {
+        if (itemHolding != null)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
 }
