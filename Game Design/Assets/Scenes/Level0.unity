@@ -2238,7 +2238,7 @@ GameObject:
   - component: {fileID: 1459390834}
   - component: {fileID: 1459390835}
   - component: {fileID: 1459390836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plastic
   m_TagString: Plastic
   m_Icon: {fileID: 0}
@@ -3205,7 +3205,7 @@ MonoBehaviour:
   holdSpot: {fileID: 672141235}
   pickUpMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
 --- !u!50 &1968809939
 Rigidbody2D:
   serializedVersion: 4
@@ -3232,7 +3232,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

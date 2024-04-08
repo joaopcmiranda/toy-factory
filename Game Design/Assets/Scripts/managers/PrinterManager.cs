@@ -7,6 +7,10 @@ public class PrinterManager : MonoBehaviour
 {
 
     public TextMeshProUGUI uiText;
+    public Transform holdSpot;
+    public LayerMask pickUpMask;
+
+    //private GameObject itemHolding;
 
     // Start is called before the first frame update
     void Start()
