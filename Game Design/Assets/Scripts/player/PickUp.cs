@@ -1,155 +1,91 @@
+using items;
 using machines;
+using managers;
 using UnityEngine;
 
 namespace player
 {
     public class PickUp : MonoBehaviour
     {
+        public float pickUpRadius = .4f;
+
         public Transform holdSpot;
         public LayerMask pickUpMask;
 
-        private GameObject _itemHolding;
+        private Item _itemHolding;
         private PlayerMovement _playerMovement;
-
-        private IMachine machineManager;
-        private GameObject previouslyHighlightedMachine = null;
+        private MachineManager _machineManager;
 
         private void Start()
         {
             _playerMovement = GetComponent<PlayerMovement>();
+            _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
         }
 
         // Update is called once per frame
         void Update()
         {
-
-            HighlightNearestMachineWithinRadius();
+            var nearestMachine = _machineManager.HighlightNearestMachineWithinRadius(transform);
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-
-                machineManager = HighlightNearestMachineWithinRadius();
-
                 if (_itemHolding)
                 {
-                    //putting plastic in machine
-                    if (machineManager != null && Vector2.Distance(machineManager.MachineTransform.position, transform.position) <= machineManager.DropRadius /*&& itemHolding.CompareTag("Plastic")*/)
+                    if (nearestMachine && IsNearMachine(nearestMachine))
                     {
-                        machineManager.HoldItem(_itemHolding);
-                        _itemHolding = null;
+                        nearestMachine.HoldItem(DropItem()); // put item in machine
                     }
-                    //dropping item on floor
                     else
                     {
-                        DropItem();
+                        DropItem(); // dropping item on floor
                     }
                 }
-                //taking item from machine
-                else if (machineManager != null && Vector2.Distance(machineManager.MachineTransform.position, transform.position) <= machineManager.DropRadius && machineManager.IsHoldingItem())
-                {
-                    TakeItemFromMachine();
-
-                }
-                //taking item from floor
                 else
                 {
-                    PickUpItem();
+                    if (nearestMachine && IsNearMachine(nearestMachine) && nearestMachine.IsHoldingItem())
+                    {
+                        TakeItemFromMachine(nearestMachine); // taking item from machine
+                    }
+                    else
+                    {
+                        PickUpItem(); // taking item from floor
+                    }
                 }
             }
         }
 
-        private void DropItem()
+        private bool IsNearMachine(Machine machine)
         {
-            Rigidbody2D itemRigidbody = _itemHolding.GetComponent<Rigidbody2D>();
-            if (itemRigidbody != null)
-            {
-                itemRigidbody.simulated = true;
-                itemRigidbody.velocity = Vector2.zero; // Stop any movement, or you could apply a throwing force here.
-            }
+            return _machineManager && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius;
+        }
 
-            // Detach the item from the player and reset itemHolding
-            _itemHolding.transform.SetParent(null);
-            _itemHolding.transform.position = (Vector2)transform.position + _playerMovement.GetFacingDirection(); // Drop at the current player position plus direction.
+        private Item DropItem()
+        {
+            _itemHolding.Drop();
+            _itemHolding.transform.position = (Vector2)transform.position + _playerMovement.GetFacingDirection();
+            var item = _itemHolding;
             _itemHolding = null;
+            return item;
         }
 
         private void PickUpItem()
         {
-            Vector2 direction = _playerMovement.GetFacingDirection();
-            Collider2D pickUpItem = Physics2D.OverlapCircle((Vector2)transform.position + direction, .4f, pickUpMask);
-            if (pickUpItem)
+            var direction = _playerMovement.GetFacingDirection();
+            var pickUpItem = Physics2D.OverlapCircle((Vector2)transform.position + direction, pickUpRadius, pickUpMask);
+            if (!pickUpItem)
             {
-                _itemHolding = pickUpItem.gameObject;
-                _itemHolding.transform.position = holdSpot.position;
-                _itemHolding.transform.parent = transform;
-                if (_itemHolding.GetComponent<Rigidbody2D>())
-                    _itemHolding.GetComponent<Rigidbody2D>().simulated = false;
+                return;
             }
+            var item = pickUpItem.gameObject.GetComponent<Item>();
+            item.PickUp(holdSpot);
+            _itemHolding = item;
         }
 
-        private void TakeItemFromMachine()
+        private void TakeItemFromMachine(Machine nearestMachine)
         {
-            _itemHolding = machineManager.TakeItem();
-
-            _itemHolding.transform.position = holdSpot.position;
-            _itemHolding.transform.SetParent(holdSpot);
-
-            Rigidbody2D itemRigidbody = _itemHolding.GetComponent<Rigidbody2D>();
-            if (itemRigidbody != null)
-            {
-                itemRigidbody.simulated = false;
-            }
+            _itemHolding = nearestMachine.TakeItemFromMachine();
+            _itemHolding.PickUp(holdSpot);
         }
-
-
-        private IMachine HighlightNearestMachineWithinRadius()
-        {
-            GameObject nearestMachine = null;
-            var nearestDistance = Mathf.Infinity;
-            IMachine nearestMachineManager = null;
-
-            foreach (var machine in GameObject.FindGameObjectsWithTag("Machine"))
-            {
-                var distance = Vector2.Distance(machine.transform.position, transform.position);
-                var machineManager = machine.GetComponent<IMachine>();
-
-                if (machineManager != null && distance <= machineManager.DropRadius && distance < nearestDistance)
-                {
-                    nearestMachine = machine;
-                    nearestDistance = distance;
-                    nearestMachineManager = machineManager;
-                }
-            }
-
-            if (nearestMachine != previouslyHighlightedMachine)
-            {
-                if (previouslyHighlightedMachine)
-                {
-                    SetMachineColor(previouslyHighlightedMachine, Color.white);
-                }
-
-                if (nearestMachine)
-                {
-                    SetMachineColor(nearestMachine, Color.grey);
-                    previouslyHighlightedMachine = nearestMachine;
-                }
-                else
-                {
-                    previouslyHighlightedMachine = null;
-                }
-            }
-            return nearestMachineManager;
-        }
-
-        private void SetMachineColor(GameObject machine, Color color)
-        {
-            var renderer = machine.GetComponent<SpriteRenderer>();
-            if (renderer != null)
-            {
-                renderer.color = color;
-            }
-        }
-
 
     }
 }
