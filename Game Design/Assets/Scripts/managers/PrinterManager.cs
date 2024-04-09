@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PrinterManager : MonoBehaviour
+public class PrinterManager : MonoBehaviour, IMachineManager
 {
 
     public TextMeshProUGUI uiText;
     public Transform holdSpot;
     public LayerMask pickUpMask;
-    public float dropRadius = 1f;
+    [SerializeField] private float _dropRadius = 1f;
+
+    public float dropRadius => _dropRadius;
+    public Transform MachineTransform => transform;
 
     private GameObject itemHolding;
     public Sprite trainSprite;
