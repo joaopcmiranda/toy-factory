@@ -10,12 +10,8 @@ public class PickUp : MonoBehaviour
     private GameObject itemHolding;
     private PlayerMovement playerMovement;
 
-    private PrinterManager printerManager;
-
-    private void Awake()
-    {
-        printerManager = FindObjectOfType<PrinterManager>();
-    }
+    private IMachineManager machineManager;
+    private GameObject previouslyHighlightedMachine = null;
 
     private void Start()
     {
@@ -25,14 +21,20 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        HighlightNearestMachineWithinRadius();
+
         if (Input.GetKeyDown(KeyCode.F)) 
         {
+
+            machineManager = HighlightNearestMachineWithinRadius();
+
             if (itemHolding)
             {
-                //putting plastic in printer
-                if (Vector2.Distance(printerManager.transform.position, transform.position) <= printerManager.dropRadius && itemHolding.CompareTag("Plastic"))
+                //putting plastic in machine
+                if (machineManager != null && Vector2.Distance(machineManager.MachineTransform.position, transform.position) <= machineManager.dropRadius /*&& itemHolding.CompareTag("Plastic")*/)
                 {
-                    printerManager.HoldItem(itemHolding);
+                    machineManager.HoldItem(itemHolding);
                     itemHolding = null;
                 }
                 //dropping item on floor
@@ -41,10 +43,10 @@ public class PickUp : MonoBehaviour
                     DropItem();
                 }
             }
-            //taking item from printer
-            else if (Vector2.Distance(printerManager.transform.position, transform.position) <= printerManager.dropRadius && printerManager.IsHoldingItem())
+            //taking item from machine
+            else if (machineManager != null && Vector2.Distance(machineManager.MachineTransform.position, transform.position) <= machineManager.dropRadius && machineManager.IsHoldingItem())
             {
-                TakeItemFromPrinter();
+                TakeItemFromMachine();
 
             }
             //taking item from floor
@@ -84,9 +86,9 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private void TakeItemFromPrinter()
+    private void TakeItemFromMachine()
     {
-        itemHolding = printerManager.TakeItem();
+        itemHolding = machineManager.TakeItem();
 
         itemHolding.transform.position = holdSpot.position;
         itemHolding.transform.SetParent(holdSpot);
@@ -97,4 +99,55 @@ public class PickUp : MonoBehaviour
             itemRigidbody.simulated = false;
         }
     }
+
+
+    private IMachineManager HighlightNearestMachineWithinRadius()
+    {
+        GameObject nearestMachine = null;
+        float nearestDistance = Mathf.Infinity;
+        IMachineManager nearestMachineManager = null;
+
+        foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
+        {
+            float distance = Vector2.Distance(machine.transform.position, transform.position);
+            IMachineManager machineManager = machine.GetComponent<IMachineManager>();
+
+            if (machineManager != null && distance <= machineManager.dropRadius && distance < nearestDistance)
+            {
+                nearestMachine = machine;
+                nearestDistance = distance;
+                nearestMachineManager = machineManager;
+            }
+        }
+
+        if (nearestMachine != previouslyHighlightedMachine)
+        {
+            if (previouslyHighlightedMachine != null)
+            {
+                SetMachineColor(previouslyHighlightedMachine, Color.white);
+            }
+
+            if (nearestMachine != null)
+            {
+                SetMachineColor(nearestMachine, Color.grey);
+                previouslyHighlightedMachine = nearestMachine;
+            }
+            else
+            {
+                previouslyHighlightedMachine = null;
+            }
+        }
+        return nearestMachineManager;
+    }
+
+    private void SetMachineColor(GameObject machine, Color color)
+    {
+        SpriteRenderer renderer = machine.GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            renderer.color = color;
+        }
+    }
+
+
 }

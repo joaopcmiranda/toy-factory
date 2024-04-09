@@ -12,7 +12,10 @@ public class TemplateMachineManager : MonoBehaviour
     public Transform holdSpot; //hold spot in machine
     public LayerMask pickUpMask; //layer machine picks items up from
 
-    public float dropRadius = 1f;
+    [SerializeField] private float _dropRadius = 1f;
+
+    public float dropRadius => _dropRadius;
+    public Transform MachineTransform => transform;
 
     private GameObject itemHolding;
     public Sprite itemTransformation; //sprite that you will transform held into into
