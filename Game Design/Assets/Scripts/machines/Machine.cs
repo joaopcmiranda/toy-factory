@@ -23,7 +23,7 @@ namespace machines
             }
         }
 
-        public Item TakeItemFromMachine()
+        public virtual Item TakeItemFromMachine()
         {
             if (!itemHolding) return null;
             // Retrieve the item from the machine
@@ -36,7 +36,7 @@ namespace machines
             return item;
         }
 
-        public void HoldItem(Item item)
+        public virtual void HoldItem(Item item)
         {
             if (itemHolding) return;
 

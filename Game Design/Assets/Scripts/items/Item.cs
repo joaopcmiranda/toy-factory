@@ -5,10 +5,12 @@ namespace items
     public class Item : MonoBehaviour
     {
         private Rigidbody2D _rigidbody2D;
+        private SpriteRenderer _spriteRenderer;
 
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public void PickUp(Transform holdSpot)
@@ -30,6 +32,11 @@ namespace items
             }
 
             transform.SetParent(null);
+        }
+
+        public void SetSprite(Sprite sprite)
+        {
+            _spriteRenderer.sprite = sprite;
         }
     }
 }

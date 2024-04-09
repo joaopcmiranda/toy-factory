@@ -12,7 +12,7 @@ namespace machines
         public Sprite transformedSprite; //sprite that the item will change into
 
         //machine holds item
-        public new void HoldItem(Item item)
+        public override void HoldItem(Item item)
         {
             base.HoldItem(item);
             uiText.text = ""; // Update UI
@@ -31,8 +31,7 @@ namespace machines
 
             //change UI
             uiText.text = "something";
-            var plasticSpriteRenderer = item.GetComponent<SpriteRenderer>();
-            plasticSpriteRenderer.sprite = transformedSprite;
+            item.SetSprite(transformedSprite);
 
             //set a different tag for the item, because it has changed into something else
             item.tag = "SomeTag";

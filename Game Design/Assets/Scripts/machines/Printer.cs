@@ -11,13 +11,13 @@ namespace machines
 
         public Sprite trainSprite;
 
-        public new void HoldItem(Item item)
+        public override void HoldItem(Item item)
         {
             base.HoldItem(item);
             uiText.text = "3D Printing...";
         }
 
-        public new Item TakeItemFromMachine()
+        public override Item TakeItemFromMachine()
         {
             var item = base.TakeItemFromMachine();
 
@@ -30,8 +30,7 @@ namespace machines
             if (!item.CompareTag("Plastic")) return;
 
             uiText.text = "3D Print Plastic done";
-            var plasticSpriteRenderer = item.GetComponent<SpriteRenderer>();
-            plasticSpriteRenderer.sprite = trainSprite;
+            item.SetSprite(trainSprite);
             item.tag = "Train";
         }
     }
