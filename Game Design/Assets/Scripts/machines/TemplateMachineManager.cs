@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace managers
+namespace managers.machines
 {
     public class TemplateMachineManager : MonoBehaviour
     {
@@ -12,13 +12,13 @@ namespace managers
         public Transform holdSpot; //hold spot in machine
         public LayerMask pickUpMask; //layer machine picks items up from
 
-    [SerializeField] private float _dropRadius = 1f;
+        [SerializeField] private float _dropRadius = 1f;
 
-    public float dropRadius => _dropRadius;
-    public Transform MachineTransform => transform;
+        public float dropRadius => _dropRadius;
+        public Transform MachineTransform => transform;
 
-    private GameObject itemHolding;
-    public Sprite itemTransformation; //sprite that you will transform held into into
+        private GameObject _itemHolding;
+        public Sprite itemTransformation; //sprite that you will transform held into into
 
 
         //machine holds item

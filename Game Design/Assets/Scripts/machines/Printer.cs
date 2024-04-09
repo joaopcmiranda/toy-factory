@@ -1,22 +1,21 @@
 using TMPro;
 using UnityEngine;
 
-public class PrinterManager : MonoBehaviour, IMachineManager
-namespace managers
+namespace machines
 {
-    public class PrinterManager : MonoBehaviour
+    public class Printer : MonoBehaviour, IMachine
     {
 
-    public TextMeshProUGUI uiText;
-    public Transform holdSpot;
-    public LayerMask pickUpMask;
-    [SerializeField] private float _dropRadius = 1f;
+        public TextMeshProUGUI uiText;
+        public Transform holdSpot;
+        public LayerMask pickUpMask;
+        [SerializeField] private float _dropRadius = 1f;
 
-    public float dropRadius => _dropRadius;
-    public Transform MachineTransform => transform;
+        public float DropRadius => _dropRadius;
+        public Transform MachineTransform => transform;
 
-    private GameObject itemHolding;
-    public Sprite trainSprite;
+        private GameObject _itemHolding;
+        public Sprite trainSprite;
 
         public void HoldItem(GameObject item)
         {
@@ -72,6 +71,5 @@ namespace managers
         {
             return _itemHolding;
         }
-
     }
 }
