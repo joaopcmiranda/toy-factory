@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
     private PlayerMovement playerMovement;
 
     private IMachineManager machineManager;
+    private GameObject previouslyHighlightedMachine = null;
 
     private void Start()
     {
@@ -20,10 +21,13 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        HighlightNearestMachineWithinRadius();
+
         if (Input.GetKeyDown(KeyCode.F)) 
         {
 
-            machineManager = FindNearestMachineManager();
+            machineManager = HighlightNearestMachineWithinRadius();
 
             if (itemHolding)
             {
@@ -97,14 +101,52 @@ public class PickUp : MonoBehaviour
     }
 
 
-    private IMachineManager FindNearestMachineManager()
+    private IMachineManager HighlightNearestMachineWithinRadius()
     {
-        GameObject nearestMachine = GameObject.FindGameObjectWithTag("Machine");
-        if (nearestMachine != null)
+        GameObject nearestMachine = null;
+        float nearestDistance = Mathf.Infinity;
+        IMachineManager nearestMachineManager = null;
+
+        foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
         {
-            return nearestMachine.GetComponent<IMachineManager>();
+            float distance = Vector2.Distance(machine.transform.position, transform.position);
+            IMachineManager machineManager = machine.GetComponent<IMachineManager>();
+
+            if (machineManager != null && distance <= machineManager.dropRadius && distance < nearestDistance)
+            {
+                nearestMachine = machine;
+                nearestDistance = distance;
+                nearestMachineManager = machineManager;
+            }
         }
-        return null;
+
+        if (nearestMachine != previouslyHighlightedMachine)
+        {
+            if (previouslyHighlightedMachine != null)
+            {
+                SetMachineColor(previouslyHighlightedMachine, Color.white);
+            }
+
+            if (nearestMachine != null)
+            {
+                SetMachineColor(nearestMachine, Color.grey);
+                previouslyHighlightedMachine = nearestMachine;
+            }
+            else
+            {
+                previouslyHighlightedMachine = null;
+            }
+        }
+        return nearestMachineManager;
+    }
+
+    private void SetMachineColor(GameObject machine, Color color)
+    {
+        SpriteRenderer renderer = machine.GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            renderer.color = color;
+        }
     }
 
 
