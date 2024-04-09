@@ -1,72 +1,79 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+namespace managers
 {
-
-    private int _currentScene;
-    private int _overlayScene;
-
-    private void UnloadCurrentScene()
+    public class LevelManager : MonoBehaviour
     {
-        if (_currentScene != 0)
+
+        private int _currentScene;
+        private int _overlayScene;
+
+        private void UnloadCurrentScene()
         {
-            SceneManager.UnloadSceneAsync(_currentScene);
+            if (_currentScene != 0)
+            {
+                SceneManager.UnloadSceneAsync(_currentScene);
+            }
+
+            if (_overlayScene != 0)
+            {
+                SceneManager.UnloadSceneAsync(_overlayScene);
+            }
         }
 
-        if (_overlayScene != 0)
+        public void LoadMainMenu()
         {
-            SceneManager.UnloadSceneAsync(_overlayScene);
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            _currentScene = 1;
         }
+
+        public void LoadLevel0()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
+            _currentScene = 2;
+        }
+
+        public void LoadLevel1()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(3, LoadSceneMode.Additive);
+            _currentScene = 3;
+        }
+
+        public void LoadLevel2()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(4, LoadSceneMode.Additive);
+            _currentScene = 4;
+        }
+
+        public void LoadLevel3()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(5, LoadSceneMode.Additive);
+            _currentScene = 5;
+        }
+
+        public void LoadLevel4()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(6, LoadSceneMode.Additive);
+            _currentScene = 6;
+        }
+
+        private void Start()
+        {
+            LoadLevel0();
+        }
+
     }
-
-    public void LoadMainMenu()
-    {
-        UnloadCurrentScene();
-
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
-        _currentScene = 1;
-    }
-
-    public void LoadLevel0()
-    {
-        UnloadCurrentScene();
-
-        SceneManager.LoadScene(2, LoadSceneMode.Additive);
-        _currentScene = 2;
-    }
-
-    public void LoadLevel1()
-    {
-        UnloadCurrentScene();
-
-        SceneManager.LoadScene(3, LoadSceneMode.Additive);
-        _currentScene = 3;
-    }
-
-    public void LoadLevel2()
-    {
-        UnloadCurrentScene();
-
-        SceneManager.LoadScene(4, LoadSceneMode.Additive);
-        _currentScene = 4;
-    }
-
-    public void LoadLevel3()
-    {
-        UnloadCurrentScene();
-
-        SceneManager.LoadScene(5, LoadSceneMode.Additive);
-        _currentScene = 5;
-    }
-
-    public void LoadLevel4()
-    {
-        UnloadCurrentScene();
-
-        SceneManager.LoadScene(6, LoadSceneMode.Additive);
-        _currentScene = 6;
-    }
-
 }

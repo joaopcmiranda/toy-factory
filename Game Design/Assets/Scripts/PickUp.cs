@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using managers;
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
@@ -7,23 +6,27 @@ public class PickUp : MonoBehaviour
     public Transform holdSpot;
     public LayerMask pickUpMask;
 
-    private GameObject itemHolding;
-    private PlayerMovement playerMovement;
+    private GameObject _itemHolding;
+    private PlayerMovement _playerMovement;
 
     private IMachineManager machineManager;
+    private GameObject previouslyHighlightedMachine = null;
 
     private void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        HighlightNearestMachineWithinRadius();
+
         if (Input.GetKeyDown(KeyCode.F)) 
         {
 
-            machineManager = FindNearestMachineManager();
+            machineManager = HighlightNearestMachineWithinRadius();
 
             if (itemHolding)
             {
@@ -46,7 +49,7 @@ public class PickUp : MonoBehaviour
 
             }
             //taking item from floor
-            else 
+            else
             {
                 PickUpItem();
             }
@@ -55,7 +58,7 @@ public class PickUp : MonoBehaviour
 
     private void DropItem()
     {
-        Rigidbody2D itemRigidbody = itemHolding.GetComponent<Rigidbody2D>();
+        Rigidbody2D itemRigidbody = _itemHolding.GetComponent<Rigidbody2D>();
         if (itemRigidbody != null)
         {
             itemRigidbody.simulated = true;
@@ -63,22 +66,22 @@ public class PickUp : MonoBehaviour
         }
 
         // Detach the item from the player and reset itemHolding
-        itemHolding.transform.SetParent(null);
-        itemHolding.transform.position = (Vector2)transform.position + playerMovement.GetFacingDirection(); // Drop at the current player position plus direction.
-        itemHolding = null;
+        _itemHolding.transform.SetParent(null);
+        _itemHolding.transform.position = (Vector2)transform.position + _playerMovement.GetFacingDirection(); // Drop at the current player position plus direction.
+        _itemHolding = null;
     }
 
     private void PickUpItem()
     {
-        Vector2 direction = playerMovement.GetFacingDirection();
+        Vector2 direction = _playerMovement.GetFacingDirection();
         Collider2D pickUpItem = Physics2D.OverlapCircle((Vector2)transform.position + direction, .4f, pickUpMask);
         if (pickUpItem)
         {
-            itemHolding = pickUpItem.gameObject;
-            itemHolding.transform.position = holdSpot.position;
-            itemHolding.transform.parent = transform;
-            if (itemHolding.GetComponent<Rigidbody2D>())
-                itemHolding.GetComponent<Rigidbody2D>().simulated = false;
+            _itemHolding = pickUpItem.gameObject;
+            _itemHolding.transform.position = holdSpot.position;
+            _itemHolding.transform.parent = transform;
+            if (_itemHolding.GetComponent<Rigidbody2D>())
+                _itemHolding.GetComponent<Rigidbody2D>().simulated = false;
         }
     }
 
@@ -86,10 +89,10 @@ public class PickUp : MonoBehaviour
     {
         itemHolding = machineManager.TakeItem();
 
-        itemHolding.transform.position = holdSpot.position;
-        itemHolding.transform.SetParent(holdSpot);
+        _itemHolding.transform.position = holdSpot.position;
+        _itemHolding.transform.SetParent(holdSpot);
 
-        Rigidbody2D itemRigidbody = itemHolding.GetComponent<Rigidbody2D>();
+        Rigidbody2D itemRigidbody = _itemHolding.GetComponent<Rigidbody2D>();
         if (itemRigidbody != null)
         {
             itemRigidbody.simulated = false;
@@ -97,14 +100,52 @@ public class PickUp : MonoBehaviour
     }
 
 
-    private IMachineManager FindNearestMachineManager()
+    private IMachineManager HighlightNearestMachineWithinRadius()
     {
-        GameObject nearestMachine = GameObject.FindGameObjectWithTag("Machine");
-        if (nearestMachine != null)
+        GameObject nearestMachine = null;
+        float nearestDistance = Mathf.Infinity;
+        IMachineManager nearestMachineManager = null;
+
+        foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
         {
-            return nearestMachine.GetComponent<IMachineManager>();
+            float distance = Vector2.Distance(machine.transform.position, transform.position);
+            IMachineManager machineManager = machine.GetComponent<IMachineManager>();
+
+            if (machineManager != null && distance <= machineManager.dropRadius && distance < nearestDistance)
+            {
+                nearestMachine = machine;
+                nearestDistance = distance;
+                nearestMachineManager = machineManager;
+            }
         }
-        return null;
+
+        if (nearestMachine != previouslyHighlightedMachine)
+        {
+            if (previouslyHighlightedMachine != null)
+            {
+                SetMachineColor(previouslyHighlightedMachine, Color.white);
+            }
+
+            if (nearestMachine != null)
+            {
+                SetMachineColor(nearestMachine, Color.grey);
+                previouslyHighlightedMachine = nearestMachine;
+            }
+            else
+            {
+                previouslyHighlightedMachine = null;
+            }
+        }
+        return nearestMachineManager;
+    }
+
+    private void SetMachineColor(GameObject machine, Color color)
+    {
+        SpriteRenderer renderer = machine.GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            renderer.color = color;
+        }
     }
 
 
