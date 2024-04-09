@@ -133,8 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 104054490}
   - component: {fileID: 104054488}
-  - component: {fileID: 104054487}
-  - component: {fileID: 104054491}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Manager
@@ -142,18 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &104054487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104054486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf456153ca084ec7b9efdb031c7e7d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &104054488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 104054486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a6c4048a374a91bee11a8775b89bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9433fde8a31a3fc4bae5fb2c7066403f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &104054490
@@ -181,18 +167,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &104054491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104054486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 247766fb38ca84937ab8805904bfb74d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
