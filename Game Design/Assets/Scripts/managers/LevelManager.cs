@@ -70,6 +70,14 @@ namespace managers
             _currentScene = 6;
         }
 
+        public void LoadLevelEnd()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(7, LoadSceneMode.Additive);
+            _currentScene = 7;
+        }
+
         private void Start()
         {
             LoadMainMenu();
