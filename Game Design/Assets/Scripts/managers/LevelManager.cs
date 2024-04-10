@@ -72,7 +72,8 @@ namespace managers
 
         private void Start()
         {
-            LoadLevel0();
+            LoadMainMenu();
+            //LoadLevel0();
         }
 
     }
