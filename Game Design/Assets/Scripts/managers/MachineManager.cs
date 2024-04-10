@@ -58,7 +58,7 @@ namespace managers
                 if (nearestMachine)
                 {
                     nearestMachineComponent.SetMachineColor(Color.grey);
-                    Debug.Log(nearestMachine.ToString());
+                    //Debug.Log(nearestMachine.ToString());
                     _previouslyHighlightedMachine = nearestMachineComponent;
                 }
                 else
