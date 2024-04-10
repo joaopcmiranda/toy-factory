@@ -77,6 +77,10 @@ namespace player
                 return;
             }
             var item = pickUpItem.gameObject.GetComponent<Item>();
+            if (item.IsHeldByMachine) // Check if item is held by machine
+            {
+                return; // Do not pick up item if it is held by a machine
+            }
             item.PickUp(holdSpot);
             _itemHolding = item;
         }

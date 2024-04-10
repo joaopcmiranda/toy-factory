@@ -29,6 +29,8 @@ namespace machines
             // Retrieve the item from the machine
             var item = itemHolding;
 
+            item.IsHeldByMachine = false;
+
             item.Drop();
 
             itemHolding = null;
@@ -41,6 +43,8 @@ namespace machines
             if (itemHolding) return;
 
             item.PickUp(holdSpot);
+            item.IsHeldByMachine = true;
+
             itemHolding = item;
         }
 
