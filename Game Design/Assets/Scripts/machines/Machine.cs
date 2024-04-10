@@ -10,7 +10,7 @@ namespace machines
         protected SpriteRenderer spriteRenderer;
         protected Item itemHolding;
 
-        private void Start()
+        public virtual void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }

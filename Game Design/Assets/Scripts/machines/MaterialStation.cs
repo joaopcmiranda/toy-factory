@@ -9,10 +9,10 @@ namespace machines
 
         public Item rawMaterialType;
 
-        private void Start()
+        public override void Start()
         {
             GenerateNewMaterial();
-
+            base.Start();
         }
 
         public override Item TakeItemFromMachine()
