@@ -27,7 +27,7 @@ namespace menu
 
         public void OnExitButton() 
         {
-            //it doesn't work in unity, but probaly works in the real game
+            //it doesn't work in unity, but probably works in the real game
             Application.Quit(); 
         }
 
