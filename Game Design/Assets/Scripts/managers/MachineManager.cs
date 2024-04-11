@@ -36,7 +36,6 @@ namespace managers
                     nearestDistance = distance;
                 }
             }
-
             return nearestMachine;
         }
 
@@ -59,6 +58,7 @@ namespace managers
                 if (nearestMachine)
                 {
                     nearestMachineComponent.SetMachineColor(Color.grey);
+                    //Debug.Log(nearestMachine.ToString());
                     _previouslyHighlightedMachine = nearestMachineComponent;
                 }
                 else
@@ -68,8 +68,6 @@ namespace managers
             }
             return nearestMachineComponent;
         }
-
-
 
     }
 }
