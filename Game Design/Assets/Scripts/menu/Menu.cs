@@ -10,7 +10,6 @@ namespace menu
     public class Menu : MonoBehaviour
     {
         private LevelManager level;
-        private int levelScene; //level that the player is or have played in
 
         void Start()
         {
@@ -22,24 +21,19 @@ namespace menu
         public void OnStartButton()
         {
             level.LoadLevel0();
-            levelScene = 0;
         }
 
-        public void OnOptionsButton() { }
+        public void OnOptionsButton() {}
 
         public void OnExitButton() 
         {
+            //it doesn't work in unity, but probaly works in the real game
             Application.Quit(); 
         }
 
-        public void OnInstantWinButton()
-        {
-            level.LoadLevelEnd();
-        }
-
         public void OnNextLevelButton()
-        { 
-            switch (levelScene)
+        {
+            switch (level.GetLevelScene())
             {
                 case 0:
                     level.LoadLevel1();
@@ -54,7 +48,6 @@ namespace menu
                     level.LoadLevel4();
                     break;
                 default:
-                    level.LoadMainMenu(); //note: make a end game scene, not end level scene
                     break;
             }
         }
