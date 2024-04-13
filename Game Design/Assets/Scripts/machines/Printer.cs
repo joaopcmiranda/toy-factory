@@ -25,11 +25,9 @@ namespace machines
         {
             if (timer.IsTimeUp())
             {
-                Debug.Log("timer up");
                 if (itemHolding != null && itemHolding.CompareTag("Plastic"))
                 {
                     TransformPlastic(itemHolding);
-                    Debug.Log("Plastic transformed");
                     timer.ResetTimer();
                 }
             }
@@ -38,6 +36,10 @@ namespace machines
         public override Item TakeItemFromMachine()
         {
             var item = base.TakeItemFromMachine();
+            if (!timer.IsTimeUp())
+            {
+                timer.ResetTimer();
+            }
             return item;
         }
 
