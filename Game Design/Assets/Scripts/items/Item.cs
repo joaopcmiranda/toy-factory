@@ -39,5 +39,10 @@ namespace items
         {
             _spriteRenderer.sprite = sprite;
         }
+
+        public void DeleteItem()
+        {
+            Destroy(gameObject);
+        }
     }
 }
