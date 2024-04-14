@@ -8,7 +8,7 @@ namespace machines
     {
 
         public TextMeshProUGUI uiText;
-        public Sprite trainSprite;
+        public Sprite paintedTrainPartsSprite;
         public Timer timer;
 
 
@@ -18,18 +18,15 @@ namespace machines
 
             base.HoldItem(item);
             uiText.text = "Painting...";
-            timer.StartTimer(5);
+            timer.StartTimer(3);
         }
 
         private void Update()
         {
-            if (timer.IsTimeUp())
+            if (timer.IsTimeUp() && itemHolding != null && itemHolding.CompareTag("TrainParts"))
             {
-                if (itemHolding != null && itemHolding.CompareTag("Plastic"))
-                {
-                    TransformPlastic(itemHolding);
-                    timer.ResetTimer();
-                }
+                PaintTrainParts(itemHolding);
+                timer.ResetTimer();
             }
         }
 
@@ -43,10 +40,10 @@ namespace machines
             return item;
         }
 
-        private void TransformPlastic(Item item)
+        private void PaintTrainParts(Item item)
         {
             uiText.text = "Painting done";
-            item.SetSprite(trainSprite);
+            item.SetSprite(paintedTrainPartsSprite);
             item.tag = "Train";
         }
     }
