@@ -9,6 +9,7 @@ namespace machines
         private OrderManager orderManager;
         public override void Start()
         {
+            base.Start();
             orderManager = FindObjectOfType<OrderManager>();
         }
         public override void HoldItem(Item item)
