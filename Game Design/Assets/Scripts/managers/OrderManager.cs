@@ -59,7 +59,7 @@ public class OrderManager : MonoBehaviour
 
         for (int i = 0; i < orders.Length; i++)
         {
-            orders[i] = new Order("Order " + (i + 1), Random.Range(10.0f, 30.0f), timerTexts[i]);
+            orders[i] = new Order("Order " + (i + 1), Random.Range(60.0f, 80.0f), timerTexts[i]);
         }
 
     }
