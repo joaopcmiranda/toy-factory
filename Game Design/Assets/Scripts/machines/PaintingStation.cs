@@ -10,20 +10,34 @@ namespace machines
         public TextMeshProUGUI uiText;
         public Sprite paintedTrainPartsSprite;
         public Timer timer;
+        private bool _paintLoaded;
 
 
         public override void HoldItem(Item item)
         {
-            if (!(item.CompareTag("TrainParts") || item.CompareTag("Paint"))) return;
+            if (!(item.CompareTag("TrainPartsUnpainted") || item.CompareTag("Paint"))) return;
 
-            base.HoldItem(item);
-            uiText.text = "Painting...";
-            timer.StartTimer(3);
+            if (item.CompareTag("Paint"))
+            {
+                _paintLoaded = true;
+                item.DeleteItem();
+            }
+            else
+            {
+                base.HoldItem(item);
+            }
+
+            if (_paintLoaded && itemHolding && itemHolding.CompareTag("TrainPartsUnpainted"))
+            {
+                uiText.text = "Painting...";
+                timer.StartTimer(3);
+            }
+
         }
 
         private void Update()
         {
-            if (timer.IsTimeUp() && itemHolding != null && itemHolding.CompareTag("TrainParts"))
+            if (timer.IsTimeUp() && _paintLoaded && itemHolding && itemHolding.CompareTag("TrainPartsUnpainted"))
             {
                 PaintTrainParts(itemHolding);
                 timer.ResetTimer();
@@ -44,7 +58,8 @@ namespace machines
         {
             uiText.text = "Painting done";
             item.SetSprite(paintedTrainPartsSprite);
-            item.tag = "Train";
+            item.tag = "TrainPartsPainted";
+            _paintLoaded = false;
         }
     }
 }

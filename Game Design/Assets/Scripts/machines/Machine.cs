@@ -48,7 +48,7 @@ namespace machines
             itemHolding = item;
         }
 
-        public bool IsHoldingItem()
+        public virtual bool IsHoldingItem()
         {
             return itemHolding;
         }
