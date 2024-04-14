@@ -47,7 +47,7 @@ namespace machines
         {
             uiText.text = "3D Print Plastic done";
             item.SetSprite(trainSprite);
-            item.tag = "Train";
+            item.tag = "TrainPartsUnpainted";
         }
     }
 }
