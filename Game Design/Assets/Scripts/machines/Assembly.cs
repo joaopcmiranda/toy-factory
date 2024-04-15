@@ -31,7 +31,6 @@ namespace machines
                 }
                 else if (remainingItem != null)
                 {
-                    remainingItem.DeleteItem();
                     itemHolding = item;
                 }
             }
@@ -51,7 +50,6 @@ namespace machines
                 }
                 else if (remainingItem != null)
                 {
-                    remainingItem.DeleteItem();
                     itemHolding = item;
                 }
             }
@@ -95,6 +93,8 @@ namespace machines
             uiText.text = "Assembly done";
             item.SetSprite(trainSprite);
             item.tag = "Train";
+
+            remainingItem.DeleteItem();
 
             holdTrainPartsPainted = false;
             holdTrainWheels = false;
