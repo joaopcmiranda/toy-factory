@@ -45,7 +45,7 @@ namespace machines
 
         private void TransformPlastic(Item item)
         {
-            uiText.text = "Paint Train Parts";
+            uiText.text = "3D Print Plastic done";
             item.SetSprite(trainSprite);
             item.tag = "TrainPartsUnpainted";
         }
