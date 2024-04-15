@@ -10,28 +10,34 @@ namespace machines
         public Sprite trainSprite;
         public Timer timer;
 
-        private bool holdTrainPartsPainted = false;
-        private bool holdTrainWheels = false;
-        private bool holdTrainItems => holdTrainPartsPainted && holdTrainWheels;
+        private bool _isHoldingParts;
+        private bool _isHoldingWheels;
+        private bool _isHoldingTrainItems
+        {
+            get
+            {
+                return _isHoldingParts && _isHoldingWheels;
+            }
+        }
 
-        private Item remainingItem = null;
+        private Item remainingItem;
         public override void HoldItem(Item item)
         {
             if (!(item.CompareTag("TrainPartsPainted") || item.CompareTag("TrainWheels"))) return;
 
             if (item.CompareTag("TrainPartsPainted"))
             {
-                holdTrainPartsPainted = true;
+                _isHoldingParts = true;
 
-                if (remainingItem == null) remainingItem = item;
-                else if (remainingItem != null) itemHolding = item;
+                if (!remainingItem) remainingItem = item;
+                else if (remainingItem) itemHolding = item;
             }
             else if (item.CompareTag("TrainWheels"))
             {
-                holdTrainWheels = true;
+                _isHoldingWheels = true;
 
-                if (remainingItem == null) remainingItem = item;
-                else if (remainingItem != null) itemHolding = item;
+                if (!remainingItem) remainingItem = item;
+                else if (remainingItem) itemHolding = item;
             }
             else
             {
@@ -39,7 +45,7 @@ namespace machines
             }
 
 
-            if (holdTrainItems)
+            if (_isHoldingTrainItems)
             {
                 uiText.text = "Assembling...";
                 timer.StartTimer(5);
@@ -48,7 +54,7 @@ namespace machines
 
         private void Update()
         {
-            if (timer.IsTimeUp() && holdTrainItems)
+            if (timer.IsTimeUp() && _isHoldingTrainItems)
             {
                 TransformItem(itemHolding);
                 timer.ResetTimer();
@@ -74,7 +80,8 @@ namespace machines
 
             remainingItem.DeleteItem();
 
-            holdTrainPartsPainted = holdTrainWheels  = false;
+            _isHoldingParts = false;
+            _isHoldingWheels = false;
         }
     }
 }
