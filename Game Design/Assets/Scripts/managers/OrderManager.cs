@@ -62,7 +62,7 @@ public class OrderManager : MonoBehaviour
 
         for (int i = 0; i < orders.Length; i++)
         {
-            orders[i] = new Order("Order " + (i + 1), Random.Range(10.0f, 20.0f), timerTexts[i]);
+            orders[i] = new Order("Order " + (i + 1), Random.Range(50.0f, 80.0f), timerTexts[i]);
         }
 
     }
@@ -83,15 +83,15 @@ public class OrderManager : MonoBehaviour
 
     public void ReplaceOrder(int index)
     {
-        orders[index] = new Order("New Order", Random.Range(10.0f, 30.0f), timerTexts[index]);
-        orderText.text = "Score: " + ++orderNumber; 
+        orders[index] = new Order("New Order", Random.Range(50.0f, 80.0f), timerTexts[index]);
+        orderText.text = "Order: " + ++orderNumber; 
     }
 
     public void CreateNewOrder(int index)
     {
         decreaseScore(100);
-        orders[index] = new Order("New Order", Random.Range(10.0f, 30.0f), timerTexts[index]);
-        orderText.text = "Score: " + ++orderNumber; 
+        orders[index] = new Order("New Order", Random.Range(50.0f, 80.0f), timerTexts[index]);
+        orderText.text = "Order: " + ++orderNumber; 
     }
 
     public Order[] getOrders()
