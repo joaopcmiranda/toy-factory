@@ -6,7 +6,6 @@ namespace machines
 {
     public class Assembly : Machine
     {
-
         public TextMeshProUGUI uiText;
         public Sprite trainSprite;
         public Timer timer;
@@ -15,7 +14,7 @@ namespace machines
         private bool holdTrainWheels = false;
         private bool holdTrainItems => holdTrainPartsPainted && holdTrainWheels;
 
-        private Item remainingItem = null; //I wanted to show two items, and to pick it up
+        private Item remainingItem = null;
         public override void HoldItem(Item item)
         {
             if (!(item.CompareTag("TrainPartsPainted") || item.CompareTag("TrainWheels"))) return;
@@ -24,48 +23,27 @@ namespace machines
             {
                 holdTrainPartsPainted = true;
 
-                base.HoldItem(item);
-                if (remainingItem == null)
-                {
-                    remainingItem = item;
-                }
-                else if (remainingItem != null)
-                {
-                    itemHolding = item;
-                }
+                if (remainingItem == null) remainingItem = item;
+                else if (remainingItem != null) itemHolding = item;
             }
-            else
-            {
-                base.HoldItem(item);
-            }
-
-            if (item.CompareTag("TrainWheels"))
+            else if (item.CompareTag("TrainWheels"))
             {
                 holdTrainWheels = true;
 
-                base.HoldItem(item);
-                if (remainingItem == null)
-                {
-                    remainingItem = item;
-                }
-                else if (remainingItem != null)
-                {
-                    itemHolding = item;
-                }
+                if (remainingItem == null) remainingItem = item;
+                else if (remainingItem != null) itemHolding = item;
             }
             else
             {
                 base.HoldItem(item);
             }
+
 
             if (holdTrainItems)
             {
                 uiText.text = "Assembling...";
                 timer.StartTimer(5);
-                //timer.StartTimer(0); //instant effect, literally no timer
             }
-            Debug.Log("item: " + item);
-            Debug.Log("itemHolding: " + itemHolding);
         }
 
         private void Update()
@@ -96,8 +74,7 @@ namespace machines
 
             remainingItem.DeleteItem();
 
-            holdTrainPartsPainted = false;
-            holdTrainWheels = false;
+            holdTrainPartsPainted = holdTrainWheels  = false;
         }
     }
 }
