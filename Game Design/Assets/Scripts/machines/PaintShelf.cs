@@ -4,7 +4,7 @@ using items;
 namespace machines
 {
 
-    public class MaterialStation : Machine
+    public class PaintShelf : Machine
     {
 
         public Item rawMaterialType;
@@ -18,6 +18,7 @@ namespace machines
         public override Item TakeItemFromMachine()
         {
             var item = base.TakeItemFromMachine();
+            item.GetComponent<SpriteRenderer>().enabled = true;
 
             GenerateNewMaterial();
             return item;
@@ -30,6 +31,8 @@ namespace machines
                 var newMaterialObj = Instantiate(rawMaterialType.gameObject, holdSpot.position, Quaternion.identity);
 
                 var newItem = newMaterialObj.GetComponent<Item>();
+
+                newMaterialObj.GetComponent<SpriteRenderer>().enabled = false;
 
                 var itemRb = newMaterialObj.GetComponent<Rigidbody2D>();
                 if (itemRb)

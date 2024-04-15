@@ -6,7 +6,7 @@ namespace items
     {
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
-        public bool IsHeldByMachine { get; set; } = false;
+        public bool IsHeldByMachine { get; set; }
 
         private void Start()
         {
