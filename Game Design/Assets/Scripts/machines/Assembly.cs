@@ -15,7 +15,7 @@ namespace machines
         private bool holdTrainWheels = false;
         private bool holdTrainItems => holdTrainPartsPainted && holdTrainWheels;
 
-        private Item remainingItem = null; //wanted to show two items, and to pick it up
+        private Item remainingItem = null; //I wanted to show two items, and to pick it up
         public override void HoldItem(Item item)
         {
             if (!(item.CompareTag("TrainPartsPainted") || item.CompareTag("TrainWheels"))) return;
@@ -24,7 +24,16 @@ namespace machines
             {
                 holdTrainPartsPainted = true;
 
-                if (holdTrainWheels) item.DeleteItem();
+                base.HoldItem(item);
+                if (remainingItem == null)
+                {
+                    remainingItem = item;
+                }
+                else if (remainingItem != null)
+                {
+                    remainingItem.DeleteItem();
+                    itemHolding = item;
+                }
             }
             else
             {
@@ -35,13 +44,21 @@ namespace machines
             {
                 holdTrainWheels = true;
 
-                if (holdTrainPartsPainted) item.DeleteItem();
+                base.HoldItem(item);
+                if (remainingItem == null)
+                {
+                    remainingItem = item;
+                }
+                else if (remainingItem != null)
+                {
+                    remainingItem.DeleteItem();
+                    itemHolding = item;
+                }
             }
             else
             {
                 base.HoldItem(item);
             }
-
 
             if (holdTrainItems)
             {
@@ -49,6 +66,8 @@ namespace machines
                 timer.StartTimer(5);
                 //timer.StartTimer(0); //instant effect, literally no timer
             }
+            Debug.Log("item: " + item);
+            Debug.Log("itemHolding: " + itemHolding);
         }
 
         private void Update()
