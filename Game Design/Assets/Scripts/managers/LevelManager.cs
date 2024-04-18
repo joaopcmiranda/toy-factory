@@ -20,10 +20,7 @@ namespace managers
         {
             //can be deleted but just to short-cut the game
             //instant win the level by pressing the 'Return' key
-            if (Input.GetKeyUp(KeyCode.Return) && _levelScene > -1)
-            {
-                LoadAfterLevelPlayed();
-            }
+            //if (Input.GetKeyUp(KeyCode.Return) && _levelScene > -1)  LoadAfterLevelPlayed();
         }
 
         private void UnloadCurrentScene()
