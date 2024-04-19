@@ -4,16 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using managers;
 
 public class LevelTimer : MonoBehaviour
 {
 
     public float time;
     public Text timerText;
+    private LevelManager level;
 
     private void Start()
     {
         StartTimer(time);
+        level = GameObject.Find("Managers").GetComponent<LevelManager>();
     }
 
     public void StartTimer(float duration)
@@ -27,7 +30,8 @@ public class LevelTimer : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0)
         {
-            SceneManager.LoadScene("LevelEnd");
+            //SceneManager.LoadScene("LevelEnd");
+            level.LoadAfterLevelPlayed();
         } else
         {
             UpdateTimerUI();
