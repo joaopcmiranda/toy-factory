@@ -2319,10 +2319,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1129926549}
     m_Modifications:
-    - target: {fileID: 1343343278402273024, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1969054382466309857, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
       propertyPath: rawMaterialType
       value: 
@@ -2374,30 +2370,6 @@ PrefabInstance:
     - target: {fileID: 3109371856196904247, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
       propertyPath: m_Name
       value: MaterialBox - Metal
-      objectReference: {fileID: 0}
-    - target: {fileID: 3796464939920051781, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3796464939920051781, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3796464939920051781, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3796464939920051781, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3796464939920051781, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3796464939920051781, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4371853167389005532, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6019,6 +5991,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1595078062}
     - target: {fileID: 7554389551138182177, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7554389551138182177, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -6269,7 +6245,8 @@ PrefabInstance:
       value: Plastic Material Box
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8216234821000904773, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7fe62a7b1e95432ea44e12f4253f078, type: 3}
