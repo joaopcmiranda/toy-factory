@@ -8,12 +8,15 @@ namespace machines
 {
     public class RevealStationName : MonoBehaviour
     {
+        public Canvas stationNameCanvas;
         public TextMeshProUGUI stationNameText;
         public string stationName = "";
 
         void Start()
         {
+            string highlightedText = "<mark=#FFFFFF>" + stationName + "</mark>";
             stationNameText.SetText(stationName);
+
             ShowMachineName(false);
         }
 
@@ -29,7 +32,7 @@ namespace machines
 
         public void ShowMachineName(bool show)
         {
-            stationNameText.enabled = show;
+            stationNameCanvas.enabled = show;
         }
 
     }
