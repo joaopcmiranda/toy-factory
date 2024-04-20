@@ -1,5 +1,6 @@
 ﻿using items;
 using UnityEngine;
+using TMPro;
 namespace machines
 {
     public abstract class Machine : MonoBehaviour
@@ -7,12 +8,22 @@ namespace machines
         public Transform holdSpot;
         public float dropRadius = 1f;
 
+        public TextMeshProUGUI stationNameText;
+        public string stationName = "";
+
         protected SpriteRenderer spriteRenderer;
         protected Item itemHolding;
 
         public virtual void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            stationNameText.SetText(stationName);
+            ShowMachineName(false);
+        }
+
+        public void ShowMachineName(bool show)
+        {
+            stationNameText.enabled = show;
         }
 
         public void SetMachineColor(Color color)
