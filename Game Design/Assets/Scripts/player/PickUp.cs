@@ -7,9 +7,8 @@ namespace player
 {
     public class PickUp : MonoBehaviour
     {
-        public float pickUpRadius = 1f;
         public Transform holdSpot;
-        public LayerMask pickUpMask;
+        public Camera mainCamera; // Assign the main camera in the Inspector
 
         private Item _itemHolding;
         private PlayerMovement _playerMovement;
@@ -21,21 +20,25 @@ namespace player
             _playerMovement = GetComponent<PlayerMovement>();
             _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
             _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager>();
+            if (!mainCamera)
+                mainCamera = Camera.main; // Ensure there is a main camera
         }
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0)) // or use any other button or key
+            if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
-                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, pickUpMask);
-                foreach (Collider2D hit in hits)
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+
+                if (hit.collider != null)
                 {
-                    Item item = hit.GetComponent<Item>();
-                    Machine machine = hit.GetComponent<Machine>();
+                    Item item = hit.collider.GetComponent<Item>();
+                    Machine machine = hit.collider.GetComponent<Machine>();
 
                     if (_itemHolding)
                     {
-                        if (machine && IsNearMachine(machine))
+                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
                         {
                             machine.HoldItem(DropItem());  // Put item in machine
                         }
@@ -46,22 +49,17 @@ namespace player
                     }
                     else
                     {
-                        if (machine && IsNearMachine(machine) && machine.IsHoldingItem())
+                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius && machine.IsHoldingItem())
                         {
                             TakeItemFromMachine(machine);  // Taking item from machine
                         }
                         else if (item && !item.IsHeldByMachine)
                         {
-                            PickUpItem(item);  // Picking up the item from the floor
+                            PickUpItem(item);  // Picking up the item directly clicked
                         }
                     }
                 }
             }
-        }
-
-        private bool IsNearMachine(Machine machine)
-        {
-            return Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius;
         }
 
         private Item DropItem()

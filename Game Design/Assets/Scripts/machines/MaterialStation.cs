@@ -12,13 +12,12 @@ namespace machines
         public override void Start()
         {
             GenerateNewMaterial();
-            base.Start();
+            base.Start(); 
         }
 
         public override Item TakeItemFromMachine()
         {
             var item = base.TakeItemFromMachine();
-
             GenerateNewMaterial();
             return item;
         }
@@ -34,7 +33,7 @@ namespace machines
                 var itemRb = newMaterialObj.GetComponent<Rigidbody2D>();
                 if (itemRb)
                 {
-                    itemRb.simulated = true;
+                    itemRb.simulated = false;
                 }
                 HoldItem(newItem);
             }
