@@ -28,10 +28,11 @@ namespace managers
             foreach (var machine in _machines)
             {
                 var distance = Vector2.Distance(machine.Item1.transform.position, target.position);
-                var machineComponent = machine.Item2;
+                Debug.Log($"Checking machine {machine.Item1.name} at distance {distance}");
 
-                if (machineComponent && distance <= machineComponent.dropRadius && distance < nearestDistance)
+                if (machine.Item2 && distance <= machine.Item2.dropRadius && distance < nearestDistance)
                 {
+                    Debug.Log($"New nearest machine: {machine.Item1.name}");
                     nearestMachine = machine;
                     nearestDistance = distance;
                 }
@@ -42,7 +43,7 @@ namespace managers
 
         public Machine HighlightNearestMachineWithinRadius(Transform target)
         {
-
+            Debug.Log("HighlightNearestMachineWithinRadius called");
             var nearestMachineTuple = GetNearestMachineTupleWithinDropRadius(target);
             var nearestMachineComponent = nearestMachineTuple?.Item2;
             var nearestMachine = nearestMachineTuple?.Item1;
@@ -58,7 +59,7 @@ namespace managers
                 if (nearestMachine)
                 {
                     nearestMachineComponent.SetMachineColor(Color.grey);
-                    //Debug.Log(nearestMachine.ToString());
+                    Debug.Log(nearestMachine.ToString());
                     _previouslyHighlightedMachine = nearestMachineComponent;
                 }
                 else

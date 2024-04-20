@@ -7,89 +7,99 @@ namespace player
 {
     public class PickUp : MonoBehaviour
     {
-        public float pickUpRadius = .4f;
-
         public Transform holdSpot;
-        public LayerMask pickUpMask;
+        public Camera mainCamera; // Assign the main camera in the Inspector
 
         private Item _itemHolding;
         private PlayerMovement _playerMovement;
         private MachineManager _machineManager;
+        private ItemManager _itemManager;
+
+        private float pickUpRadius = 1;
 
         private void Start()
         {
             _playerMovement = GetComponent<PlayerMovement>();
             _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
+            _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager>();
+            if (!mainCamera)
+                mainCamera = Camera.main; // Ensure there is a main camera
         }
 
-        // Update is called once per frame
         void Update()
         {
-            var nearestMachine = _machineManager.HighlightNearestMachineWithinRadius(transform);
+            _machineManager.HighlightNearestMachineWithinRadius(transform);
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
+                Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, Mathf.Infinity);
+
                 if (_itemHolding)
                 {
-                    if (nearestMachine && IsNearMachine(nearestMachine))
+                    // Attempt to drop the item either on the ground or into a machine if within range
+                    if (hit.collider != null)
                     {
-                        nearestMachine.HoldItem(DropItem()); // put item in machine
+                        Machine machine = hit.collider.GetComponent<Machine>();
+                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
+                        {
+                            machine.HoldItem(DropItem(mouseWorldPos)); // Drop item into machine
+                        }
+                        else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
+                        {
+                            DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
+                        }
                     }
-                    else
+                    else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
                     {
-                        DropItem(); // dropping item on floor
+                        DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
                     }
                 }
                 else
                 {
-                    if (nearestMachine && IsNearMachine(nearestMachine) && nearestMachine.IsHoldingItem())
+                    // No item is currently being held, check for picking up items or interacting with machines directly
+                    if (hit.collider != null)
                     {
-                        TakeItemFromMachine(nearestMachine); // taking item from machine
-                    }
-                    else
-                    {
-                        PickUpItem(); // taking item from floor
+                        Item item = hit.collider.GetComponent<Item>();
+                        Machine machine = hit.collider.GetComponent<Machine>();
+
+                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius && machine.IsHoldingItem())
+                        {
+                            TakeItemFromMachine(machine);  // Taking item from machine
+                        }
+                        else if (item && !item.IsHeldByMachine)
+                        {
+                            PickUpItem(item);  // Picking up the item directly clicked
+                        }
                     }
                 }
             }
         }
 
-        private bool IsNearMachine(Machine machine)
+        private Item DropItem(Vector2 dropPosition)
         {
-            return _machineManager && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius;
+            if (_itemHolding)
+            {
+                _itemHolding.transform.position = dropPosition;
+                _itemHolding.Drop();
+                var item = _itemHolding;
+                _itemHolding = null;
+                return item;
+            }
+            return null;
         }
 
-        private Item DropItem()
+        private void PickUpItem(Item item)
         {
-            _itemHolding.Drop();
-            _itemHolding.transform.position = (Vector2)transform.position + _playerMovement.GetFacingDirection();
-            var item = _itemHolding;
-            _itemHolding = null;
-            return item;
-        }
-
-        private void PickUpItem()
-        {
-            var direction = _playerMovement.GetFacingDirection();
-            var pickUpItem = Physics2D.OverlapCircle((Vector2)transform.position + direction, pickUpRadius, pickUpMask);
-            if (!pickUpItem)
-            {
-                return;
-            }
-            var item = pickUpItem.gameObject.GetComponent<Item>();
-            if (item.IsHeldByMachine) // Check if item is held by machine
-            {
-                return; // Do not pick up item if it is held by a machine
-            }
+            if (item == null) return;
             item.PickUp(holdSpot);
             _itemHolding = item;
         }
 
-        private void TakeItemFromMachine(Machine nearestMachine)
+        private void TakeItemFromMachine(Machine machine)
         {
-            _itemHolding = nearestMachine.TakeItemFromMachine();
+            _itemHolding = machine.TakeItemFromMachine();
             _itemHolding.PickUp(holdSpot);
         }
-
     }
 }

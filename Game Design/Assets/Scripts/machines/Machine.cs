@@ -5,7 +5,7 @@ namespace machines
     public abstract class Machine : MonoBehaviour
     {
         public Transform holdSpot;
-        public float dropRadius = 1f;
+        public float dropRadius = 1.5f;
 
         protected SpriteRenderer spriteRenderer;
         protected Item itemHolding;
