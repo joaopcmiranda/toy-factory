@@ -1948,7 +1948,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.20713782}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1959,7 +1959,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.58572435}
   m_EdgeRadius: 0
 --- !u!1 &440345287
 GameObject:
@@ -2605,7 +2605,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26390362, y: 0}
+  m_Offset: {x: -0.26390362, y: 3.698892}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2616,7 +2616,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.416605, y: 16}
+  m_Size: {x: 14.416605, y: 8.602216}
   m_EdgeRadius: 0
 --- !u!1 &950656469
 GameObject:
@@ -3578,7 +3578,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.22933125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3589,7 +3589,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.5413375}
   m_EdgeRadius: 0
 --- !u!1 &1108588282
 GameObject:
@@ -4389,7 +4389,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 3.452297}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4400,7 +4400,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 16, y: 9.095407}
   m_EdgeRadius: 0
 --- !u!1 &1869301618
 GameObject:
@@ -6164,11 +6164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8136006579043245141, guid: 68abfff1816d64f68be84874e3ca6a5e, type: 3}
       propertyPath: m_Size.y
-      value: 16.221062
+      value: 9.809656
       objectReference: {fileID: 0}
     - target: {fileID: 8136006579043245141, guid: 68abfff1816d64f68be84874e3ca6a5e, type: 3}
       propertyPath: m_Offset.y
-      value: -0.11053085
+      value: 3.0951717
       objectReference: {fileID: 0}
     - target: {fileID: 8172866558498800340, guid: 68abfff1816d64f68be84874e3ca6a5e, type: 3}
       propertyPath: m_Camera
@@ -6277,13 +6277,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7547655574877060436, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
       propertyPath: m_Size.y
-      value: 16.098953
+      value: 8.613092
       objectReference: {fileID: 0}
     - target: {fileID: 7547655574877060436, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
       propertyPath: m_Offset.y
-      value: -0.049476147
+      value: 3.6934536
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7547655574877060436, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6656,11 +6657,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2860493452484556631, guid: 2014a01e45e334b91b94b88ff6af29f5, type: 3}
       propertyPath: m_Size.y
-      value: 15.910028
+      value: 9.67181
       objectReference: {fileID: 0}
     - target: {fileID: 2860493452484556631, guid: 2014a01e45e334b91b94b88ff6af29f5, type: 3}
       propertyPath: m_Offset.y
-      value: 0.04498577
+      value: 3.164095
       objectReference: {fileID: 0}
     - target: {fileID: 3686324005592624669, guid: 2014a01e45e334b91b94b88ff6af29f5, type: 3}
       propertyPath: m_Name
@@ -6674,7 +6675,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2860493452484556631, guid: 2014a01e45e334b91b94b88ff6af29f5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

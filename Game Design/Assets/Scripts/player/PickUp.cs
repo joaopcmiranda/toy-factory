@@ -28,22 +28,36 @@ namespace player
 
         void Update()
         {
+            _machineManager.HighlightNearestMachineWithinRadius(transform);
+
             if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
                 Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, 0);
+                RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, Mathf.Infinity);
 
                 if (_itemHolding)
                 {
-                    // Check if the click is within the allowable radius
-                    if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
+                    // Attempt to drop the item either on the ground or into a machine if within range
+                    if (hit.collider != null)
                     {
-                        DropItem(mouseWorldPos); // Drop the item at the clicked position
+                        Machine machine = hit.collider.GetComponent<Machine>();
+                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
+                        {
+                            machine.HoldItem(DropItem(mouseWorldPos)); // Drop item into machine
+                        }
+                        else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
+                        {
+                            DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
+                        }
+                    }
+                    else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
+                    {
+                        DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
                     }
                 }
                 else
                 {
-                    // No item is currently being held, check for picking up items or interacting with machines
+                    // No item is currently being held, check for picking up items or interacting with machines directly
                     if (hit.collider != null)
                     {
                         Item item = hit.collider.GetComponent<Item>();

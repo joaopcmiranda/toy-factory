@@ -88,7 +88,7 @@ namespace managers
         {
             _items.Clear();
             var allItems = FindObjectsOfType<Item>();
-            Debug.Log($"Found {allItems.Length} items in the scene.");
+            //Debug.Log($"Found {allItems.Length} items in the scene.");
             foreach (var item in allItems)
             {
                 _items.Add(new Tuple<GameObject, Item>(item.gameObject, item));
