@@ -60,11 +60,9 @@ namespace managers
                     nearestMachineComponent.SetMachineColor(Color.grey);
                     //Debug.Log(nearestMachine.ToString());
                     _previouslyHighlightedMachine = nearestMachineComponent;
-                    _previouslyHighlightedMachine.ShowMachineName(true);
                 }
                 else
                 {
-                    _previouslyHighlightedMachine.ShowMachineName(false);
                     _previouslyHighlightedMachine = null;
                 }
             }
