@@ -7,48 +7,53 @@ namespace player
 {
     public class PickUp : MonoBehaviour
     {
-        public float pickUpRadius = .4f;
-
+        public float pickUpRadius = 1f;
         public Transform holdSpot;
         public LayerMask pickUpMask;
 
         private Item _itemHolding;
         private PlayerMovement _playerMovement;
         private MachineManager _machineManager;
+        private ItemManager _itemManager;
 
         private void Start()
         {
             _playerMovement = GetComponent<PlayerMovement>();
             _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
+            _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager>();
         }
 
-        // Update is called once per frame
         void Update()
         {
-            var nearestMachine = _machineManager.HighlightNearestMachineWithinRadius(transform);
-
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetMouseButtonDown(0)) // or use any other button or key
             {
-                if (_itemHolding)
+                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, pickUpMask);
+                foreach (Collider2D hit in hits)
                 {
-                    if (nearestMachine && IsNearMachine(nearestMachine))
+                    Item item = hit.GetComponent<Item>();
+                    Machine machine = hit.GetComponent<Machine>();
+
+                    if (_itemHolding)
                     {
-                        nearestMachine.HoldItem(DropItem()); // put item in machine
+                        if (machine && IsNearMachine(machine))
+                        {
+                            machine.HoldItem(DropItem());  // Put item in machine
+                        }
+                        else
+                        {
+                            DropItem();  // Dropping item on floor
+                        }
                     }
                     else
                     {
-                        DropItem(); // dropping item on floor
-                    }
-                }
-                else
-                {
-                    if (nearestMachine && IsNearMachine(nearestMachine) && nearestMachine.IsHoldingItem())
-                    {
-                        TakeItemFromMachine(nearestMachine); // taking item from machine
-                    }
-                    else
-                    {
-                        PickUpItem(); // taking item from floor
+                        if (machine && IsNearMachine(machine) && machine.IsHoldingItem())
+                        {
+                            TakeItemFromMachine(machine);  // Taking item from machine
+                        }
+                        else if (item && !item.IsHeldByMachine)
+                        {
+                            PickUpItem(item);  // Picking up the item from the floor
+                        }
                     }
                 }
             }
@@ -56,7 +61,7 @@ namespace player
 
         private bool IsNearMachine(Machine machine)
         {
-            return _machineManager && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius;
+            return Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius;
         }
 
         private Item DropItem()
@@ -68,28 +73,17 @@ namespace player
             return item;
         }
 
-        private void PickUpItem()
+        private void PickUpItem(Item item)
         {
-            var direction = _playerMovement.GetFacingDirection();
-            var pickUpItem = Physics2D.OverlapCircle((Vector2)transform.position + direction, pickUpRadius, pickUpMask);
-            if (!pickUpItem)
-            {
-                return;
-            }
-            var item = pickUpItem.gameObject.GetComponent<Item>();
-            if (item.IsHeldByMachine) // Check if item is held by machine
-            {
-                return; // Do not pick up item if it is held by a machine
-            }
+            if (item == null) return;
             item.PickUp(holdSpot);
             _itemHolding = item;
         }
 
-        private void TakeItemFromMachine(Machine nearestMachine)
+        private void TakeItemFromMachine(Machine machine)
         {
-            _itemHolding = nearestMachine.TakeItemFromMachine();
+            _itemHolding = machine.TakeItemFromMachine();
             _itemHolding.PickUp(holdSpot);
         }
-
     }
 }
