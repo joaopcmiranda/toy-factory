@@ -15,6 +15,8 @@ namespace player
         private MachineManager _machineManager;
         private ItemManager _itemManager;
 
+        private float pickUpRadius = 1;
+
         private void Start()
         {
             _playerMovement = GetComponent<PlayerMovement>();
@@ -28,27 +30,25 @@ namespace player
         {
             if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
-                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+                Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, 0);
 
-                if (hit.collider != null)
+                if (_itemHolding)
                 {
-                    Item item = hit.collider.GetComponent<Item>();
-                    Machine machine = hit.collider.GetComponent<Machine>();
-
-                    if (_itemHolding)
+                    // Check if the click is within the allowable radius
+                    if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
                     {
-                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
-                        {
-                            machine.HoldItem(DropItem());  // Put item in machine
-                        }
-                        else
-                        {
-                            DropItem();  // Dropping item on floor
-                        }
+                        DropItem(mouseWorldPos); // Drop the item at the clicked position
                     }
-                    else
+                }
+                else
+                {
+                    // No item is currently being held, check for picking up items or interacting with machines
+                    if (hit.collider != null)
                     {
+                        Item item = hit.collider.GetComponent<Item>();
+                        Machine machine = hit.collider.GetComponent<Machine>();
+
                         if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius && machine.IsHoldingItem())
                         {
                             TakeItemFromMachine(machine);  // Taking item from machine
@@ -62,13 +62,17 @@ namespace player
             }
         }
 
-        private Item DropItem()
+        private Item DropItem(Vector2 dropPosition)
         {
-            _itemHolding.Drop();
-            _itemHolding.transform.position = (Vector2)transform.position + _playerMovement.GetFacingDirection();
-            var item = _itemHolding;
-            _itemHolding = null;
-            return item;
+            if (_itemHolding)
+            {
+                _itemHolding.transform.position = dropPosition;
+                _itemHolding.Drop();
+                var item = _itemHolding;
+                _itemHolding = null;
+                return item;
+            }
+            return null;
         }
 
         private void PickUpItem(Item item)
