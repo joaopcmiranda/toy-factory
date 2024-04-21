@@ -1,3 +1,4 @@
+using items;
 using UnityEngine;
 namespace recipes
 {
@@ -7,6 +8,7 @@ namespace recipes
         public int frequency { get; }
         public int timeLimit { get; }
         public int points { get; }
+        public ItemType deliveryItem { get; }
 
         public Sprite GetIcon();
     }

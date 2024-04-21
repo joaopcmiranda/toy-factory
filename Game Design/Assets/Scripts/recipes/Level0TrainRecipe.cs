@@ -1,3 +1,4 @@
+using items;
 using managers;
 using UnityEngine;
 namespace recipes
@@ -9,6 +10,13 @@ namespace recipes
         public int timeLimit { get; set; } = 60;
         public int points { get; set; } = 100;
         public Sprite trainIcon;
+        public ItemType deliveryItem
+        {
+            get
+            {
+                return ItemType.Train;
+            }
+        }
 
         public Sprite GetIcon()
         {

@@ -5,6 +5,7 @@ namespace items
 {
     public class Item : MonoBehaviour
     {
+        public ItemType type;
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
         private static ItemManager _itemManager;

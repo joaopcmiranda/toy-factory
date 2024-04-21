@@ -7,32 +7,20 @@ namespace machines
     public class DropBox : Machine
     {
         private Order[] orders;
-        private ScoreManager scoreManager;
         private OrderManager orderManager;
+        private ScoreManager scoreManager;
         public override void Start()
         {
             base.Start();
+            orderManager = FindObjectOfType<OrderManager>();
             scoreManager = FindObjectOfType<ScoreManager>();
         }
         public override void HoldItem(Item item)
         {
-            for(int i = 0; i < orderManager.getOrders().Length; i++)
+            var success = orderManager.FinishOrder(item);
+            if (!success)
             {
-                if (item.CompareTag("Train"))
-                {
-                    scoreManager.IncreaseScore(300);
-                    orderManager.ReplaceOrder(i);
-                }
-                else
-                {
-                    scoreManager.DecreaseScore(100);
-                }
-                item.DeleteItem();
-            }
-
-            foreach(Order order in orderManager.getOrders())
-            {
-
+                scoreManager.DecreaseScore(-100);
             }
         }
 
