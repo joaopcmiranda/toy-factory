@@ -28,7 +28,7 @@ namespace managers
             foreach (var machine in _machines)
             {
                 var distance = Vector2.Distance(machine.Item1.transform.position, target.position);
-                Debug.Log($"Checking machine {machine.Item1.name} at distance {distance}");
+                //Debug.Log($"Checking machine {machine.Item1.name} at distance {distance}");
 
                 if (machine.Item2 && distance <= machine.Item2.dropRadius && distance < nearestDistance)
                 {
@@ -43,7 +43,7 @@ namespace managers
 
         public Machine HighlightNearestMachineWithinRadius(Transform target)
         {
-            Debug.Log("HighlightNearestMachineWithinRadius called");
+            //Debug.Log("HighlightNearestMachineWithinRadius called");
             var nearestMachineTuple = GetNearestMachineTupleWithinDropRadius(target);
             var nearestMachineComponent = nearestMachineTuple?.Item2;
             var nearestMachine = nearestMachineTuple?.Item1;
