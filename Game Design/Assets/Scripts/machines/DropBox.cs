@@ -1,16 +1,18 @@
 using UnityEngine;
 using items;
+using score;
 
 namespace machines
 {
     public class DropBox : Machine
     {
         private Order[] orders;
+        private ScoreManager scoreManager;
         private OrderManager orderManager;
         public override void Start()
         {
             base.Start();
-            orderManager = FindObjectOfType<OrderManager>();
+            scoreManager = FindObjectOfType<ScoreManager>();
         }
         public override void HoldItem(Item item)
         {
@@ -18,19 +20,19 @@ namespace machines
             {
                 if (item.CompareTag("Train"))
                 {
-                    orderManager.increaseScore(300);
+                    scoreManager.IncreaseScore(300);
                     orderManager.ReplaceOrder(i);
                 }
                 else
                 {
-                    orderManager.decreaseScore(100);
+                    scoreManager.DecreaseScore(100);
                 }
                 item.DeleteItem();
             }
 
             foreach(Order order in orderManager.getOrders())
             {
-                
+
             }
         }
 

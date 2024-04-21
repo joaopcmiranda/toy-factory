@@ -24,7 +24,7 @@ public class OrderManager : MonoBehaviour
     private List<IRecipe> _recipes;
     private ScoreManager _scoreManager;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _scoreManager = gameObject.GetComponent<ScoreManager>();
@@ -46,7 +46,7 @@ public class OrderManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //ADD A DELAY TO GENERATING THE ORDERS
