@@ -11,6 +11,7 @@ namespace machines
         {
             base.Start();
             orderManager = FindObjectOfType<OrderManager>();
+            Debug.Log(orderManager);
         }
         public override void HoldItem(Item item)
         {
