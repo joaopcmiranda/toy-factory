@@ -10,7 +10,7 @@ namespace machines
         public TextMeshProUGUI uiText;
         public Sprite trainSprite;
         public Timer timer;
- 
+
 
         public override void HoldItem(Item item)
         {
