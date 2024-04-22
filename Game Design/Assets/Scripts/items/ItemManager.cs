@@ -42,14 +42,18 @@ namespace managers
 
             foreach (var item in _items)
             {
-                var distance = Vector2.Distance(item.Item1.transform.position, target.position);
-                var itemComponent = item.Item2;
-
-                if (itemComponent && distance <= dropRadius && distance < nearestDistance)
+                if (item.Item1)
                 {
-                    nearestItem = item;
-                    nearestDistance = distance;
+                    var distance = Vector2.Distance(item.Item1.transform.position, target.position);
+                    var itemComponent = item.Item2;
+
+                    if (itemComponent && distance <= dropRadius && distance < nearestDistance)
+                    {
+                        nearestItem = item;
+                        nearestDistance = distance;
+                    }
                 }
+
             }
             return nearestItem;
         }
@@ -73,7 +77,7 @@ namespace managers
                 if (nearestItem)
                 {
                     nearestItemComponent.SetItemColor(Color.grey);
-         
+
                     _previouslyHighlightedItem = nearestItemComponent;
                 }
                 else

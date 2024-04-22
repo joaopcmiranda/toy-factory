@@ -6,7 +6,6 @@ namespace machines
 {
     public class Assembly : Machine
     {
-        public TextMeshProUGUI uiText;
         public Sprite trainSprite;
         public Timer timer;
 
@@ -47,7 +46,6 @@ namespace machines
 
             if (_isHoldingTrainItems)
             {
-                uiText.text = "Assembling...";
                 timer.StartTimer(5);
             }
         }
@@ -74,9 +72,9 @@ namespace machines
 
         private void TransformItem(Item item)
         {
-            uiText.text = "Assembly done";
             item.SetSprite(trainSprite);
             item.tag = "Train";
+            item.type = ItemType.Train;
 
             remainingItem.DeleteItem();
 

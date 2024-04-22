@@ -1,5 +1,6 @@
 using UnityEngine;
 using items;
+using score;
 
 namespace machines
 {
@@ -7,31 +8,24 @@ namespace machines
     {
         private Order[] orders;
         private OrderManager orderManager;
+        private ScoreManager scoreManager;
         public override void Start()
         {
             base.Start();
             orderManager = FindObjectOfType<OrderManager>();
-            Debug.Log(orderManager);
+            scoreManager = FindObjectOfType<ScoreManager>();
         }
         public override void HoldItem(Item item)
         {
-            for(int i = 0; i < orderManager.getOrders().Length; i++)
+            var success = orderManager.FinishOrder(item);
+            if (success)
             {
-                if (item.CompareTag("Train"))
-                {
-                    orderManager.increaseScore(300);
-                    orderManager.ReplaceOrder(i);
-                }
-                else
-                {
-                    orderManager.decreaseScore(100);
-                }
                 item.DeleteItem();
+                Debug.Log("Delivered");
             }
-
-            foreach(Order order in orderManager.getOrders())
+            else
             {
-                
+                scoreManager.DecreaseScore(-100);
             }
         }
 

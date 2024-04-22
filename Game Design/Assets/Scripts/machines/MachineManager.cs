@@ -32,7 +32,6 @@ namespace managers
 
                 if (machine.Item2 && distance <= machine.Item2.dropRadius && distance < nearestDistance)
                 {
-                    Debug.Log($"New nearest machine: {machine.Item1.name}");
                     nearestMachine = machine;
                     nearestDistance = distance;
                 }

@@ -16,7 +16,7 @@ public class LevelTimer : MonoBehaviour
     private void Start()
     {
         StartTimer(time);
-        level = GameObject.Find("Managers").GetComponent<LevelManager>();
+        level = FindObjectOfType<LevelManager>();
     }
 
     public void StartTimer(float duration)
@@ -43,6 +43,6 @@ public class LevelTimer : MonoBehaviour
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.FloorToInt(time % 60f);
         string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
-        timerText.text = timerString; 
+        timerText.text = timerString;
     }
 }

@@ -7,17 +7,15 @@ namespace machines
     public class Printer : Machine
     {
 
-        public TextMeshProUGUI uiText;
         public Sprite trainSprite;
         public Timer timer;
- 
+
 
         public override void HoldItem(Item item)
         {
             if (!item.CompareTag("Plastic")) return;
 
             base.HoldItem(item);
-            uiText.text = "3D Printing...";
             timer.StartTimer(5);
         }
 
@@ -45,9 +43,9 @@ namespace machines
 
         private void TransformPlastic(Item item)
         {
-            uiText.text = "3D Print Plastic done";
             item.SetSprite(trainSprite);
             item.tag = "TrainPartsUnpainted";
+            item.type = ItemType.UnpaintedTrainParts;
         }
     }
 }
