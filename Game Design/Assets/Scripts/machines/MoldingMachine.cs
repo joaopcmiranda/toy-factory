@@ -7,7 +7,6 @@ namespace machines
     public class MoldingMachine : Machine
     {
 
-        public TextMeshProUGUI moldingUiText;
         public Sprite wheelsSprite;
         public Timer moldingTimer;
 
@@ -17,7 +16,6 @@ namespace machines
             if (!item.CompareTag("Metal")) return;
 
             base.HoldItem(item);
-            moldingUiText.text = "Molding...";
             moldingTimer.StartTimer(5);
         }
 
@@ -45,7 +43,6 @@ namespace machines
 
         private void TransformMetal(Item item)
         {
-            moldingUiText.text = "Molding done";
             item.SetSprite(wheelsSprite);
             item.tag = "TrainWheels";
         }

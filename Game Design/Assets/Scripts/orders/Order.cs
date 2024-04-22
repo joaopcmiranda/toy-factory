@@ -56,7 +56,7 @@ public class Order : MonoBehaviour
         var deltaTime = Time.deltaTime;
         _timeLeft -= deltaTime;
 
-        var currentSpriteIndex = (int)((1 - _timeLeft / _recipe.timeLimit) * progressSprites.Count);
+        var currentSpriteIndex = (int)((1 - _timeLeft / _recipe.timeLimit) * (progressSprites.Count - 1));
         if (currentSpriteIndex != _currentSpriteIndex)
         {
             _currentSpriteIndex = currentSpriteIndex;

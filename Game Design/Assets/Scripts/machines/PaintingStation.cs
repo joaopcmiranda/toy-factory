@@ -1,5 +1,7 @@
 using items;
+using managers;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace machines
@@ -7,11 +9,17 @@ namespace machines
     public class PaintingStation : Machine
     {
 
-        public TextMeshProUGUI uiText;
         public Sprite paintedTrainPartsSprite;
         public Timer timer;
         private bool _paintLoaded;
+        private ItemManager _itemManager;
 
+
+        public override void Start()
+        {
+            base.Start();
+            _itemManager = FindObjectOfType<ItemManager>();
+        }
 
         public override void HoldItem(Item item)
         {
@@ -21,6 +29,7 @@ namespace machines
             {
                 _paintLoaded = true;
                 item.DeleteItem();
+                _itemManager.RefreshItems();
             }
             else
             {
@@ -29,7 +38,6 @@ namespace machines
 
             if (_paintLoaded && itemHolding && itemHolding.CompareTag("TrainPartsUnpainted"))
             {
-                uiText.text = "Painting...";
                 timer.StartTimer(3);
             }
 
@@ -56,7 +64,6 @@ namespace machines
 
         private void PaintTrainParts(Item item)
         {
-            uiText.text = "Painting done";
             item.SetSprite(paintedTrainPartsSprite);
             item.tag = "TrainPartsPainted";
             _paintLoaded = false;
