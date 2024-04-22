@@ -23,7 +23,7 @@ namespace recipes
             return trainIcon;
         }
 
-        private void Start()
+        private void Awake()
         {
             gameObject.GetComponent<OrderManager>().RegisterRecipe(this);
         }

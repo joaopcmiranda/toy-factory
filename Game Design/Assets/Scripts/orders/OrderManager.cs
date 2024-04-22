@@ -73,6 +73,10 @@ public class OrderManager : MonoBehaviour
 
     private void CreateNewOrder(bool force = false)
     {
+        if (_recipes.Count == 0)
+        {
+            return;
+        }
         var recipe = singleOrderLevel ? _recipes.First() : GetRecipe(force);
 
         if (recipe == null)
