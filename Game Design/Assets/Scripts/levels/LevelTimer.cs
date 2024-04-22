@@ -31,7 +31,7 @@ public class LevelTimer : MonoBehaviour
         if (time <= 0)
         {
             //SceneManager.LoadScene("LevelEnd");
-            level.LoadAfterLevelPlayed();
+            // level.LoadAfterLevelPlayed();
         } else
         {
             UpdateTimerUI();
