@@ -105,7 +105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdSpot: {fileID: 567227053678410628}
   dropRadius: 1
-  uiText: {fileID: 0}
   paintedTrainPartsSprite: {fileID: 21300000, guid: 00a55d011a9a44c279d021668b44bd15, type: 3}
   timer: {fileID: 6267943070802716369}
 --- !u!114 &6267943070802716369
@@ -137,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fda0d4380640e42a27e16512f46ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationNameCanvas: {fileID: 0}
-  stationNameText: {fileID: 0}
+  stationNameCanvas: {fileID: 3339777961870445039}
+  stationNameText: {fileID: 7683779101435964015}
   stationName: Painting Station
 --- !u!61 &4372869036484166491
 BoxCollider2D:
@@ -671,7 +670,7 @@ Transform:
   m_GameObject: {fileID: 2733784413853474089}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0.13, y: 0.3, z: 0}
   m_LocalScale: {x: 4.5, y: 4.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

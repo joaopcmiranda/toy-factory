@@ -74,6 +74,7 @@ namespace machines
         {
             item.SetSprite(trainSprite);
             item.tag = "Train";
+            item.type = ItemType.Train;
 
             remainingItem.DeleteItem();
 

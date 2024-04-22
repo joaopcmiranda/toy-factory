@@ -45,6 +45,7 @@ namespace machines
         {
             item.SetSprite(trainSprite);
             item.tag = "TrainPartsUnpainted";
+            item.type = ItemType.UnpaintedTrainParts;
         }
     }
 }

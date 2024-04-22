@@ -66,6 +66,7 @@ namespace machines
         {
             item.SetSprite(paintedTrainPartsSprite);
             item.tag = "TrainPartsPainted";
+            item.type = ItemType.PaintedTrainParts;
             _paintLoaded = false;
         }
     }

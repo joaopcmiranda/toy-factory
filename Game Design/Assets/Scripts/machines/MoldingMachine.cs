@@ -45,6 +45,7 @@ namespace machines
         {
             item.SetSprite(wheelsSprite);
             item.tag = "TrainWheels";
+            item.type = ItemType.Wheels;
         }
     }
 }

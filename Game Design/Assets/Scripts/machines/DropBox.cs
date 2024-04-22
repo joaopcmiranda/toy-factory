@@ -18,7 +18,12 @@ namespace machines
         public override void HoldItem(Item item)
         {
             var success = orderManager.FinishOrder(item);
-            if (!success)
+            if (success)
+            {
+                item.DeleteItem();
+                Debug.Log("Delivered");
+            }
+            else
             {
                 scoreManager.DecreaseScore(-100);
             }
