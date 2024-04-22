@@ -28,12 +28,18 @@ namespace machines
             {
                 _isHoldingParts = true;
 
+                item.PickUp(holdSpot);
+                item.IsHeldByMachine = true;
+
                 if (!remainingItem) remainingItem = item;
                 else if (remainingItem) itemHolding = item;
             }
             else if (item.CompareTag("TrainWheels"))
             {
                 _isHoldingWheels = true;
+
+                item.PickUp(holdSpot);
+                item.IsHeldByMachine = true;
 
                 if (!remainingItem) remainingItem = item;
                 else if (remainingItem) itemHolding = item;
