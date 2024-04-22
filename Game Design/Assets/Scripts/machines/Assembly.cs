@@ -22,18 +22,26 @@ namespace machines
         private Item remainingItem;
         public override void HoldItem(Item item)
         {
-            if (!(item.CompareTag("TrainPartsPainted") || item.CompareTag("TrainWheels"))) return;
+            bool comparePainted = item.CompareTag("TrainPartsPainted");
+            bool compareWheels = item.CompareTag("TrainWheels");
+            if (!((comparePainted && !_isHoldingParts) || (compareWheels && !_isHoldingWheels))) return;
 
-            if (item.CompareTag("TrainPartsPainted"))
+            if (comparePainted)
             {
                 _isHoldingParts = true;
+
+                item.PickUp(holdSpot);
+                item.IsHeldByMachine = true;
 
                 if (!remainingItem) remainingItem = item;
                 else if (remainingItem) itemHolding = item;
             }
-            else if (item.CompareTag("TrainWheels"))
+            else if (compareWheels)
             {
                 _isHoldingWheels = true;
+
+                item.PickUp(holdSpot);
+                item.IsHeldByMachine = true;
 
                 if (!remainingItem) remainingItem = item;
                 else if (remainingItem) itemHolding = item;
