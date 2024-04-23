@@ -44,7 +44,7 @@ namespace machines
         private void TransformPlastic(Item item)
         {
             item.SetSprite(trainSprite);
-            item.tag = "TrainPartsUnpainted";
+            item.tag = "TrainPartsPainted";
             item.type = ItemType.UnpaintedTrainParts;
         }
     }
