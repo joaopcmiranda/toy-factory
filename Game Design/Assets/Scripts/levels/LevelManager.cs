@@ -20,7 +20,7 @@ namespace managers
         {
             //can be deleted but just to short-cut the game
             //instant win the level by pressing the 'Return' key
-            //if (Input.GetKeyUp(KeyCode.Return) && _levelScene > -1)  LoadAfterLevelPlayed();
+            if (Input.GetKeyUp(KeyCode.Return) && _levelScene > -1)  LoadAfterLevelPlayed();
         }
 
         private void UnloadCurrentScene()
@@ -90,22 +90,6 @@ namespace managers
             _levelScene = 4;
         }
 
-        private void LoadLevelEnd()
-        {
-            UnloadCurrentScene();
-
-            SceneManager.LoadScene(7, LoadSceneMode.Additive);
-            _currentScene = 7;
-        }
-
-        private void LoadGameEnd()
-        {
-            UnloadCurrentScene();
-
-            SceneManager.LoadScene(8, LoadSceneMode.Additive);
-            _currentScene = 8;
-        }
-
         public void LoadAfterLevelPlayed()
         {
             if (_levelScene == 4)
@@ -121,6 +105,22 @@ namespace managers
             {
                 LoadLevelEnd();
             }
+        }
+
+        private void LoadLevelEnd()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(7, LoadSceneMode.Additive);
+            _currentScene = 7;
+        }
+
+        private void LoadGameEnd()
+        {
+            UnloadCurrentScene();
+
+            SceneManager.LoadScene(8, LoadSceneMode.Additive);
+            _currentScene = 8;
         }
 
         public int GetLevelScene() {  return _levelScene; }
