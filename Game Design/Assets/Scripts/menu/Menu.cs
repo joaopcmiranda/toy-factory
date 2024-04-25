@@ -18,17 +18,37 @@ namespace menu
 
         void Update() {}
 
-        public void OnStartButton()
+        public void OnTutorialButton()
         {
             level.LoadLevel0();
         }
 
+        public void OnLevel1Button()
+        {
+            level.LoadLevel1();
+        }
+
+        public void OnLevel2Button()
+        {
+            level.LoadLevel2();
+        }
+
+        public void OnLevel3Button()
+        {
+            level.LoadLevel3();
+        }
+
+        public void OnLevel4Button()
+        {
+            level.LoadLevel4();
+        }
+
         public void OnOptionsButton() {}
 
-        public void OnExitButton() 
+        public void OnExitButton()
         {
             //it doesn't work in unity, but probably works in the real game
-            Application.Quit(); 
+            Application.Quit();
         }
 
         public void OnNextLevelButton()
