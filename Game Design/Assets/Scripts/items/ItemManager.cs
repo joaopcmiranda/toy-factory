@@ -12,8 +12,11 @@ namespace managers
         public float dropRadius;
 
         public Transform target; //player
-        private float updateInterval = 0.5f; // Time in seconds between updates
+        private float updateInterval = 0.2f; // Time in seconds between updates
         private float timer; // Timer to keep track of interval
+
+        private List<Tuple<GameObject, Item>> itemsInRadius = new List<Tuple<GameObject, Item>>();
+        private Item _previouslyHighlightedItem;
 
         private void Start()
         {
@@ -23,76 +26,78 @@ namespace managers
             }
         }
 
-        private Item _previouslyHighlightedItem;
-
         private void Update()
         {
             timer += Time.deltaTime;
             if (timer >= updateInterval)
             {
-                HighlightNearestItemWithinRadius(target);
+                HighlightMousedOverItemWithinRadius(target);
                 timer = 0;
             }
         }
 
-        public Tuple<GameObject, Item> GetNearestItemTupleWithinDropRadius(Transform target)
+        public void GetNearestItemTuplesWithinDropRadius(Transform target)
         {
-            Tuple<GameObject, Item> nearestItem = null;
+            itemsInRadius.Clear();
             var nearestDistance = Mathf.Infinity;
-
             foreach (var item in _items)
             {
-                if (item.Item1)
+                var distance = Vector2.Distance(item.Item1.transform.position, target.position);
+                var itemComponent = item.Item2;
+                if (itemComponent && distance <= dropRadius && distance < nearestDistance)
                 {
-                    var distance = Vector2.Distance(item.Item1.transform.position, target.position);
-                    var itemComponent = item.Item2;
-
-                    if (itemComponent && distance <= dropRadius && distance < nearestDistance)
-                    {
-                        nearestItem = item;
-                        nearestDistance = distance;
-                    }
+                    itemsInRadius.Add(item);
                 }
-
             }
-            return nearestItem;
         }
 
 
-        public Item HighlightNearestItemWithinRadius(Transform target)
+        public void HighlightMousedOverItemWithinRadius(Transform target)
         {
+            GetNearestItemTuplesWithinDropRadius(target);
 
-            var nearestItemTuple = GetNearestItemTupleWithinDropRadius(target);
-            var nearestItemComponent = nearestItemTuple?.Item2;
-            var nearestItem = nearestItemTuple?.Item1;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
-
-            if (nearestItemComponent != _previouslyHighlightedItem)
+            if (hit.collider != null)
             {
-                if (_previouslyHighlightedItem)
-                {
-                    _previouslyHighlightedItem.SetItemColor(Color.white);
-                }
+                Item itemComponent = hit.collider.GetComponent<Item>();
 
-                if (nearestItem)
+                foreach (var item in itemsInRadius)
                 {
-                    nearestItemComponent.SetItemColor(Color.grey);
+                    if (item.Item2 == itemComponent)
+                    {
+                        if (item.Item2 != _previouslyHighlightedItem)
+                        {
+                            if (_previouslyHighlightedItem)
+                            {
+                                _previouslyHighlightedItem.SetItemColor(Color.white);
+                            }
 
-                    _previouslyHighlightedItem = nearestItemComponent;
-                }
-                else
-                {
-                    _previouslyHighlightedItem = null;
+                            item.Item2.SetItemColor(Color.grey);
+                            _previouslyHighlightedItem = item.Item2;
+                        }
+                    }
+                    else
+                    {
+                        item.Item2.SetItemColor(Color.white);
+                    }
                 }
             }
-            return nearestItemComponent;
+            else
+            {
+                foreach (var item in itemsInRadius)
+                {
+                    item.Item2.SetItemColor(Color.white);
+                }
+                _previouslyHighlightedItem = null;
+            }
         }
 
         public void RefreshItems()
         {
             _items.Clear();
             var allItems = FindObjectsOfType<Item>();
-            //Debug.Log($"Found {allItems.Length} items in the scene.");
             foreach (var item in allItems)
             {
                 _items.Add(new Tuple<GameObject, Item>(item.gameObject, item));

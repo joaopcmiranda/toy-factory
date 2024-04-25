@@ -10,6 +10,10 @@ namespace managers
         public List<GameObject> machines;
         private readonly List<Tuple<GameObject, Machine>> _machines = new List<Tuple<GameObject, Machine>>();
 
+        private List<Tuple<GameObject, Machine>> machinesInRadius = new List<Tuple<GameObject, Machine>>();
+        private Machine _previouslyHighlightedMachine;
+        private float dropRadius = 1.5f;
+
         private void Start()
         {
             foreach (var machine in machines)
@@ -18,56 +22,62 @@ namespace managers
             }
         }
 
-        private Machine _previouslyHighlightedMachine;
-
-        public Tuple<GameObject, Machine> GetNearestMachineTupleWithinDropRadius(Transform target)
+        public void GetNearestMachineTuplesWithinDropRadius(Transform target)
         {
-            Tuple<GameObject, Machine> nearestMachine = null;
+            machinesInRadius.Clear();
             var nearestDistance = Mathf.Infinity;
-
             foreach (var machine in _machines)
             {
                 var distance = Vector2.Distance(machine.Item1.transform.position, target.position);
-                //Debug.Log($"Checking machine {machine.Item1.name} at distance {distance}");
-
-                if (machine.Item2 && distance <= machine.Item2.dropRadius && distance < nearestDistance)
+                var machineComponent = machine.Item2;
+                if (machineComponent && distance <= dropRadius && distance < nearestDistance)
                 {
-                    nearestMachine = machine;
-                    nearestDistance = distance;
+                    machinesInRadius.Add(machine);
                 }
             }
-            return nearestMachine;
         }
 
 
-        public Machine HighlightNearestMachineWithinRadius(Transform target)
+        public void HighlightMousedOverMachineWithinRadius(Transform target)
         {
-            //Debug.Log("HighlightNearestMachineWithinRadius called");
-            var nearestMachineTuple = GetNearestMachineTupleWithinDropRadius(target);
-            var nearestMachineComponent = nearestMachineTuple?.Item2;
-            var nearestMachine = nearestMachineTuple?.Item1;
+            GetNearestMachineTuplesWithinDropRadius(target);
 
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
-            if (nearestMachineComponent != _previouslyHighlightedMachine)
+            if (hit.collider != null)
             {
-                if (_previouslyHighlightedMachine)
-                {
-                    _previouslyHighlightedMachine.SetMachineColor(Color.white);
-                }
+                Machine machineComponent = hit.collider.GetComponent<Machine>();
 
-                if (nearestMachine)
+                foreach (var machine in machinesInRadius)
                 {
-                    nearestMachineComponent.SetMachineColor(Color.grey);
-                    Debug.Log(nearestMachine.ToString());
-                    _previouslyHighlightedMachine = nearestMachineComponent;
-                }
-                else
-                {
-                    _previouslyHighlightedMachine = null;
+                    if (machine.Item2 == machineComponent)
+                    {
+                        if (machine.Item2 != _previouslyHighlightedMachine)
+                        {
+                            if (_previouslyHighlightedMachine)
+                            {
+                                _previouslyHighlightedMachine.SetMachineColor(Color.white);
+                            }
+
+                            machine.Item2.SetMachineColor(Color.grey);
+                            _previouslyHighlightedMachine = machine.Item2;
+                        }
+                    }
+                    else
+                    {
+                        machine.Item2.SetMachineColor(Color.white);
+                    }
                 }
             }
-            return nearestMachineComponent;
+            else
+            {
+                foreach (var machine in machinesInRadius)
+                {
+                    machine.Item2.SetMachineColor(Color.white);
+                }
+                _previouslyHighlightedMachine = null;
+            }
         }
-
     }
 }
