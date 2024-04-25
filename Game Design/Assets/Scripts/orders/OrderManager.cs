@@ -94,6 +94,8 @@ public class OrderManager : MonoBehaviour
 
         Vector3 newPosition = new Vector3(0f, 1f, 0f);
         dropBoxObject.transform.localPosition = newPosition;
+        BoxCollider2D boxCollider = dropBoxObject.GetComponent<BoxCollider2D>();
+        boxCollider.enabled = true;
 
         _orders.Add(order);
 
