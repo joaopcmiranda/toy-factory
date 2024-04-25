@@ -42,9 +42,14 @@ namespace managers
             var nearestDistance = Mathf.Infinity;
             foreach (var item in _items)
             {
+                if (item.Item1 == null || item.Item2 == null || item.Item1.Equals(null))
+                {
+                    continue; // Skip if the GameObject or the Item component is null or destroyed
+                }
+
                 var distance = Vector2.Distance(item.Item1.transform.position, target.position);
                 var itemComponent = item.Item2;
-                if (itemComponent && distance <= dropRadius && distance < nearestDistance)
+                if (distance <= dropRadius && distance < nearestDistance)
                 {
                     itemsInRadius.Add(item);
                 }
@@ -64,23 +69,24 @@ namespace managers
             if (hit.collider != null)
             {
                 Item itemComponent = hit.collider.GetComponent<Item>();
+                if (itemComponent == null) return;
 
                 foreach (var item in itemsInRadius)
                 {
-                    if (item.Item2 == itemComponent)
+                    if (item.Item2 == null) continue;
+                    
+                    foundItemInRadius = true;
+                    if (item.Item2 != _previouslyHighlightedItem)
                     {
-                        foundItemInRadius = true;
-                        if (item.Item2 != _previouslyHighlightedItem)
+                        if (_previouslyHighlightedItem)
                         {
-                            if (_previouslyHighlightedItem)
-                            {
-                                _previouslyHighlightedItem.SetItemColor(Color.white);
-                            }
-
-                            item.Item2.SetItemColor(Color.grey);
-                            _previouslyHighlightedItem = item.Item2;
+                            _previouslyHighlightedItem.SetItemColor(Color.white);
                         }
+
+                        item.Item2.SetItemColor(Color.grey);
+                        _previouslyHighlightedItem = item.Item2;
                     }
+                    
                     else
                     {
                         item.Item2.SetItemColor(Color.white);
@@ -105,8 +111,24 @@ namespace managers
             var allItems = FindObjectsOfType<Item>();
             foreach (var item in allItems)
             {
-                _items.Add(new Tuple<GameObject, Item>(item.gameObject, item));
+                if (item != null && item.gameObject != null) // Ensure the item and its GameObject are not null
+                {
+                    _items.Add(new Tuple<GameObject, Item>(item.gameObject, item));
+                }
             }
+        }
+
+        public void PreRemoveItem(Item item)
+        {
+            if (_previouslyHighlightedItem == item)
+            {
+                _previouslyHighlightedItem = null;
+            }
+
+            _items.RemoveAll(t => t.Item2 == item);
+            itemsInRadius.RemoveAll(t => t.Item2 == item);
+
+            RefreshItems();
         }
 
     }
