@@ -70,8 +70,6 @@ namespace items
         {
             Destroy(gameObject);
             _itemManager?.RefreshItems();
-        }
-
-        
+        }        
     }
 }
