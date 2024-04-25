@@ -9,12 +9,14 @@ namespace player
         private Rigidbody2D _rb;
         private Vector2 _movement;
         private Vector2 _lastDirection = Vector2.right;
+        private Animator animator;
 
-        // Start is called before the first frame update
-        private void Start()
+        private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
         }
+
 
         // Update is called once per frame
         private void Update()
@@ -24,7 +26,15 @@ namespace player
 
             if (_movement != Vector2.zero)
             {
+                animator.SetFloat("X", _movement.x);
+                animator.SetFloat("Y", _movement.y);
+
+                animator.SetBool("isWalking", true); 
+
                 _lastDirection = _movement.normalized; // Update lastDirection when the player moves
+            } else
+            {
+                animator.SetBool("isWalking", false);
             }
 
         }

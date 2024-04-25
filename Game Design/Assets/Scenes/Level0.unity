@@ -5129,6 +5129,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {fileID: 1249946282}
+--- !u!95 &1925192951
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925192937}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ab3e27665226084e8fc580868157990, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1954038261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6636,6 +6657,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.06068214
       objectReference: {fileID: 0}
+    - target: {fileID: 1227333257925278520, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227333257925278520, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4449519076697490418, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: m_Interpolate
       value: 1
@@ -6652,6 +6681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6959397635252341455, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1379439261, guid: 2d706a0b4ed28434aadfb32caaf6c830, type: 3}
     - target: {fileID: 6959397635252341455, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -6710,6 +6743,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4715010483402475189, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1925192944}
+    - targetCorrespondingSourceObject: {fileID: 4715010483402475189, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1925192951}
   m_SourcePrefab: {fileID: 100100000, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
 --- !u!1001 &3252516399675139179
 PrefabInstance:
