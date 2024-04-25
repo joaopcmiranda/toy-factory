@@ -16,10 +16,6 @@ namespace items
             if (_itemManager == null)
             {
                 _itemManager = FindObjectOfType<ItemManager>();
-                if (_itemManager == null)
-                    Debug.LogError("ItemManager not found in the scene!");
-                else
-                    Debug.Log("ItemManager found and set.");
             }
         }
 
@@ -27,6 +23,11 @@ namespace items
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void Update()
+        {
+            
         }
 
         public void SetItemColor(Color color)
@@ -69,6 +70,6 @@ namespace items
         {
             Destroy(gameObject);
             _itemManager?.RefreshItems();
-        }
+        }        
     }
 }

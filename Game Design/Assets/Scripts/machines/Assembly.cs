@@ -1,6 +1,6 @@
 using items;
-using TMPro;
 using UnityEngine;
+using managers;
 
 namespace machines
 {
@@ -8,6 +8,7 @@ namespace machines
     {
         public Sprite trainSprite;
         public Timer timer;
+        public ItemManager itemManager;
 
         private bool _isHoldingParts;
         private bool _isHoldingWheels;
@@ -20,6 +21,7 @@ namespace machines
         }
 
         private Item remainingItem;
+
         public override void HoldItem(Item item)
         {
             bool comparePainted = item.CompareTag("TrainPartsPainted");
@@ -85,9 +87,11 @@ namespace machines
             item.type = ItemType.Train;
 
             remainingItem.DeleteItem();
+            itemManager.RefreshItems();
 
             _isHoldingParts = false;
             _isHoldingWheels = false;
+            remainingItem = null;
         }
     }
 }
