@@ -59,6 +59,8 @@ namespace managers
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
+            bool foundItemInRadius = false;
+
             if (hit.collider != null)
             {
                 Item itemComponent = hit.collider.GetComponent<Item>();
@@ -67,6 +69,7 @@ namespace managers
                 {
                     if (item.Item2 == itemComponent)
                     {
+                        foundItemInRadius = true;
                         if (item.Item2 != _previouslyHighlightedItem)
                         {
                             if (_previouslyHighlightedItem)
@@ -84,13 +87,15 @@ namespace managers
                     }
                 }
             }
-            else
+
+            if (!foundItemInRadius)
             {
-                foreach (var item in itemsInRadius)
+                // Dehighlight any previously highlighted item if it is no longer in the radius
+                if (_previouslyHighlightedItem)
                 {
-                    item.Item2.SetItemColor(Color.white);
+                    _previouslyHighlightedItem.SetItemColor(Color.white);
+                    _previouslyHighlightedItem = null;
                 }
-                _previouslyHighlightedItem = null;
             }
         }
 
