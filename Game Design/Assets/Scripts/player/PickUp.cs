@@ -28,7 +28,7 @@ namespace player
 
         void Update()
         {
-            _machineManager.HighlightNearestMachineWithinRadius(transform);
+            _machineManager.HighlightMousedOverMachineWithinRadius(transform);
 
             if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
