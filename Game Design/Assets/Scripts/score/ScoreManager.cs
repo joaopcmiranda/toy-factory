@@ -28,6 +28,7 @@ namespace score
 
         private void UpdateScore()
         {
+            PlayerPrefs.SetInt("PlayerScore", score);
             scoreText.text = "Score: " + score;
         }
     }

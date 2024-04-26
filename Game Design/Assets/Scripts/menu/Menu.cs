@@ -9,7 +9,7 @@ namespace menu
 
         void Start()
         {
-            level = GameObject.Find("Managers").GetComponent<LevelManager>();
+            //level = GameObject.Find("Managers").GetComponent<LevelManager>();
         }
 
         void Update() {}
