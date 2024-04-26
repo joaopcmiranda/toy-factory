@@ -17,7 +17,6 @@ public class OrderManager : MonoBehaviour
 
     private readonly List<IRecipe> _recipes = new List<IRecipe>();
     private ScoreManager _scoreManager;
-    public GameObject dropBoxObject;
 
 
     public void Start()
@@ -90,13 +89,7 @@ public class OrderManager : MonoBehaviour
         order.SetRecipe(recipe);
         order.queuePosition = _orders.Count;
 
-        dropBoxObject.transform.SetParent(order.transform);
-
-        Vector3 newPosition = new Vector3(0f, 1f, 0f);
-        dropBoxObject.transform.localPosition = newPosition;
- 
         _orders.Add(order);
-
 
     }
 
