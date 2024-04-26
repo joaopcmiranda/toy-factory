@@ -10,6 +10,11 @@ public class Tutorial : MonoBehaviour
     public GameObject pickupsPanel;
     public GameObject deliveryPanel;
 
+    //reactivating other UI
+    public GameObject orderBookUI;
+    public GameObject scoreAndTimer;
+    public LevelTimer levelTimer;
+
     private int _currentPanel = 0;
     // Update is called once per frame
     void Update()
@@ -21,6 +26,7 @@ public class Tutorial : MonoBehaviour
                 case 0:
                     movementPanel.SetActive(false);
                     recipePanel.SetActive(true);
+                    orderBookUI.SetActive(true);
                     _currentPanel++;
                     break;
                 case 1:
@@ -35,6 +41,8 @@ public class Tutorial : MonoBehaviour
                     break;
                 case 3:
                     deliveryPanel.SetActive(false);
+                    scoreAndTimer.SetActive(true);
+                    levelTimer.StartTimer(levelTimer.time);
                     _currentPanel++;
                     break;
             }
