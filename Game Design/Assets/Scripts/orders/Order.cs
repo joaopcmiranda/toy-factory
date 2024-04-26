@@ -63,7 +63,7 @@ public class Order : MonoBehaviour
             _orderManager.OrderExpired(this);
         }
 
-        if (transform.position.x > queuePosition)
+        if (transform.position.x > queuePosition + 5)
         {
             _transform.position += Vector3.left * (speed * deltaTime);
         }
