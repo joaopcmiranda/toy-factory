@@ -20,6 +20,22 @@
         CyanPaint,
         PinkPaint,
         OrangePaint,
-        PurplePaint
+        PurplePaint,
+        RedTrainParts,
+        GreenTrainParts,
+        BlueTrainParts,
+        YellowTrainParts,
+        CyanTrainParts,
+        PinkTrainParts,
+        OrangeTrainParts,
+        PurpleTrainParts,
+        RedTrain,
+        GreenTrain,
+        BlueTrain,
+        YellowTrain,
+        CyanTrain,
+        PinkTrain,
+        OrangeTrain,
+        PurpleTrain
     }
 }
