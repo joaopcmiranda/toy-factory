@@ -22,13 +22,13 @@ namespace machines
             var success = orderManager.FinishOrder(item);
             if (success)
             {
-                item.DeleteItem();
                 Debug.Log("Delivered");
             }
             else
             {
                 scoreManager.DecreaseScore(100);
             }
+            item.DeleteItem();
         }
 
         private void Update()
