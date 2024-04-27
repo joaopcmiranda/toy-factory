@@ -9,6 +9,7 @@ namespace machines
         private Order[] orders;
         private OrderManager orderManager;
         private ScoreManager scoreManager;
+
         public override void Start()
         {
             base.Start();
@@ -17,6 +18,7 @@ namespace machines
         }
         public override void HoldItem(Item item)
         {
+
             var success = orderManager.FinishOrder(item);
             if (success)
             {
@@ -25,7 +27,7 @@ namespace machines
             }
             else
             {
-                scoreManager.DecreaseScore(-100);
+                scoreManager.DecreaseScore(100);
             }
         }
 
