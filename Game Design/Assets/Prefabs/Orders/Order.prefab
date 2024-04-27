@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1338480225
   m_SortingLayer: 6
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 1e4790ac9bf544c4a969fcea9d50a9c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16559db39cff6436dad6aee997391c62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2413913037985127124}
   - component: {fileID: 1326647929982914587}
-  - component: {fileID: 8285786157811870453}
+  - component: {fileID: 1974193681533516679}
+  - component: {fileID: -1841525664106781520}
   m_Layer: 0
   m_Name: Order
   m_TagString: Untagged
@@ -160,7 +161,7 @@ MonoBehaviour:
   itemSprite: {fileID: 4515834444447586640}
   queuePosition: 0
   speed: 0.6
---- !u!61 &8285786157811870453
+--- !u!61 &1974193681533516679
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,22 +190,36 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 0.8125, y: 0.8125}
-    newSize: {x: 0.8125, y: 0.8125}
-    adaptiveTilingThreshold: 0.5
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1841525664106781520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2586038345392437876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a08eb2dfb75104cb78bff779c23101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdSpot: {fileID: 2413913037985127124}
+  dropRadius: 3
 --- !u!1 &2737492638855787704
 GameObject:
   m_ObjectHideFlags: 0

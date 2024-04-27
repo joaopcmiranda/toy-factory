@@ -45,6 +45,8 @@ namespace managers
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
+            bool foundMachineInRadius = false;
+
             if (hit.collider != null)
             {
                 Machine machineComponent = hit.collider.GetComponent<Machine>();
@@ -53,6 +55,7 @@ namespace managers
                 {
                     if (machine.Item2 == machineComponent)
                     {
+                        foundMachineInRadius = true;
                         if (machine.Item2 != _previouslyHighlightedMachine)
                         {
                             if (_previouslyHighlightedMachine)
@@ -70,13 +73,15 @@ namespace managers
                     }
                 }
             }
-            else
+
+            if (!foundMachineInRadius)
             {
-                foreach (var machine in machinesInRadius)
+                // Dehighlight any previously highlighted machine if it is no longer in the radius
+                if (_previouslyHighlightedMachine)
                 {
-                    machine.Item2.SetMachineColor(Color.white);
+                    _previouslyHighlightedMachine.SetMachineColor(Color.white);
+                    _previouslyHighlightedMachine = null;
                 }
-                _previouslyHighlightedMachine = null;
             }
         }
     }

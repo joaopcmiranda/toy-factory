@@ -19,10 +19,7 @@ public class Order : MonoBehaviour
     public float speed = 0.5f;
     public ItemType deliveryItem
     {
-        get
-        {
-            return _recipe.deliveryItem;
-        }
+        get => _recipe.deliveryItem;
     }
 
     private Transform _transform;
@@ -32,10 +29,7 @@ public class Order : MonoBehaviour
 
     public int remainingPoints
     {
-        get
-        {
-            return (int)(_timeLeft / _recipe.timeLimit * _recipe.points);
-        }
+        get => (int)(_timeLeft / _recipe.timeLimit * _recipe.points);
     }
 
     private void Start()
@@ -69,7 +63,7 @@ public class Order : MonoBehaviour
             _orderManager.OrderExpired(this);
         }
 
-        if (transform.position.x > queuePosition)
+        if (transform.position.x > queuePosition + 5)
         {
             _transform.position += Vector3.left * (speed * deltaTime);
         }

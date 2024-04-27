@@ -19,7 +19,7 @@ public class OrderManager : MonoBehaviour
     private ScoreManager _scoreManager;
 
 
-   public void Start()
+    public void Start()
     {
         _scoreManager = FindObjectOfType<ScoreManager>();
         if (singleOrderLevel)
@@ -88,18 +88,21 @@ public class OrderManager : MonoBehaviour
         var order = orderObj.GetComponent<Order>();
         order.SetRecipe(recipe);
         order.queuePosition = _orders.Count;
+
         _orders.Add(order);
+
     }
 
     public bool FinishOrder(Item delivery)
     {
-        var order = _orders.Find(order => order.deliveryItem == delivery.type);
+        var order = _orders.Find(o => o.deliveryItem == delivery.type);
 
-        if (!order)
+        if (order == null)
             return false;
 
         _scoreManager.IncreaseScore(order.remainingPoints);
         RemoveOrder(order);
+
         return true;
     }
 
