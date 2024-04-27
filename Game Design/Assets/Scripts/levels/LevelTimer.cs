@@ -30,8 +30,8 @@ public class LevelTimer : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0)
         {
-            SceneManager.LoadScene("LevelEnd");
-            // level.LoadAfterLevelPlayed();
+            //SceneManager.LoadScene("LevelEnd");
+            level.LoadAfterLevelPlayed();
         } else
         {
             UpdateTimerUI();
