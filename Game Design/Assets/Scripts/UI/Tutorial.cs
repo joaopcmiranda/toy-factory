@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -14,8 +12,13 @@ public class Tutorial : MonoBehaviour
     public GameObject orderBookUI;
     public GameObject scoreAndTimer;
     public LevelTimer levelTimer;
+    public score.ScoreManager scoreManager;
 
     private int _currentPanel = 0;
+
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +46,7 @@ public class Tutorial : MonoBehaviour
                     deliveryPanel.SetActive(false);
                     scoreAndTimer.SetActive(true);
                     levelTimer.StartTimer(levelTimer.time);
+                    scoreManager.StartScore();
                     _currentPanel++;
                     break;
             }
