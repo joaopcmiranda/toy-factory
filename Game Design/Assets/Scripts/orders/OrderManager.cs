@@ -95,13 +95,12 @@ public class OrderManager : MonoBehaviour
 
     public bool FinishOrder(Item delivery)
     {
-        var order = _orders.Find(order => order.deliveryItem == delivery.type);
+        var order = _orders.Find(o => o.deliveryItem == delivery.type);
 
-        if (!order)
+        if (order == null)
             return false;
 
         _scoreManager.IncreaseScore(order.remainingPoints);
-
         RemoveOrder(order);
 
         return true;

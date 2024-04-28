@@ -1858,6 +1858,10 @@ MonoBehaviour:
   recipePanel: {fileID: 1702683954}
   pickupsPanel: {fileID: 1443990590}
   deliveryPanel: {fileID: 406991661}
+  orderBookUI: {fileID: 1173891738}
+  scoreAndTimer: {fileID: 1869301618}
+  levelTimer: {fileID: 1622814895}
+  scoreManager: {fileID: 0}
 --- !u!114 &26110790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2878,7 +2882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &503941664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,7 +2944,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1338480225
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &503941667
 RectTransform:
@@ -4972,7 +4976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1173891739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5367,7 +5371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7174,12 +7178,12 @@ GameObject:
   - component: {fileID: 1869301621}
   - component: {fileID: 1869301620}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Score and Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1869301619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10452,11 +10456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227333257925278520, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.18
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1227333257925278520, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.22
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 4449519076697490418, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: m_Interpolate
