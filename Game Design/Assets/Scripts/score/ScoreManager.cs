@@ -8,7 +8,14 @@ namespace score
         public Text scoreText;
         public int score;
 
-        private void Start()
+        /*private void Start()
+        {
+            score = 0;
+            scoreText.text = "Score: " + score;
+        }*/
+
+        //For tutorial. can be deleted for other levels.
+        public void StartScore()
         {
             score = 0;
             scoreText.text = "Score: " + score;

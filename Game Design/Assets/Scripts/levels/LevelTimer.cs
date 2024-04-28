@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using managers;
 
 public class LevelTimer : MonoBehaviour
@@ -13,11 +9,11 @@ public class LevelTimer : MonoBehaviour
     public Text timerText;
     private LevelManager level;
 
-    private void Start()
+    /*private void Start()
     {
         StartTimer(time);
         level = FindObjectOfType<LevelManager>();
-    }
+    }*/
 
     public void StartTimer(float duration)
     {
@@ -45,4 +41,5 @@ public class LevelTimer : MonoBehaviour
         string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
         timerText.text = timerString;
     }
+
 }
