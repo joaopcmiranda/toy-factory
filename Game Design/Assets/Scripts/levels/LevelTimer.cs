@@ -18,13 +18,14 @@ public class LevelTimer : MonoBehaviour
     public void StartTimer(float duration)
     {
         time = duration;
+        level = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         time -= Time.deltaTime;
-        if (time <= 0)
+        if (time <= 1)
         {
             //SceneManager.LoadScene("LevelEnd");
             level.LoadAfterLevelPlayed();

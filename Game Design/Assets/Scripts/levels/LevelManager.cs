@@ -13,7 +13,7 @@ namespace managers
 
         private void Start()
         {
-            //LoadMainMenu();
+            LoadMainMenu();
         }
 
         private void Update()
