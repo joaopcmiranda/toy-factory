@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3624069245275962209}
   - component: {fileID: 8501486745376901035}
   m_Layer: 6
-  m_Name: TimerCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +31,7 @@ RectTransform:
   m_LocalScale: {x: 0.76, y: 0.76, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1656073884177891756}
   - {fileID: 725115808659960458}
   m_Father: {fileID: 5584214168857802452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,7 +468,6 @@ Transform:
   m_Children:
   - {fileID: 2222477786234858029}
   - {fileID: 40102710884924225}
-  - {fileID: 1656073884177891756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7810148811721777348
@@ -583,6 +583,7 @@ MonoBehaviour:
   dropRadius: 1.4
   trainSprite: {fileID: 21300000, guid: 16559db39cff6436dad6aee997391c62, type: 3}
   timer: {fileID: 5410026477783589824}
+  itemManager: {fileID: 0}
 --- !u!114 &5410026477783589824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,15 +884,15 @@ RectTransform:
   m_GameObject: {fileID: 7542542535747913172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1.3157896, y: 1.3157896, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8975280507433679298}
-  m_Father: {fileID: 5584214168857802452}
+  m_Father: {fileID: 2222477786234858029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.8}
+  m_AnchoredPosition: {x: -0.28947374, y: 0.6315792}
   m_SizeDelta: {x: 2, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8029184642019763512

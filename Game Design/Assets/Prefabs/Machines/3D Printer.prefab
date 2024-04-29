@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4511553627348499671}
   - component: {fileID: 1118806349358304994}
   m_Layer: 6
-  m_Name: Timer
+  m_Name: TimerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,6 @@ Transform:
   m_Children:
   - {fileID: 1414328786737267736}
   - {fileID: 5752161902797747630}
-  - {fileID: 6276675572754625943}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4510607472906054619
@@ -568,15 +567,15 @@ RectTransform:
   m_GameObject: {fileID: 5849426969663306128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1.3157896, y: 1.3157896, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5980907514261695972}
-  m_Father: {fileID: 3297864777966604360}
+  m_Father: {fileID: 1414328786737267736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.8}
+  m_AnchoredPosition: {x: -0.28947407, y: 0.6315799}
   m_SizeDelta: {x: 2, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2866922873928721466
@@ -773,7 +772,7 @@ GameObject:
   - component: {fileID: 6480525237257963839}
   - component: {fileID: 1956180782618577564}
   m_Layer: 6
-  m_Name: TimerCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -791,6 +790,7 @@ RectTransform:
   m_LocalScale: {x: 0.76, y: 0.76, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 6276675572754625943}
   - {fileID: 2546891910986971055}
   m_Father: {fileID: 3297864777966604360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
