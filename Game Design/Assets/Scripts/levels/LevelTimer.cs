@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using managers;
 
 public class LevelTimer : MonoBehaviour
@@ -13,25 +9,26 @@ public class LevelTimer : MonoBehaviour
     public Text timerText;
     private LevelManager level;
 
-    private void Start()
+    /*private void Start()
     {
         StartTimer(time);
         level = FindObjectOfType<LevelManager>();
-    }
+    }*/
 
     public void StartTimer(float duration)
     {
         time = duration;
+        level = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         time -= Time.deltaTime;
-        if (time <= 0)
+        if (time <= 1)
         {
             //SceneManager.LoadScene("LevelEnd");
-            // level.LoadAfterLevelPlayed();
+            level.LoadAfterLevelPlayed();
         } else
         {
             UpdateTimerUI();
@@ -45,4 +42,5 @@ public class LevelTimer : MonoBehaviour
         string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
         timerText.text = timerString;
     }
+
 }
