@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7529938966001672806}
   - component: {fileID: 6198629977880166754}
   - component: {fileID: 1221642325786493075}
-  - component: {fileID: 9134039345349171016}
+  - component: {fileID: 1478202956824314537}
   - component: {fileID: 6815840024348801978}
   m_Layer: 6
   m_Name: BluePigment
@@ -139,9 +139,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 20
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &9134039345349171016
+--- !u!61 &1478202956824314537
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,7 +196,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1, y: 0.5625}
   m_EdgeRadius: 0
 --- !u!114 &6815840024348801978
 MonoBehaviour:

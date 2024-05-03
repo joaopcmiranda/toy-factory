@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8524191494399501296}
   - component: {fileID: 7382787105155936195}
   - component: {fileID: 3595328413895491787}
-  - component: {fileID: 20239587184138608}
+  - component: {fileID: 654468510776492783}
   - component: {fileID: 296765645023154392}
   m_Layer: 6
   m_Name: GreenPigment
@@ -139,9 +139,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 20
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &20239587184138608
+--- !u!61 &654468510776492783
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,7 +196,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1, y: 0.5625}
   m_EdgeRadius: 0
 --- !u!114 &296765645023154392
 MonoBehaviour:
