@@ -44,23 +44,20 @@ namespace machines
         {
             item.SetSprite(trainSprite);
 
-            item.tag = "TrainPartsUnpainted";
-            item.type = ItemType.UnpaintedTrainParts;
-            /*
+            //item.tag = "TrainPartsUnpainted";
+            //item.type = ItemType.UnpaintedTrainParts;
+
             switch (levelManager.GetLevelScene())
             {
                 case 0:
                     item.tag = "TrainPartsPainted";
                     item.type = ItemType.PaintedTrainParts;
                     break;
-                case 1:
+                default:
                     item.tag = "TrainPartsUnpainted";
                     item.type = ItemType.UnpaintedTrainParts;
                     break;
-                default:
-                    break;
             }
-            */
         }
     }
 }

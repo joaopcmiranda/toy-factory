@@ -63,7 +63,8 @@ namespace machines
             if (paintHeld && trainPartsHeld)
             {
                 timerStarted = true;
-                timer.StartTimer(0);
+                //timer.StartTimer(0); //instant timer
+                timer.StartTimer(5);
             }
         }
 

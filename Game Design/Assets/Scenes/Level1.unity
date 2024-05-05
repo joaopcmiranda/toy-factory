@@ -3176,6 +3176,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1196784180}
     m_Modifications:
+    - target: {fileID: 1951821809424079773, guid: 69ce415637d4c48efaffb9607034cbc8, type: 3}
+      propertyPath: dropRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678930610607484856, guid: 69ce415637d4c48efaffb9607034cbc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2951319813865348355, guid: 69ce415637d4c48efaffb9607034cbc8, type: 3}
       propertyPath: stationNameText
       value: 
@@ -5724,6 +5732,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: itemManager
+      value: 
+      objectReference: {fileID: 1464676794}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1982805393, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -668074646, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1030923799, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 1259395929, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 422125876, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: -1462559421, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: -1340828792, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: -266812512, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: trainSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: -1812844244, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
     - target: {fileID: 7660301259809625771, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

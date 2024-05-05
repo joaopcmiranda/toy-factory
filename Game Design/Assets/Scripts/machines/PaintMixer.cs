@@ -53,7 +53,8 @@ namespace machines
             if (paintMixtureLoaded && pigmentsHeld > 0)
             {
                 timerStarted = true;
-                timer.StartTimer(0);
+                //timer.StartTimer(0); //instant timer
+                timer.StartTimer(5);
             }
         }
 
