@@ -15,7 +15,7 @@ namespace machines
             stationNameText.SetText(stationName);
 
             ShowMachineName(false);
-            Debug.Log("stationName: " + stationName);
+            //Debug.Log("stationName: " + stationName);
         }
 
         // onMouseSomething requires a collider to detect the mouse
