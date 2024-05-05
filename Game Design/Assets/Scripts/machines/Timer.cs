@@ -13,10 +13,12 @@ public class Timer : MonoBehaviour
     public Image outer;
     private bool timerActive = false;
     public float max;
+    private AudioManager audioManager;
 
     private void Start()
     {
         ShowTimer(false);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void StartTimer(float duration)
@@ -48,6 +50,7 @@ public class Timer : MonoBehaviour
 
         if (time <= 0)
         {
+            audioManager.PlayMachineComplete();
             time = 0;
             timerActive = false;
             ShowTimer(false);

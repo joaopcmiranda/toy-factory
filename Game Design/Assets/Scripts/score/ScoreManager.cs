@@ -7,6 +7,7 @@ namespace score
 
         public Text scoreText;
         public int score;
+        public AudioManager audioManager;
 
         /*private void Start()
         {
@@ -24,12 +25,14 @@ namespace score
         public void IncreaseScore(int increment)
         {
             score += increment;
+            audioManager.PlayOrder();
             UpdateScore();
         }
 
         public void DecreaseScore(int decrement)
         {
             score -= decrement;
+            audioManager.PlayNegativeScore();
             UpdateScore();
         }
 
