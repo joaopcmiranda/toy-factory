@@ -9,11 +9,11 @@ public class LevelTimer : MonoBehaviour
     public Text timerText;
     private LevelManager level;
 
-    /*private void Start()
+    private void Start()
     {
         StartTimer(time);
         level = FindObjectOfType<LevelManager>();
-    }*/
+    }
 
     public void StartTimer(float duration)
     {

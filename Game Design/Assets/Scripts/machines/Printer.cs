@@ -47,6 +47,7 @@ namespace machines
             //item.tag = "TrainPartsUnpainted";
             //item.type = ItemType.UnpaintedTrainParts;
 
+            //you will need to start from the Game scene
             switch (levelManager.GetLevelScene())
             {
                 case 0:
