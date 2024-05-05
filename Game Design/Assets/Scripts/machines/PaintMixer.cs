@@ -13,7 +13,7 @@ namespace machines
         public ItemManager itemManager;
 
         private List<Item> itemsHeld = new List<Item>();
-        private Item paintMixtureItem = null;
+        private Item finalProduct = null;
         private int pigmentsHeld = 0;
         private int maxPigmentsHeld = 3;
 
@@ -29,7 +29,7 @@ namespace machines
             bool comparePaintMix = item.CompareTag("PaintMixture");
 
             bool pigmentHeldFull = pigmentsHeld == maxPigmentsHeld;
-            Debug.LogWarning("pigmentHeldFull: " + pigmentHeldFull);
+            //Debug.LogWarning("pigmentHeldFull: " + pigmentHeldFull);
             if (!(comparePaintMix || (comparePigments && !pigmentHeldFull))) return;
 
             if (comparePigments || comparePaintMix)
@@ -42,24 +42,18 @@ namespace machines
 
                 if (comparePaintMix) 
                 {
-                    paintMixtureItem = item;
+                    finalProduct = item;
                     paintMixtureLoaded = true;
                 }
                 else pigmentsHeld++;
             }
-            Debug.LogWarning("itemHeld:");
-            itemsHeld.ForEach(item =>
-            {
-                Debug.Log(item.tag);
-            });
+            //Debug.LogWarning("itemHeld:");
+            //itemsHeld.ForEach(item => { Debug.Log(item.tag); });
 
-            Debug.LogWarning("paintMixtureLoaded: " + paintMixtureLoaded);
-            Debug.LogWarning("pigmentsHeld: " + pigmentsHeld);
-            Debug.LogWarning("paintMixtureLoaded && pigmentsHeld > 0: " + (paintMixtureLoaded && pigmentsHeld > 0));
             if (paintMixtureLoaded && pigmentsHeld > 0)
             {
                 timerStarted = true;
-                timer.StartTimer(5);
+                timer.StartTimer(0);
             }
         }
 
@@ -67,7 +61,7 @@ namespace machines
         {
             if (timer.IsTimeUp() && timerStarted)
             {
-                itemHolding = paintMixtureItem;
+                itemHolding = finalProduct;
                 TransformItem(itemHolding);
 
                 timer.ResetTimer();
@@ -87,7 +81,7 @@ namespace machines
             bool comparePaintMix = item.CompareTag("PaintMixture");
             if (comparePaintMix)
             {
-                paintMixtureItem = null;
+                finalProduct = null;
                 paintMixtureLoaded = false;
             }
             else if (comparePigments) pigmentsHeld--;
@@ -155,7 +149,7 @@ namespace machines
             itemManager.RefreshItems();
             
             paintMixtureLoaded = false;
-            paintMixtureItem = null;
+            finalProduct = null;
             pigmentsHeld = 0;
         }
 
