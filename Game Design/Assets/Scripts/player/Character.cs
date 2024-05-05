@@ -7,7 +7,7 @@ namespace player
 
         public bool active = true;
 
-        public float speed = 5.0f; 
+        public float speed = 5.0f;
         private Rigidbody2D _rb;
         private Vector2 _movement;
         private Vector2 _lastDirection = Vector2.right;
