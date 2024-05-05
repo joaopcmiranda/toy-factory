@@ -15,7 +15,7 @@ namespace player
         private MachineManager _machineManager;
         private ItemManager _itemManager;
 
-        private float pickUpRadius = 1;
+        private float pickUpRadius = 1.3f;
 
         private void Start()
         {
@@ -67,7 +67,7 @@ namespace player
                         {
                             TakeItemFromMachine(machine);  // Taking item from machine
                         }
-                        else if (item && !item.IsHeldByMachine)
+                        else if (item && !item.IsHeldByMachine && Vector2.Distance(item.transform.position, transform.position) <= pickUpRadius)
                         {
                             PickUpItem(item);  // Picking up the item directly clicked
                         }
