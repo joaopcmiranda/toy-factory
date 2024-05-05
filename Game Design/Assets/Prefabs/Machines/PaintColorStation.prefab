@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3263475530513166976}
   - component: {fileID: 3762371044092610756}
   - component: {fileID: 2368969728318905668}
+  - component: {fileID: 4770245963116585175}
   m_Layer: 6
   m_Name: PaintColorStation
   m_TagString: Station
@@ -206,6 +207,41 @@ MonoBehaviour:
   stationNameCanvas: {fileID: 7030327187093938219}
   stationNameText: {fileID: 7344911241568873423}
   stationName: Painting Station
+--- !u!114 &4770245963116585175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239552272133630034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cd03956a734df48ac24e5d3a1873ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdSpot: {fileID: 241304080882697690}
+  dropRadius: 1.5
+  trainPartsColorSprites:
+  - {fileID: 21300000, guid: be750c6e08997364892a9fe8e0020405, type: 3}
+  - {fileID: 21300000, guid: b514dc16cd944b1498dde51a45ce77d1, type: 3}
+  - {fileID: 21300000, guid: 03d66b697b09da14981079ffc0101186, type: 3}
+  - {fileID: 21300000, guid: e81ce7968e63a1249afbccd938ebc3ae, type: 3}
+  - {fileID: 21300000, guid: 09d37a272f14f24408f81a1fdcb7c22c, type: 3}
+  - {fileID: 21300000, guid: 1e917d31a89382f4986a695b231d9a6f, type: 3}
+  - {fileID: 21300000, guid: 08472a6b3c8021345b1abfba39b470d9, type: 3}
+  - {fileID: 21300000, guid: f0c3bb7808942134fbd6482e018b242e, type: 3}
+  paintStationColorSprites:
+  - {fileID: 922470367, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: -551115002, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: -1451719012, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: 134946919, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: 1657328159, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: 1996024809, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: -2121675362, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: 229703007, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  - {fileID: 644219371, guid: 613665bf3dc088749b69d32f5ea3cd40, type: 3}
+  timer: {fileID: 3762371044092610756}
+  itemManager: {fileID: 0}
 --- !u!1 &1352334747221020400
 GameObject:
   m_ObjectHideFlags: 0

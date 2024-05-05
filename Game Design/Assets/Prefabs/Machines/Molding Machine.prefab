@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 462304827704721302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 75, y: 75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -463,7 +463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdSpot: {fileID: 2678930610607484856}
   dropRadius: 1
-  moldingUiText: {fileID: 0}
   wheelsSprite: {fileID: 21300000, guid: a536dabbcb7214aa18c16f22156d603a, type: 3}
   moldingTimer: {fileID: 3828059768775448514}
 --- !u!114 &3828059768775448514
@@ -495,8 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fda0d4380640e42a27e16512f46ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationNameCanvas: {fileID: 0}
-  stationNameText: {fileID: 0}
+  stationNameCanvas: {fileID: 7547278067848923451}
+  stationNameText: {fileID: 2710188407529460290}
   stationName: Wheel Molder Station
 --- !u!61 &4554535654787470350
 BoxCollider2D:

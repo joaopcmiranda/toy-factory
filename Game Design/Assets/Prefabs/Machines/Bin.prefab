@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdSpot: {fileID: 0}
   dropRadius: 1
+  itemManager: {fileID: 0}
 --- !u!114 &4076441471103398546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fda0d4380640e42a27e16512f46ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationNameCanvas: {fileID: 0}
-  stationNameText: {fileID: 0}
+  stationNameCanvas: {fileID: 1594168416475597661}
+  stationNameText: {fileID: 1528275332660920391}
   stationName: Bin
 --- !u!61 &1686840955440178403
 BoxCollider2D:

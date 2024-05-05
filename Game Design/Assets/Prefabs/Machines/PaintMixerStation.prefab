@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 4191057612788949866}
   - component: {fileID: 8983689008867329466}
   - component: {fileID: 2685635630321179793}
+  - component: {fileID: 5753813550038519643}
   m_Layer: 6
   m_Name: PaintMixerStation
   m_TagString: Station
@@ -769,6 +770,31 @@ MonoBehaviour:
   stationNameCanvas: {fileID: 1758013526838543975}
   stationNameText: {fileID: 5407002624091347854}
   stationName: Paint Mixer
+--- !u!114 &5753813550038519643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925898815053055468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf18e01cb4cafbf45976aec097042355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdSpot: {fileID: 6706035412019480842}
+  dropRadius: 1.5
+  paintSprites:
+  - {fileID: -1282177466, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  - {fileID: -387900449, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  - {fileID: -1931448219, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  - {fileID: -933019203, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  - {fileID: 621315942, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  - {fileID: 541516350, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  - {fileID: -1280875150, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  - {fileID: 1169718948, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  timer: {fileID: 8983689008867329466}
+  itemManager: {fileID: 0}
 --- !u!1 &7687662866775526723
 GameObject:
   m_ObjectHideFlags: 0
