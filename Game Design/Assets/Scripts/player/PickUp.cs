@@ -23,6 +23,7 @@ namespace player
             _character = GetComponent<Character>();
             _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
             _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager>();
+            audioManager = FindObjectOfType<AudioManager>();
             if (!mainCamera)
                 mainCamera = Camera.main; // Ensure there is a main camera
         }

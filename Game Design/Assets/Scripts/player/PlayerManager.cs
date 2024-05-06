@@ -40,8 +40,8 @@ namespace player
         // Update is called once per frame
         void Update()
         {
-            // Change character when Q is pressed
-            if (_isMultiCharacter && Input.GetKeyDown(KeyCode.Q))
+            // Change character when Tab is pressed
+            if (_isMultiCharacter && Input.GetKeyDown(KeyCode.Tab))
             {
                 _activeCharacter.active = false;
                 _activeCharacterIndex = (_activeCharacterIndex + 1) % characters.Count;

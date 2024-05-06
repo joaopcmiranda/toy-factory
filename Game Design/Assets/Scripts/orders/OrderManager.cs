@@ -14,6 +14,8 @@ public class OrderManager : MonoBehaviour
     public GameObject orderPrefab;
     public Transform orderEntryPoint;
     public bool singleOrderLevel;
+    public int queueSize = 7;
+    public int queueStopX = 10;
 
     private readonly List<IRecipe> _recipes = new List<IRecipe>();
     private ScoreManager _scoreManager;
@@ -73,7 +75,7 @@ public class OrderManager : MonoBehaviour
 
     private void CreateNewOrder(bool force = false)
     {
-        if (_recipes.Count == 0)
+        if (_recipes.Count == 0 || _orders.Count >= queueSize)
         {
             return;
         }
@@ -88,6 +90,7 @@ public class OrderManager : MonoBehaviour
         var order = orderObj.GetComponent<Order>();
         order.SetRecipe(recipe);
         order.queuePosition = _orders.Count;
+        order.queueStopX = queueStopX;
 
         _orders.Add(order);
 
