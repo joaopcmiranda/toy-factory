@@ -9,13 +9,14 @@ namespace player
     {
         public Transform holdSpot;
         public Camera mainCamera; // Assign the main camera in the Inspector
+        public AudioManager audioManager;
 
         private Item _itemHolding;
         private PlayerMovement _playerMovement;
         private MachineManager _machineManager;
         private ItemManager _itemManager;
 
-        private float pickUpRadius = 1;
+        private float pickUpRadius = 1.3f;
 
         private void Start()
         {
@@ -44,15 +45,18 @@ namespace player
                         if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
                         {
                             machine.HoldItem(DropItem(mouseWorldPos)); // Drop item into machine
+                            audioManager.PlayMachine();
                         }
                         else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
                         {
                             DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
+                            audioManager.PlayItem();
                         }
                     }
                     else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
                     {
                         DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
+                        audioManager.PlayItem();
                     }
                 }
                 else
@@ -66,10 +70,12 @@ namespace player
                         if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius && machine.IsHoldingItem())
                         {
                             TakeItemFromMachine(machine);  // Taking item from machine
+                            audioManager.PlayItem();
                         }
-                        else if (item && !item.IsHeldByMachine)
+                        else if (item && !item.IsHeldByMachine && Vector2.Distance(item.transform.position, transform.position) <= pickUpRadius)
                         {
                             PickUpItem(item);  // Picking up the item directly clicked
+                            audioManager.PlayItem();
                         }
                     }
                 }
