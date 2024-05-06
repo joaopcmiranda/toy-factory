@@ -30,12 +30,6 @@ namespace machines
             }
             item.DeleteItem();
         }
-
-        private void Update()
-        {
-            
-        }
-
     }
 
 }
