@@ -8,7 +8,6 @@ namespace machines
     public class Assembly : Machine
     {
         public List<Sprite> trainSprites;
-        public Timer timer;
         public ItemManager itemManager;
         public bool handAssembly;
 
@@ -26,6 +25,7 @@ namespace machines
         }
 
         private AssemblyMiniGame assemblyMiniGame;
+        public Timer timer;
 
         private string trainPartsTag = string.Empty;
 
@@ -34,7 +34,7 @@ namespace machines
             spriteRenderer = GetComponent<SpriteRenderer>();
             levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
 
-            if (handAssembly)
+            if (handAssembly) //hand assembly: minigame
             {
                 assemblyMiniGame = FindObjectOfType<AssemblyMiniGame>();
                 if (assemblyMiniGame == null)
@@ -42,6 +42,10 @@ namespace machines
                     Debug.LogError("No AssemblyMiniGame found in the scene, but handAssembly is set to true.");
                 }
             }
+            /*else //non hand assembly: timer
+            {
+                GameObject.FindWithTag("Assembly").GetComponent<Timer>();
+            }*/
         }
 
         public override void HoldItem(Item item)
@@ -97,10 +101,13 @@ namespace machines
 
         private void Update()
         {
-            if (timer.IsTimeUp() && _isHoldingTrainItems)
+            if (!handAssembly)
             {
-                TransformItem(itemHolding);
-                timer.ResetTimer();
+                if (timer.IsTimeUp() && _isHoldingTrainItems)
+                {
+                    FinishAssembly();
+                    timer.ResetTimer();
+                }
             }
         }
 
@@ -235,7 +242,17 @@ namespace machines
                     itemsHeld[i].DeleteItem();
                     itemsHeld.RemoveAt(i);
                 }
+
+                itemManager.RefreshItems();
+
+                _isHoldingParts = false;
+                _isHoldingWheels = false;
             }          
+        }
+
+        public void FinishAssembly()
+        {
+            TransformItem(itemHolding);
         }
     }
 }

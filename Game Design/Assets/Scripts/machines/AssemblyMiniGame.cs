@@ -29,7 +29,6 @@ public class AssemblyMiniGame : MonoBehaviour
         nails = GameObject.FindGameObjectsWithTag("NailIcon");
         assembly = FindObjectOfType<Assembly>();
         GameVisibility(false);
-        StartGame();
     }
 
     public void StartGame()
@@ -118,6 +117,7 @@ public class AssemblyMiniGame : MonoBehaviour
         {
             audioManager.PlayMachineComplete();
             EndGame();
+            assembly.FinishAssembly();
         }
         float randomY = Random.Range(0.3f, -0.43f);
         nail.transform.localPosition = new Vector3(nail.transform.localPosition.x, randomY, nail.transform.localPosition.z);
@@ -127,6 +127,7 @@ public class AssemblyMiniGame : MonoBehaviour
     {
         GameVisibility(false);
         gameEnabled = false;
+        nailCount = 0;
     }
 
     private void BreakItem()

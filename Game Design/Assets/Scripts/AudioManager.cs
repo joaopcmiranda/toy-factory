@@ -49,12 +49,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlayNailHammer()
     {
-        PlaySound(nailHammer, 2);
+        PlaySound(nailHammer, 1);
     }
 
     public void PlayBreakItem()
     {
-        PlaySound(negativeScore, 2);
+        PlaySound(negativeScore, 1);
     }
 
     private void PlaySound(AudioClip clip, int priority)
