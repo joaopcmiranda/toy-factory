@@ -10,7 +10,6 @@ namespace machines
         public Sprite trainSprite;
         public Timer timer;
 
-
         public override void HoldItem(Item item)
         {
             if (!item.CompareTag("Plastic")) return;
@@ -44,8 +43,22 @@ namespace machines
         private void TransformPlastic(Item item)
         {
             item.SetSprite(trainSprite);
-            item.tag = "TrainPartsPainted";
+
+            item.tag = "TrainPartsUnpainted";
             item.type = ItemType.UnpaintedTrainParts;
+
+            //you will need to start from the Game scene
+            switch (levelManager.GetLevelScene())
+            {
+                case 1:
+                    item.tag = "TrainPartsUnpainted";
+                    item.type = ItemType.UnpaintedTrainParts;
+                    break;
+                default:
+                    item.tag = "TrainPartsPainted";
+                    item.type = ItemType.PaintedTrainParts;
+                    break;
+            }
         }
     }
 }
