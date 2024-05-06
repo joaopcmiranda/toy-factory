@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip levelComplete;
     public AudioClip machineFinished;
     public AudioClip negativeScore;
+    public AudioClip nailHammer;
 
     private int currentPriority = 0;
 
@@ -42,6 +43,16 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayNegativeScore()
+    {
+        PlaySound(negativeScore, 2);
+    }
+
+    public void PlayNailHammer()
+    {
+        PlaySound(nailHammer, 2);
+    }
+
+    public void PlayBreakItem()
     {
         PlaySound(negativeScore, 2);
     }

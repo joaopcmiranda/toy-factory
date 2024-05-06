@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using machines;
 
 public class AssemblyMiniGame : MonoBehaviour
 {
     public GameObject movingBar;
     public GameObject nail;
+    public GameObject background;
 
     private float barSpeed;
     private float changeInterval = 2f;
@@ -14,40 +16,58 @@ public class AssemblyMiniGame : MonoBehaviour
 
     private bool nailClickable;
     private int nailCount = 0;
+    private bool gameEnabled = false;
+
+    private AudioManager audioManager;
+    private Assembly assembly;
+
+    private GameObject[] nails;
 
     private void Start()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
+        nails = GameObject.FindGameObjectsWithTag("NailIcon");
+        assembly = FindObjectOfType<Assembly>();
+        GameVisibility(false);
         StartGame();
     }
 
     public void StartGame()
     {
+        gameEnabled = true;
+        GameVisibility(true);
         barSpeed = Random.Range(0.3f, 1f) * (Random.Range(0, 2) * 2 - 1);
         StartCoroutine(RandomSpeedChange());
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (gameEnabled)
         {
-            if (nailClickable)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                nailCount++;
-                MoveNail();
+                if (nailClickable)
+                {
+                    audioManager.PlayNailHammer();
+                    RemoveNailIcon(nailCount);
+                    nailCount++;
+                    MoveNail();
+                }
+                else
+                {
+                    audioManager.PlayBreakItem();
+                    BreakItem();
+                }
             }
-            else
+
+            movingBar.transform.Translate(0, barSpeed * Time.deltaTime, 0);
+
+            if (movingBar.transform.localPosition.y > maxY || movingBar.transform.localPosition.y < minY)
             {
-                BreakItem();
+                barSpeed = -Mathf.Abs(barSpeed) * Mathf.Sign(movingBar.transform.localPosition.y - maxY);
+                movingBar.transform.localPosition = new Vector3(movingBar.transform.localPosition.x,
+                    Mathf.Clamp(movingBar.transform.localPosition.y, minY, maxY), movingBar.transform.localPosition.z);
             }
-        }
-
-        movingBar.transform.Translate(0, barSpeed * Time.deltaTime, 0);
-
-        if (movingBar.transform.localPosition.y > maxY || movingBar.transform.localPosition.y < minY)
-        {
-            barSpeed = -Mathf.Abs(barSpeed) * Mathf.Sign(movingBar.transform.localPosition.y - maxY);
-            movingBar.transform.localPosition = new Vector3(movingBar.transform.localPosition.x,
-                Mathf.Clamp(movingBar.transform.localPosition.y, minY, maxY), movingBar.transform.localPosition.z);
         }
     }
 
@@ -94,8 +114,9 @@ public class AssemblyMiniGame : MonoBehaviour
 
     private void MoveNail()
     {
-        if (nailCount >= 3)
+        if (nailCount >= 4)
         {
+            audioManager.PlayMachineComplete();
             EndGame();
         }
         float randomY = Random.Range(0.3f, -0.43f);
@@ -104,12 +125,31 @@ public class AssemblyMiniGame : MonoBehaviour
 
     private void EndGame()
     {
-
+        GameVisibility(false);
+        gameEnabled = false;
     }
 
     private void BreakItem()
     {
-
+        EndGame();
+        assembly.BreakItems();
+        audioManager.PlayBreakItem();
     }
 
+    private void GameVisibility(bool isGameVisible)
+    {
+        movingBar.GetComponent<SpriteRenderer>().enabled = isGameVisible;
+        nail.GetComponent<SpriteRenderer>().enabled = isGameVisible;
+        background.GetComponent<SpriteRenderer>().enabled = isGameVisible;
+
+        for (int i = 0; i < nails.Length; i++)
+        {
+            nails[i].GetComponent<SpriteRenderer>().enabled = isGameVisible;
+        }
+    }
+
+    private void RemoveNailIcon(int count)
+    {
+        nails[count].GetComponent<SpriteRenderer>().enabled = false;
+    }
 }
