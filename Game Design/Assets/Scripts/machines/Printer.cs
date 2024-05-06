@@ -44,19 +44,19 @@ namespace machines
         {
             item.SetSprite(trainSprite);
 
-            //item.tag = "TrainPartsUnpainted";
-            //item.type = ItemType.UnpaintedTrainParts;
+            item.tag = "TrainPartsUnpainted";
+            item.type = ItemType.UnpaintedTrainParts;
 
             //you will need to start from the Game scene
             switch (levelManager.GetLevelScene())
             {
-                case 0:
-                    item.tag = "TrainPartsPainted";
-                    item.type = ItemType.PaintedTrainParts;
-                    break;
-                default:
+                case 1:
                     item.tag = "TrainPartsUnpainted";
                     item.type = ItemType.UnpaintedTrainParts;
+                    break;
+                default:
+                    item.tag = "TrainPartsPainted";
+                    item.type = ItemType.PaintedTrainParts;
                     break;
             }
         }
