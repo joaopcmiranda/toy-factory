@@ -16,6 +16,7 @@ public class Order : MonoBehaviour
     public Canvas itemNameCanvas;
     public SpriteRenderer itemSprite;
     public int queuePosition;
+    public int queueStopX;
     public float speed = 0.5f;
     public ItemType deliveryItem
     {
@@ -63,7 +64,7 @@ public class Order : MonoBehaviour
             _orderManager.OrderExpired(this);
         }
 
-        if (transform.position.x > queuePosition + 5)
+        if (transform.position.x > queuePosition + queueStopX)
         {
             _transform.position += Vector3.left * (speed * deltaTime);
         }

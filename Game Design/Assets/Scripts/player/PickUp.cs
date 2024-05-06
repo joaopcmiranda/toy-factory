@@ -12,7 +12,7 @@ namespace player
         public AudioManager audioManager;
 
         private Item _itemHolding;
-        private PlayerMovement _playerMovement;
+        private Character _character;
         private MachineManager _machineManager;
         private ItemManager _itemManager;
 
@@ -20,9 +20,10 @@ namespace player
 
         private void Start()
         {
-            _playerMovement = GetComponent<PlayerMovement>();
+            _character = GetComponent<Character>();
             _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
             _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager>();
+            audioManager = FindObjectOfType<AudioManager>();
             if (!mainCamera)
                 mainCamera = Camera.main; // Ensure there is a main camera
         }

@@ -425,8 +425,8 @@ InputManager:
     m_Name: Debug Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
+    negativeButton: j
+    positiveButton: l
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -441,8 +441,8 @@ InputManager:
     m_Name: Debug Vertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: k
+    positiveButton: i
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -485,3 +485,4 @@ InputManager:
     type: 2
     axis: 5
     joyNum: 0
+  m_UsePhysicalKeys: 1
