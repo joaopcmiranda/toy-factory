@@ -1,4 +1,5 @@
 ﻿using items;
+using managers;
 using UnityEngine;
 namespace machines
 {
@@ -8,11 +9,13 @@ namespace machines
         public float dropRadius = 1.5f;
 
         protected SpriteRenderer spriteRenderer;
+        protected LevelManager levelManager;
         protected Item itemHolding;
 
         public virtual void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
         }
 
         public void SetMachineColor(Color color)
