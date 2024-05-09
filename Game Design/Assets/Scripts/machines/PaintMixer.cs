@@ -9,6 +9,7 @@ namespace machines
     public class PaintMixer : Machine
     {
         public List<Sprite> paintSprites;
+        public List<Sprite> paintMixerSprites;
         public Timer timer;
         public ItemManager itemManager;
 
@@ -55,6 +56,8 @@ namespace machines
                 timerStarted = true;
                 //timer.StartTimer(0); //instant timer
                 timer.StartTimer(5);
+
+                spriteRenderer.sprite = paintMixerSprites[1];
             }
         }
 
@@ -67,6 +70,8 @@ namespace machines
 
                 timer.ResetTimer();
                 timerStarted = false;
+
+                spriteRenderer.sprite = paintMixerSprites[0];
             }
         }
 
