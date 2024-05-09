@@ -36,6 +36,9 @@
         CyanTrain,
         PinkTrain,
         OrangeTrain,
-        PurpleTrain
+        PurpleTrain,
+        WoodenLog,
+        WoodenBlock,
+        WoodenTrain
     }
 }

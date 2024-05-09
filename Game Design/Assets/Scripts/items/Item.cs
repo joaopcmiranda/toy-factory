@@ -70,6 +70,12 @@ namespace items
         {
             Destroy(gameObject);
             _itemManager?.RefreshItems();
-        }        
+        }
+        
+        public Sprite getSprite()
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            return _spriteRenderer.sprite;
+        }
     }
 }
