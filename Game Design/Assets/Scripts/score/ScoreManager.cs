@@ -7,15 +7,21 @@ namespace score
 
         public Text scoreText;
         public int score;
-        public AudioManager audioManager;
+        public bool tutorial;
 
-        /*private void Start()
+        private AudioManager audioManager;
+
+        private void Start()
         {
-            score = 0;
-            scoreText.text = "Score: " + score;
-        }*/
+            if (!tutorial)
+            {
+                score = 0;
+                scoreText.text = "Score: " + score;
+            }
+            audioManager = FindObjectOfType<AudioManager>();
+        }
 
-        //For tutorial. can be deleted for other levels.
+        //For tutorial
         public void StartScore()
         {
             score = 0;
