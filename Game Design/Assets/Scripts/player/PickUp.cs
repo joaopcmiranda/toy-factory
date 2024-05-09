@@ -8,13 +8,13 @@ namespace player
     public class PickUp : MonoBehaviour
     {
         public Transform holdSpot;
-        public Camera mainCamera; // Assign the main camera in the Inspector
-        public AudioManager audioManager;
+        public Camera mainCamera; // Assign the main camera in the Inspector       
 
         private Item _itemHolding;
         private Character _character;
         private MachineManager _machineManager;
         private ItemManager _itemManager;
+        private AudioManager audioManager;
 
         private float pickUpRadius = 1.3f;
 
