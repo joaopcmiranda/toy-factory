@@ -8,8 +8,8 @@ namespace machines
     public class Assembly : Machine
     {
         public List<Sprite> trainSprites;
-        public Timer timer;
         public ItemManager itemManager;
+        public bool handAssembly;       
 
         private List<Item> itemsHeld = new List<Item>();
         private Item finalProduct = null; //item that the machine produces for consistent scale
@@ -24,7 +24,35 @@ namespace machines
             }
         }
 
+        private AssemblyMiniGame assemblyMiniGame;
+        private AssemblyTutorial assemblyTutorial;
+        public Timer timer;
+
         private string trainPartsTag = string.Empty;
+
+        public override void Start()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
+
+            if (handAssembly) //hand assembly: minigame
+            {
+                assemblyMiniGame = FindObjectOfType<AssemblyMiniGame>();
+                if (assemblyMiniGame == null)
+                {
+                    Debug.LogError("No AssemblyMiniGame found in the scene, but handAssembly is set to true.");
+                }
+                assemblyTutorial = FindObjectOfType<AssemblyTutorial>();
+                if (assemblyTutorial == null)
+                {
+                    Debug.LogError("No AssemblyTutorial found in the scene, but handAssembly is set to true.");
+                }
+            }
+            /*else //non hand assembly: timer
+            {
+                GameObject.FindWithTag("Assembly").GetComponent<Timer>();
+            }*/
+        }
 
         public override void HoldItem(Item item)
         {
@@ -66,17 +94,26 @@ namespace machines
 
             if (_isHoldingTrainItems)
             {
-                //timer.StartTimer(0); //instant timer
-                timer.StartTimer(5);
+                if (handAssembly)
+                {
+                    ManualAssembly();
+                }
+                else
+                {
+                    timer.StartTimer(5);
+                }
             }
         }
 
         private void Update()
         {
-            if (timer.IsTimeUp() && _isHoldingTrainItems)
+            if (!handAssembly)
             {
-                TransformItem(itemHolding);
-                timer.ResetTimer();
+                if (timer.IsTimeUp() && _isHoldingTrainItems)
+                {
+                    FinishAssembly();
+                    timer.ResetTimer();
+                }
             }
         }
 
@@ -195,6 +232,34 @@ namespace machines
             }
 
             return trainTag;
+        }
+
+        private void ManualAssembly()
+        {
+            assemblyMiniGame.StartGame();
+            assemblyTutorial.StartTutorial();
+        }
+
+        public void BreakItems()
+        {
+            if (itemsHeld.Count > 1)
+            {
+                for (int i = (itemsHeld.Count - 1); i >= 0; i--)
+                {
+                    itemsHeld[i].DeleteItem();
+                    itemsHeld.RemoveAt(i);
+                }
+
+                itemManager.RefreshItems();
+
+                _isHoldingParts = false;
+                _isHoldingWheels = false;
+            }          
+        }
+
+        public void FinishAssembly()
+        {
+            TransformItem(itemHolding);
         }
     }
 }

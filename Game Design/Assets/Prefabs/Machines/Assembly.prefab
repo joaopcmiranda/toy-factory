@@ -445,6 +445,8 @@ GameObject:
   - component: {fileID: 7411239827618731204}
   - component: {fileID: 5410026477783589824}
   - component: {fileID: 6860521167583296818}
+  - component: {fileID: 329300117387031806}
+  - component: {fileID: 7287414730976469279}
   m_Layer: 6
   m_Name: Assembly
   m_TagString: Station
@@ -509,7 +511,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1014742063
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bd096883cbb0b4e59ba899778527c616, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -580,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdSpot: {fileID: 40102710884924225}
-  dropRadius: 1.4
+  dropRadius: 1.5
   trainSprites:
   - {fileID: -1982805393, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
   - {fileID: -668074646, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
@@ -591,8 +593,8 @@ MonoBehaviour:
   - {fileID: -1340828792, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
   - {fileID: -266812512, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
   - {fileID: -1812844244, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
-  timer: {fileID: 5410026477783589824}
   itemManager: {fileID: 0}
+  handAssembly: 0
 --- !u!114 &5410026477783589824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +627,64 @@ MonoBehaviour:
   stationNameCanvas: {fileID: 8029184642019763512}
   stationNameText: {fileID: 6110374525608719933}
   stationName: Assembly Station
+--- !u!61 &329300117387031806
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530594936803879668}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 16, y: 16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &7287414730976469279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530594936803879668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841529f9cad34c7d9dc199b3f3024192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 2
 --- !u!1 &4019946965419707774
 GameObject:
   m_ObjectHideFlags: 0
