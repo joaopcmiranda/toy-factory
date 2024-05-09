@@ -9,7 +9,7 @@ namespace machines
     {
         public List<Sprite> trainSprites;
         public ItemManager itemManager;
-        public bool handAssembly;
+        public bool handAssembly;       
 
         private List<Item> itemsHeld = new List<Item>();
         private Item finalProduct = null; //item that the machine produces for consistent scale
@@ -25,6 +25,7 @@ namespace machines
         }
 
         private AssemblyMiniGame assemblyMiniGame;
+        private AssemblyTutorial assemblyTutorial;
         public Timer timer;
 
         private string trainPartsTag = string.Empty;
@@ -40,6 +41,11 @@ namespace machines
                 if (assemblyMiniGame == null)
                 {
                     Debug.LogError("No AssemblyMiniGame found in the scene, but handAssembly is set to true.");
+                }
+                assemblyTutorial = FindObjectOfType<AssemblyTutorial>();
+                if (assemblyTutorial == null)
+                {
+                    Debug.LogError("No AssemblyTutorial found in the scene, but handAssembly is set to true.");
                 }
             }
             /*else //non hand assembly: timer
@@ -231,6 +237,7 @@ namespace machines
         private void ManualAssembly()
         {
             assemblyMiniGame.StartGame();
+            assemblyTutorial.StartTutorial();
         }
 
         public void BreakItems()
