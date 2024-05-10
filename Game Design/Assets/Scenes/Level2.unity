@@ -216,6 +216,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: tutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
       propertyPath: dropRadius
       value: 1.5
       objectReference: {fileID: 0}
@@ -2852,7 +2856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1698953792}
   score: 0
-  audioManager: {fileID: 499877729}
+  tutorial: 0
 --- !u!1001 &717187510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4912,7 +4916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -122, y: 267}
+  m_AnchoredPosition: {x: -121.99997, y: 267}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966395724
