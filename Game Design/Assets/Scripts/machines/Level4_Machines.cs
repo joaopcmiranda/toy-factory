@@ -11,11 +11,11 @@ namespace machines
         public Level4_minigame miniGame;
         public List<Item> requiredItems = new List<Item>();
         public Item outputItem;
-        public bool requireSecondItem;
-        public bool requiredFulfilled; 
+        public bool requiredFulfilled;
+        public bool requiresMultiple; 
         public int gameOption;
         
-        private List<Item> itemsHeld = new List<Item>();
+        public List<Item> itemsHeld = new List<Item>();
 
         public bool hasRequiredItems()
         {
@@ -54,6 +54,7 @@ namespace machines
 
         public override void HoldItem(Item item)
         {
+            Debug.Log("HoldItem");
             item.PickUp(holdSpot);
             item.IsHeldByMachine = true;
 
@@ -73,35 +74,29 @@ namespace machines
 
         public override Item TakeItemFromMachine()
         {
+            Debug.Log("TakeItemFromMachine");
             StopManualAssembly(); 
             var item = base.TakeItemFromMachine();
             itemsHeld.Remove(item);
 
             requiredFulfilled = hasRequiredItems();
 
-
-
-            if (itemsHeld.Count > 0) itemHolding = itemsHeld[itemsHeld.Count - 1];
+            //if (itemsHeld.Count > 0) itemHolding = itemsHeld[itemsHeld.Count - 1];
 
             return item;
         }
 
         public void TransformItem(Item item)
         {
+            Debug.Log("TransformItem");
             item.tag = outputItem.type.ToString();
             item.SetSprite(outputItem.getSprite());
             item.type = outputItem.type;
 
-            for (int i = (itemsHeld.Count - 1); i >= 0; i--)
-            {
-                if (itemsHeld[i] != item)
-                {
-                    itemsHeld[i].DeleteItem();
-                    itemsHeld.RemoveAt(i);
-                }
-            }
+            itemsHeld.Remove(item);
 
             itemManager.RefreshItems();
+            HoldItem(item); 
         }
 
         private void StartManualAssembly()
@@ -116,6 +111,7 @@ namespace machines
 
         public void BreakItems()
         {
+            Debug.Log("BreakItems");
             if (itemsHeld.Count > 1)
             {
                 for (int i = (itemsHeld.Count - 1); i >= 0; i--)
@@ -131,6 +127,7 @@ namespace machines
 
         public void FinishAssembly()
         {
+            Debug.Log("FinishAssembly");
             TransformItem(itemHolding);
         }
 

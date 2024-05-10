@@ -39,6 +39,8 @@
         PurpleTrain,
         WoodenLog,
         WoodenBlock,
-        WoodenTrain
+        TrainBody,
+        WoodenTrain,
+        PaintedTrain
     }
 }

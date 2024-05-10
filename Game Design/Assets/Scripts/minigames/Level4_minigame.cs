@@ -64,7 +64,6 @@ public class Level4_minigame : MonoBehaviour
             {
                 gameEnabled = false;
             }
-            //gameEnabled if within a distance
             if (gameEnabled)
             {
                 if (Input.GetKeyDown(KeyCode.E))
