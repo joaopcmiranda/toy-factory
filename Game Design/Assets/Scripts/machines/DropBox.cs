@@ -16,20 +16,16 @@ namespace machines
             orderManager = FindObjectOfType<OrderManager>();
             scoreManager = FindObjectOfType<ScoreManager>();
         }
+
         public override void HoldItem(Item item)
         {
-
             var success = orderManager.FinishOrder(item);
-            if (success)
-            {
-                Debug.Log("Delivered");
-            }
-            else
+
+            if (!success)
             {
                 scoreManager.DecreaseScore(100);
             }
             item.DeleteItem();
         }
     }
-
 }
