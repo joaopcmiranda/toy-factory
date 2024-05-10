@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -11,31 +9,32 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public Image fill;
     public Image outer;
-    private bool timerActive = false;
     public float max;
-    private AudioManager audioManager;
+
+    private bool _timerActive;
+    private AudioManager _audioManager;
 
     private void Start()
     {
         ShowTimer(false);
-        audioManager = FindObjectOfType<AudioManager>();
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void StartTimer(float duration)
     {
         time = duration;
-        timerActive = true;
+        _timerActive = true;
         ShowTimer(true);
     }
 
     public bool IsTimeUp()
     {
-        return !timerActive;
+        return !_timerActive;
     }
 
     public void ResetTimer()
     {
-        timerActive = false;
+        _timerActive = false;
         time = 0;
         ShowTimer(false);
     }
@@ -43,16 +42,16 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!timerActive) return;
+        if (!_timerActive) return;
 
         time -= Time.deltaTime;
         UpdateTimerUI();
 
         if (time <= 0)
         {
-            audioManager.PlayMachineComplete();
+            _audioManager.PlayMachineComplete();
             time = 0;
-            timerActive = false;
+            _timerActive = false;
             ShowTimer(false);
         }
     }

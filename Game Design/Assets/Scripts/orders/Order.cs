@@ -93,5 +93,5 @@ public class Order : MonoBehaviour
     private void ShowItemName(bool show)
     {
         itemNameCanvas.enabled = show;
-    }
+    }           
 }

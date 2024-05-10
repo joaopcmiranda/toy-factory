@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace machines
+namespace stations
 {
     public class RevealPlayerRadius : MonoBehaviour
     {

@@ -1,24 +1,24 @@
 using System;
 using System.Collections.Generic;
-using machines;
+using items.handling;
 using UnityEngine;
 
 namespace managers
 {
-    public class MachineManager : MonoBehaviour
+    public class StationManager : MonoBehaviour
     {
         public List<GameObject> machines;
-        private readonly List<Tuple<GameObject, Machine>> _machines = new List<Tuple<GameObject, Machine>>();
+        private readonly List<Tuple<GameObject, IItemHandler>> _machines = new List<Tuple<GameObject, IItemHandler>>();
 
-        private List<Tuple<GameObject, Machine>> machinesInRadius = new List<Tuple<GameObject, Machine>>();
-        private Machine _previouslyHighlightedMachine;
+        private List<Tuple<GameObject, IItemHandler>> machinesInRadius = new List<Tuple<GameObject, IItemHandler>>();
+        private IItemHandler _previouslyHighlightedMachine;
         private float dropRadius = 1.5f;
 
         private void Start()
         {
             foreach (var machine in machines)
             {
-                _machines.Add(new Tuple<GameObject, Machine>(machine, machine.GetComponent<Machine>()));
+                _machines.Add(new Tuple<GameObject, IItemHandler>(machine, machine.GetComponent<IItemHandler>()));
             }
         }
 
@@ -49,7 +49,7 @@ namespace managers
 
             if (hit.collider != null)
             {
-                Machine machineComponent = hit.collider.GetComponent<Machine>();
+                IItemHandler machineComponent = hit.collider.GetComponent<IItemHandler>();
 
                 foreach (var machine in machinesInRadius)
                 {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using items.handling;
+using UnityEngine;
 using managers;
 
 namespace items
@@ -9,7 +10,7 @@ namespace items
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
         private static ItemManager _itemManager;
-        public bool IsHeldByMachine { get; set; }
+        private IItemHandler _heldBy;
 
         private void Awake()
         {
@@ -25,11 +26,6 @@ namespace items
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        private void Update()
-        {
-            
-        }
-
         public void SetItemColor(Color color)
         {
             if (_spriteRenderer)
@@ -38,7 +34,7 @@ namespace items
             }
         }
 
-        public void PickUp(Transform holdSpot)
+        public void PickUp(IItemHandler holder, Transform holdSpot)
         {
             if (_rigidbody2D)
             {
@@ -47,6 +43,7 @@ namespace items
 
             transform.position = holdSpot.position;
             transform.SetParent(holdSpot);
+            _heldBy = holder;
             _itemManager?.RefreshItems();
         }
 
@@ -58,6 +55,7 @@ namespace items
             }
 
             transform.SetParent(null);
+            _heldBy = null;
             _itemManager?.RefreshItems();
         }
 
@@ -70,6 +68,6 @@ namespace items
         {
             Destroy(gameObject);
             _itemManager?.RefreshItems();
-        }        
+        }
     }
 }

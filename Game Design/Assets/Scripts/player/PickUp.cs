@@ -1,4 +1,5 @@
 using items;
+using items.handling;
 using machines;
 using managers;
 using UnityEngine;
@@ -8,11 +9,11 @@ namespace player
     public class PickUp : MonoBehaviour
     {
         public Transform holdSpot;
-        public Camera mainCamera; // Assign the main camera in the Inspector       
+        public Camera mainCamera; // Assign the main camera in the Inspector
 
         private Item _itemHolding;
         private Character _character;
-        private MachineManager _machineManager;
+        private StationManager _stationManager;
         private ItemManager _itemManager;
         private AudioManager audioManager;
 
@@ -21,7 +22,7 @@ namespace player
         private void Start()
         {
             _character = GetComponent<Character>();
-            _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
+            _stationManager = GameObject.FindWithTag("MachineManager").GetComponent<StationManager>();
             _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager>();
             audioManager = FindObjectOfType<AudioManager>();
             if (!mainCamera)
@@ -30,7 +31,7 @@ namespace player
 
         void Update()
         {
-            _machineManager.HighlightMousedOverMachineWithinRadius(transform);
+            _stationManager.HighlightMousedOverMachineWithinRadius(transform);
 
             if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
@@ -42,7 +43,7 @@ namespace player
                     // Attempt to drop the item either on the ground or into a machine if within range
                     if (hit.collider != null)
                     {
-                        Machine machine = hit.collider.GetComponent<Machine>();
+                        IItemHandler machine = hit.collider.GetComponent<IItemHandler>();
                         if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
                         {
                             machine.HoldItem(DropItem(mouseWorldPos)); // Drop item into machine
@@ -66,7 +67,7 @@ namespace player
                     if (hit.collider != null)
                     {
                         Item item = hit.collider.GetComponent<Item>();
-                        Machine machine = hit.collider.GetComponent<Machine>();
+                        IItemHandler machine = hit.collider.GetComponent<IItemHandler>();
 
                         if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius && machine.IsHoldingItem())
                         {
@@ -103,7 +104,7 @@ namespace player
             _itemHolding = item;
         }
 
-        private void TakeItemFromMachine(Machine machine)
+        private void TakeItemFromMachine(IItemHandler machine)
         {
             _itemHolding = machine.TakeItemFromMachine();
             _itemHolding.PickUp(holdSpot);
