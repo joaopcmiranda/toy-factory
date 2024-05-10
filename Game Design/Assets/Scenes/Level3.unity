@@ -8064,7 +8064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 113448590}
   score: 0
-  audioManager: {fileID: 1817128007}
+  tutorial: 0
 --- !u!4 &1770780696
 Transform:
   m_ObjectHideFlags: 0
@@ -8132,6 +8132,7 @@ MonoBehaviour:
   levelComplete: {fileID: 8300000, guid: c34dd645306fb4dabb2a7b1ff2113d09, type: 3}
   machineFinished: {fileID: 8300000, guid: aa92c19b83dd744ebb2a7440e5bc8db5, type: 3}
   negativeScore: {fileID: 8300000, guid: c332b84a65b03451fb028299456994b2, type: 3}
+  nailHammer: {fileID: 0}
 --- !u!1001 &1824692690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9047,6 +9048,10 @@ PrefabInstance:
       propertyPath: itemManager
       value: 
       objectReference: {fileID: 1460223117}
+    - target: {fileID: 7411239827618731204, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
+      propertyPath: handAssembly
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7660301259809625771, guid: b83d18715bb781c45afcdb58c60d9616, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
