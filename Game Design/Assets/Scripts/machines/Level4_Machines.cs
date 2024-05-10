@@ -2,6 +2,7 @@ using items;
 using UnityEngine;
 using managers;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace machines
 {
@@ -81,7 +82,7 @@ namespace machines
 
             requiredFulfilled = hasRequiredItems();
 
-            //if (itemsHeld.Count > 0) itemHolding = itemsHeld[itemsHeld.Count - 1];
+            if (itemsHeld.Count > 0) itemHolding = itemsHeld[itemsHeld.Count - 1];
 
             return item;
         }
@@ -89,14 +90,34 @@ namespace machines
         public void TransformItem(Item item)
         {
             Debug.Log("TransformItem");
-            item.tag = outputItem.type.ToString();
-            item.SetSprite(outputItem.getSprite());
-            item.type = outputItem.type;
+            itemsHeld[0].tag = outputItem.type.ToString();
 
-            itemsHeld.Remove(item);
+            //Set sprite 
+            //Set sprite size 
 
-            itemManager.RefreshItems();
-            HoldItem(item); 
+            itemsHeld[0].SetSprite(outputItem.getSpriteRenderer().sprite);
+            itemsHeld[0].setSpriteSize(new Vector3(2f, 2f, 2f));
+
+            itemsHeld[0].type = outputItem.type;
+
+            
+            if (itemsHeld.Count > 1)
+            {
+                for (int i = (itemsHeld.Count - 1); i > 0; i--)
+                {
+                    itemsHeld[i].DeleteItem();
+                    itemsHeld.RemoveAt(i);
+                }
+
+                itemManager.RefreshItems();
+                itemsHeld[0].PickUp(holdSpot);
+                itemsHeld[0].IsHeldByMachine = true;
+
+                itemHolding = item;
+                //itemsHeld.Add(item);
+                //HoldItem(itemsHeld[0]);
+
+            }
         }
 
         private void StartManualAssembly()
