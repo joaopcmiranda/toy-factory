@@ -12,9 +12,39 @@ namespace machines
         public List<Item> requiredItems = new List<Item>();
         public Item outputItem;
         public bool requireSecondItem;
+        public bool requiredFulfilled; 
         public int gameOption;
         
         private List<Item> itemsHeld = new List<Item>();
+
+        public bool hasRequiredItems()
+        {
+            // Iterate through each required item
+            foreach (var requiredItem in requiredItems) 
+            {
+
+                // Check if the required item is not in itemsHeld
+                bool found = false;
+                foreach (var heldItem in itemsHeld)
+                {
+   
+                    if (requiredItem.type == heldItem.type)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                // If any required item is not found in itemsHeld, return false
+                if (!found)
+                {
+                    return false;
+                }
+            }
+            // If all required items are found in itemsHeld, return true
+            return true;
+
+        }
 
         public override void Start()
         {
@@ -30,9 +60,14 @@ namespace machines
             itemHolding = item;
             itemsHeld.Add(item);
 
-            if(item.type == requiredItems[0].type)
+            requiredFulfilled = hasRequiredItems(); 
+
+            if(requiredFulfilled)
             {
                 StartManualAssembly();
+            } else
+            {
+                StopManualAssembly();
             }
         }
 
@@ -41,6 +76,10 @@ namespace machines
             StopManualAssembly(); 
             var item = base.TakeItemFromMachine();
             itemsHeld.Remove(item);
+
+            requiredFulfilled = hasRequiredItems();
+
+
 
             if (itemsHeld.Count > 0) itemHolding = itemsHeld[itemsHeld.Count - 1];
 

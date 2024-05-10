@@ -10,63 +10,75 @@ public class Level4_minigame : MonoBehaviour
     private Item item;
     //FIND A WAY TO FIND THIS PROGRAMMATICALLY
     public Level4_Machines machine;
-    //public MachineManager machineManager;
+    public MachineManager machineManager;
 
     //getplayerdistance
 
     public bool gameEnabled = false;
+    public bool gameStarted = false; 
 
     //private AudioManager audioManager;
 
     private void Start()
     {
+
         //machine = FindObjectOfType<Level4_Machines>();
         GameVisibility(false);
+    }
+
+    bool IsGameObjectInRange(Level4_Machines searchMachine)
+    {
+        foreach (var tuple in machineManager.getMachinesInRadius())
+        {
+            if (tuple.Item2 == searchMachine)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void StartGame()
     {
         Debug.Log("Starting Minigame!!!");
-        gameEnabled = true;
+        gameStarted = true;
 
     }
 
     public void StopGame()
     {
         Debug.Log("Stopping Minigame!!!");
-        gameEnabled = false;
+        gameStarted = false;
 
     }
 
     private void Update()
     {
-        //gameEnabled if within a distance
-        if (gameEnabled)
+        if (gameStarted)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (IsGameObjectInRange(machine))
             {
-                machine.TransformItem(machine.getItem()); 
-                Debug.Log("Chop!");
+                gameEnabled = true;
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject == item)
+            else
+            {
+                gameEnabled = false;
+            }
+            //gameEnabled if within a distance
+            if (gameEnabled)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    machine.TransformItem(machine.getItem());
+                    Debug.Log("Chop!");
+                    machine.requiredFulfilled = false;
+                }
+            }
+        } 
+        else
         {
-            //clickable = true;
-            Debug.Log("Enter2D");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject == item)
-        {
-            //clickable = false;
-            Debug.Log("Exit2D");
-        }
+            gameEnabled = false; 
+        }      
     }
 
     private void EndGame()
