@@ -9,6 +9,7 @@ namespace recipes
         public int timeLimit { get; }
         public int points { get; }
         public ItemType deliveryItem { get; }
+        public bool recreateRecipe { get; set; }
 
         public Sprite GetIcon();
     }

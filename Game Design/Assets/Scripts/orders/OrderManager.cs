@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,11 +80,15 @@ public class OrderManager : MonoBehaviour
         {
             return;
         }
+
         var recipe = singleOrderLevel ? _recipes.First() : GetRecipe(force);
 
         if (recipe == null)
         {
             return;
+        } else
+        {
+            recipe.recreateRecipe = true;
         }
 
         var orderObj = Instantiate(orderPrefab, orderEntryPoint.position, orderEntryPoint.rotation, transform);
@@ -93,12 +98,19 @@ public class OrderManager : MonoBehaviour
         order.queueStopX = queueStopX;
 
         _orders.Add(order);
-
     }
 
     public bool FinishOrder(Item delivery)
     {
+        Debug.LogWarning("_orders: " + _orders.Count);
+        for (int i = 0; i < _orders.Count; i++)
+        {
+            Debug.Log(_orders[i].deliveryItem);
+        }
+        Debug.LogWarning(delivery.ToString());
+        Debug.Log(delivery.type);
         var order = _orders.Find(o => o.deliveryItem == delivery.type);
+        Debug.Log(order);
 
         if (order == null)
             return false;

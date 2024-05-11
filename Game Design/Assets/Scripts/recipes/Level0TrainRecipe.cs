@@ -9,6 +9,8 @@ namespace recipes
         public int frequency { get; set; } = 1;
         public int timeLimit { get; set; } = 60;
         public int points { get; set; } = 100;
+        public bool recreateRecipe { get; set; } = false;
+
         public Sprite trainIcon;
         public ItemType deliveryItem
         {

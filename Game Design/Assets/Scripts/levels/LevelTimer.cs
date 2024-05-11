@@ -13,7 +13,7 @@ public class LevelTimer : MonoBehaviour
     private void Start()
     {
         //StartTimer(time);
-        //level = FindObjectOfType<LevelManager>();
+        level = FindObjectOfType<LevelManager>();
         audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -29,7 +29,7 @@ public class LevelTimer : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 1)
         {
-            //audioManager.PlayLevelComplete();
+            audioManager.PlayLevelComplete();
             //SceneManager.LoadScene("LevelEnd");
             level.LoadAfterLevelPlayed();
         } else

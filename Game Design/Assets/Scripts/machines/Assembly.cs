@@ -204,39 +204,27 @@ namespace machines
 
         private string SetTrainTag()
         {
-            string trainTag = string.Empty;
             switch (trainPartsTag)
             {
                 case "RedTrainParts":
-                    trainTag = "RedTrain";
-                    break;
+                    return "RedTrain";
                 case "GreenTrainParts":
-                    trainTag = "GreenTrain";
-                    break;
+                    return "GreenTrain";
                 case "BlueTrainParts":
-                    trainTag = "BlueTrain";
-                    break;
+                    return "BlueTrain";
                 case "YellowTrainParts":
-                    trainTag = "YellowTrain";
-                    break;
+                    return "YellowTrain";
                 case "CyanTrainParts":
-                    trainTag = "CyanTrain";
-                    break;
+                    return "CyanTrain";
                 case "PinkTrainParts":
-                    trainTag = "PinkTrain";
-                    break;
+                    return "PinkTrain";
                 case "OrangeTrainParts":
-                    trainTag = "OrangeTrain";
-                    break;
+                    return "OrangeTrain";
                 case "PurpleTrainParts":
-                    trainTag = "PurpleTrain";
-                    break;
+                    return "PurpleTrain";
                 default:
-                    trainTag = "Train";
-                    break;
+                    return "Train";
             }
-
-            return trainTag;
         }
 
         private void ManualAssembly()
