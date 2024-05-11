@@ -8,9 +8,8 @@ namespace recipes
     {
         public string recipeName { get; set; } = "Plastic Train";
         public int frequency { get; set; } = 1;
-        public int timeLimit { get; set; } = 60;
+        public int timeLimit { get; set; } = 90;
         public int points { get; set; } = 100;
-
         public bool recreateRecipe { get; set; } = false;
 
         public List<Sprite> trainIcons;
@@ -25,25 +24,17 @@ namespace recipes
 
         private void Awake()
         {
-            trainIndex = Random.Range(0, trainIcons.Count);
             gameObject.GetComponent<OrderManager>().RegisterRecipe(this);
         }
 
-        private void Start()
+        void Update ()
         {
-            createRecipe();
+            if (recreateRecipe) { createRecipe(); }
         }
 
-        void Update()
+        public void createRecipe()
         {
-            if (recreateRecipe)
-            {
-                createRecipe();
-            }
-        }
-
-        void createRecipe()
-        {
+            trainIndex = Random.Range(0, trainIcons.Count);
             Debug.LogWarning("trainIndex: " + trainIndex);
             switch (trainIndex)
             {
@@ -86,7 +77,6 @@ namespace recipes
             }
             Debug.Log(recipeName);
             Debug.Log(deliveryItem);
-            trainIndex = Random.Range(0, trainIcons.Count);
 
             recreateRecipe = false;
         }

@@ -190,9 +190,9 @@ namespace machines
             else if (countRedPigment == 1 && countBluePigment == 1) paintTag = "PinkPaint";
             else if (countRedPigment == 2 && countGreenPigment == 1) paintTag = "OrangePaint";
             else if (countGreenPigment == 1 && countBluePigment == 2) paintTag = "PurplePaint";
-            else if (countRedPigment != 0) paintTag = "RedPaint";
-            else if (countGreenPigment != 0) paintTag = "GreenPaint";
-            else if (countBluePigment != 0) paintTag = "BluePaint";
+            else if (countRedPigment > countGreenPigment && countRedPigment > countBluePigment) paintTag = "RedPaint";
+            else if (countGreenPigment > countRedPigment && countGreenPigment > countBluePigment) paintTag = "GreenPaint";
+            else if (countBluePigment > countRedPigment && countBluePigment > countGreenPigment) paintTag = "BluePaint";
 
             return paintTag;
         }
