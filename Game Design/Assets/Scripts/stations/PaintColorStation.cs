@@ -15,7 +15,6 @@ namespace stations
         private bool _trainPartsHeld;
 
         private SpriteRenderer _spriteRenderer;
-        private bool _timerStarted;
 
         public override void Start()
         {
@@ -67,7 +66,6 @@ namespace stations
 
             if (_paintHeld && _trainPartsHeld)
             {
-                _timerStarted = true;
                 timer.StartTimer(5);
             }
             return returnItem;
@@ -95,12 +93,11 @@ namespace stations
 
         private void Update()
         {
-            if (timer.IsTimeUp() && _timerStarted)
+            if (timer.IsTimeUp() && timer.IsActive())
             {
                 Transform();
 
                 timer.ResetTimer();
-                _timerStarted = false;
             }
         }
 

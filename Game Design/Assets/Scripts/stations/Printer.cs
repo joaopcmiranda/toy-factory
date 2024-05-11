@@ -38,7 +38,7 @@ namespace stations
 
         private void Update()
         {
-            if (timer.IsTimeUp())
+            if (timer.IsTimeUp() && timer.IsActive())
             {
                 Transform();
                 timer.ResetTimer();
@@ -48,7 +48,7 @@ namespace stations
         private void Transform()
         {
             ReleaseLastItem()
-                .DeleteItem();
+                ?.DeleteItem();
 
             ItemType outputType;
             //you will need to start from the Game scene

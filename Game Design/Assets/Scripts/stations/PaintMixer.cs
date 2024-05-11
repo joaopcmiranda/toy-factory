@@ -13,7 +13,6 @@ namespace stations
         public Timer timer;
 
         private bool _paintMixtureLoaded; // will start the machine
-        private bool _timerStarted;
 
         public override Item GetItem()
         {
@@ -39,7 +38,6 @@ namespace stations
             }
             if (_paintMixtureLoaded && GetHeldItemCount() > 0)
             {
-                _timerStarted = true;
                 timer.StartTimer(5);
                 spriteRenderer.sprite = paintMixerSprites[1];
             }
@@ -64,12 +62,11 @@ namespace stations
 
         private void Update()
         {
-            if (timer.IsTimeUp() && _timerStarted)
+            if (timer.IsTimeUp() && timer.IsActive())
             {
                 Transform();
 
                 timer.ResetTimer();
-                _timerStarted = false;
 
                 spriteRenderer.sprite = paintMixerSprites[0];
             }

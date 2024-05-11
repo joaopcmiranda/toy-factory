@@ -123,7 +123,7 @@ namespace stations
         {
             if (!handAssembly)
             {
-                if (timer.IsTimeUp() && isHoldingTrainItems)
+                if (timer.IsActive() && timer.IsTimeUp() && isHoldingTrainItems)
                 {
                     Transform();
                     timer.ResetTimer();

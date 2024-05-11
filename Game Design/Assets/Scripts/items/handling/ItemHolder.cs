@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace items.handling
 {
-    public abstract class ItemHolder : Selectable, IItemHandler
+    public abstract class ItemHolder : MonoBehaviour, IItemHandler
     {
         public List<Transform> holdSpots;
 

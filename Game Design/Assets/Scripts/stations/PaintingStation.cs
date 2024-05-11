@@ -55,7 +55,7 @@ namespace stations
 
         private void Update()
         {
-            if (timer.IsTimeUp() && _paintLoaded && IsHoldingItem())
+            if (timer.IsTimeUp() && timer.IsActive() && _paintLoaded && IsHoldingItem())
             {
                 Transform();
                 timer.ResetTimer();
@@ -66,7 +66,7 @@ namespace stations
         private void Transform()
         {
             ReleaseLastItem()
-                .DeleteItem();
+                ?.DeleteItem();
 
             var item = itemManager.CreateItem(ItemType.PaintedTrainParts, transform);
             HoldItem(item);

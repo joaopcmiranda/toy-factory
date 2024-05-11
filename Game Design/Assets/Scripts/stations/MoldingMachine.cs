@@ -33,7 +33,7 @@ namespace stations
         private void Transform()
         {
             ReleaseLastItem()
-                .DeleteItem();
+                ?.DeleteItem();
             var wheels = itemManager.CreateItem(outputType, transform);
             HoldItem(wheels);
         }

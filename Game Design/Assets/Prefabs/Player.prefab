@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5236400244543052787}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HoldSpotPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8025229403979164914}
   - component: {fileID: 5640335571420837620}
   - component: {fileID: 1296942500252402084}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Drop/Pickup Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 3989221447677785579}
   - component: {fileID: 4449519076697490418}
   - component: {fileID: 9133026449410056350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -192,6 +192,7 @@ Transform:
   - {fileID: 5236400244543052787}
   - {fileID: 6900826180625178570}
   - {fileID: 8025229403979164914}
+  - {fileID: 6173487933778565724}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3276386102674179647
@@ -207,7 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  speed: 5
+  speed: 8
+  interactionRadius: 1.5
+  rayCaster: {fileID: 6173487933778565724}
 --- !u!114 &798006151656291906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +290,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1872154973
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1546121326, guid: acedbbdadf957e7409a8b4dcf581a2d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -421,6 +424,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.18290716}
   m_Size: {x: 0.35611677, y: 0.7103025}
   m_Direction: 0
+--- !u!1 &7810957087985965937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6173487933778565724}
+  m_Layer: 8
+  m_Name: RayCaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6173487933778565724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810957087985965937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8241728911783366155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9195621063165500488
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +466,7 @@ GameObject:
   - component: {fileID: 6900826180625178570}
   - component: {fileID: 8371544147438753757}
   - component: {fileID: 4859017131139394238}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Drop/Pickup Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}

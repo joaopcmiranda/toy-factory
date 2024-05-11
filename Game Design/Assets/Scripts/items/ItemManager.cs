@@ -112,7 +112,7 @@ namespace managers
             var allItems = FindObjectsOfType<Item>();
             foreach (var item in allItems)
             {
-                if (item != null && item.gameObject != null) // Ensure the item and its GameObject are not null
+                if (item  && item.gameObject ) // Ensure the item and its GameObject are not null
                 {
                     _items.Add(new Tuple<GameObject, Item>(item.gameObject, item));
                 }

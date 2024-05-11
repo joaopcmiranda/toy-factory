@@ -27,9 +27,14 @@ public class Timer : MonoBehaviour
         ShowTimer(true);
     }
 
+    public bool IsActive()
+    {
+        return _timerActive;
+    }
+
     public bool IsTimeUp()
     {
-        return !_timerActive;
+        return time <= 0;
     }
 
     public void ResetTimer()
@@ -42,7 +47,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_timerActive) return;
+        if (time <= 0) return;
 
         time -= Time.deltaTime;
         UpdateTimerUI();
@@ -51,7 +56,6 @@ public class Timer : MonoBehaviour
         {
             _audioManager.PlayMachineComplete();
             time = 0;
-            _timerActive = false;
             ShowTimer(false);
         }
     }

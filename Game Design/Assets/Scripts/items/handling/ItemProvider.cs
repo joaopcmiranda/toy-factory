@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace items.handling
 {
-    public abstract class ItemProvider : Selectable, IItemHandler
+    public abstract class ItemProvider : MonoBehaviour, IItemHandler
     {
         public Transform provideSpot;
         private Item _item;
@@ -14,7 +14,6 @@ namespace items.handling
         public abstract ItemType itemType
         {
             get;
-            set;
         }
 
         public virtual void Start()
