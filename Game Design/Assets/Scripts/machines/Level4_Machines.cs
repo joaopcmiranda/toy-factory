@@ -96,7 +96,7 @@ namespace machines
             //Set sprite size 
 
             itemsHeld[0].SetSprite(outputItem.getSpriteRenderer().sprite);
-            itemsHeld[0].setSpriteSize(new Vector3(2f, 2f, 2f));
+            itemsHeld[0].setItemSize(new Vector3(2f, 2f, 2f));
 
             itemsHeld[0].type = outputItem.type;
 

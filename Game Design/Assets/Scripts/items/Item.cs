@@ -88,10 +88,12 @@ namespace items
             return GetComponent<SpriteRenderer>().bounds.size;
         }
 
-        public void setSpriteSize(Vector3 size)
+        public void setItemSize(Vector3 size)
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
             spriteRenderer.transform.localScale = size; 
+            boxCollider.size = new Vector2(.5f ,.5f);
         }
     }
 }
