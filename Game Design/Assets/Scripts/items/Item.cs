@@ -18,10 +18,6 @@ namespace items
             {
                 _itemManager = FindObjectOfType<ItemManager>();
             }
-        }
-
-        private void Start()
-        {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }

@@ -6,7 +6,7 @@ namespace stations
     public class MoldingMachine : ItemHolder
     {
         public Timer moldingTimer;
-        public ItemType outputType;
+        public ItemType outputType = ItemType.Wheels;
 
         public override Item GetItem()
         {
@@ -23,7 +23,7 @@ namespace stations
 
         private void Update()
         {
-            if (moldingTimer.IsTimeUp())
+            if (moldingTimer.IsTimeUp() && moldingTimer.IsActive())
             {
                 Transform();
                 moldingTimer.ResetTimer();
