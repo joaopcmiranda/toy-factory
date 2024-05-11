@@ -75,7 +75,7 @@ namespace stations
         {
             switch (item.type)
             {
-                case ItemType.Train:
+                case ItemType.PaintedTrainParts:
                 case ItemType.RedTrainParts:
                 case ItemType.GreenTrainParts:
                 case ItemType.BlueTrainParts:

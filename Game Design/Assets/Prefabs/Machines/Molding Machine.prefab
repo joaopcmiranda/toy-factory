@@ -69,7 +69,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1972472598517529113
 CanvasRenderer:
@@ -468,7 +468,7 @@ MonoBehaviour:
   holdSpots:
   - {fileID: 2678930610607484856}
   moldingTimer: {fileID: 3828059768775448514}
-  outputType: 0
+  outputType: 4
 --- !u!114 &3828059768775448514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +484,7 @@ MonoBehaviour:
   time: 5
   timerText: {fileID: 4048891097168527447}
   fill: {fileID: 4726594399905200287}
-  outer: {fileID: 1881948377529812835}
+  timerCanvas: {fileID: 5052194638049841960}
   max: 5
 --- !u!114 &2951319813865348355
 MonoBehaviour:
@@ -617,7 +617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 1848645027139832427}
-  isSelected: 0
 --- !u!1 &4172904783024683208
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8334915924552770927
 RectTransform:
   m_ObjectHideFlags: 0
@@ -829,10 +828,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3076111123226728663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1, y: -0.17}
+  m_SizeDelta: {x: 2, y: 0.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2183971038719727321
 CanvasRenderer:
@@ -949,7 +948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1912541353019528257
 RectTransform:
   m_ObjectHideFlags: 0

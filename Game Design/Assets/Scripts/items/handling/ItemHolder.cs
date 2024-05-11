@@ -65,6 +65,8 @@ namespace items.handling
 
         protected Item HoldItem(Item item)
         {
+            if (!item) return null;
+
             if (itemsHeld.Count < holdSpots.Count)
             {
                 item.PickUp(this, holdSpots[itemsHeld.Count]);

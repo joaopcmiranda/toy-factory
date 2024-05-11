@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     public float time;
     public TextMeshProUGUI timerText;
     public Image fill;
-    public Image outer;
+    public GameObject timerCanvas;
     public float max;
 
     private bool _timerActive;
@@ -66,10 +66,5 @@ public class Timer : MonoBehaviour
         fill.fillAmount = time / max;
     }
 
-    private void ShowTimer(bool show)
-    {
-        timerText.enabled = show;
-        fill.enabled = show;
-        outer.enabled = show;
-    }
+    private void ShowTimer(bool show) => timerCanvas.SetActive(show);
 }

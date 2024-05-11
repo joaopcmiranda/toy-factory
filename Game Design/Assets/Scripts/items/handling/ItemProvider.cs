@@ -35,14 +35,12 @@ namespace items.handling
                 var item = _item;
                 item.Drop();
                 _item = itemManager.CreateItem(itemType, provideSpot);
-                item.PickUp(this, provideSpot);
+                _item.PickUp(this, provideSpot);
                 return item;
             }
             else
             {
-                var item = itemManager.CreateItem(itemType, transform);
-
-                return item;
+                return itemManager.CreateItem(itemType, transform);
             }
         }
 

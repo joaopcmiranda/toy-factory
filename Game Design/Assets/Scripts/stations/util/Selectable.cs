@@ -5,15 +5,12 @@ namespace UI
     {
         public GameObject selectionIndicator;
 
-        public bool isSelected = false;
-        public virtual void Select()
+        public void Select()
         {
-            isSelected = true;
             selectionIndicator.SetActive(true);
         }
-        public virtual void Deselect()
+        public void Deselect()
         {
-            isSelected = false;
             selectionIndicator.SetActive(false);
         }
     }
