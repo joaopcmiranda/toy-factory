@@ -161,8 +161,12 @@ namespace stations
 
         private ItemType GetTrainType()
         {
-            string typeName = _trainPartsType.ToString();
-            int colorNameEndPos = typeName.IndexOf("TrainParts");
+            if (_trainPartsType == ItemType.PaintedTrainParts)
+            {
+                return ItemType.Train;
+            }
+            var typeName = _trainPartsType.ToString();
+            var colorNameEndPos = typeName.IndexOf("TrainParts");
             if (colorNameEndPos == -1)
             {
                 colorNameEndPos = typeName.IndexOf("CarriageParts");
@@ -171,6 +175,7 @@ namespace stations
             if (colorNameEndPos > -1)
             {
                 string colorName = typeName.Substring(0, colorNameEndPos);
+
                 if (_isHoldingCarriageParts)
                 {
                     return (ItemType)Enum.Parse(typeof(ItemType), colorName + "Carriage");

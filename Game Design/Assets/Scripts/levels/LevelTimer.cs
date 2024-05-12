@@ -9,6 +9,7 @@ public class LevelTimer : MonoBehaviour
     public Text timerText;
     private LevelManager level;
     private AudioManager audioManager;
+    private bool _paused = false;
 
     private void Start()
     {
@@ -17,8 +18,14 @@ public class LevelTimer : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
     }
 
+    public void PauseTimer()
+    {
+        _paused = true;
+    }
+
     public void StartTimer(float duration)
     {
+        _paused = false;
         time = duration;
         level = FindObjectOfType<LevelManager>();
     }
@@ -26,15 +33,19 @@ public class LevelTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
-        if (time <= 1)
+        if (!_paused)
         {
-            //audioManager.PlayLevelComplete();
-            //SceneManager.LoadScene("LevelEnd");
-            level.LoadAfterLevelPlayed();
-        } else
-        {
-            UpdateTimerUI();
+            time -= Time.deltaTime;
+            if (time <= 1)
+            {
+                //audioManager.PlayLevelComplete();
+                //SceneManager.LoadScene("LevelEnd");
+                level.LoadAfterLevelPlayed();
+            }
+            else
+            {
+                UpdateTimerUI();
+            }
         }
     }
 
