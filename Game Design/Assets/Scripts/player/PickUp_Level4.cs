@@ -9,17 +9,17 @@ namespace player
         public Transform holdSpot;
         public Camera mainCamera; // Assign the main camera in the Inspector       
 
-        private Item_Level4 _itemHolding;
-        private Character _character;
-        private MachineManager_Level4 _machineManager;
-        private ItemManager_Level4 _itemManager;
-        private AudioManager audioManager;
+        public Item_Level4 _itemHolding;
+        public Character_Level4 _character;
+        public MachineManager_Level4 _machineManager;
+        public ItemManager_Level4 _itemManager;
+        public AudioManager audioManager;
 
         private float pickUpRadius = 1.3f;
 
         private void Start()
         {
-            _character = GetComponent<Character>();
+            _character = GetComponent<Character_Level4>();
             _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager_Level4>();
             _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager_Level4>();
             audioManager = FindObjectOfType<AudioManager>();
@@ -33,6 +33,7 @@ namespace player
 
             if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
+                Debug.Log("Clicking!");
                 Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, Mathf.Infinity);
 
@@ -41,7 +42,7 @@ namespace player
                     // Attempt to drop the item either on the ground or into a machine if within range
                     if (hit.collider != null)
                     {
-                        Machine_Level4 machine = hit.collider.GetComponent<Machine_Level4>();
+                        Machine_Base_Level4 machine = hit.collider.GetComponent<Machine_Base_Level4>();
                         if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
                         {
                             machine.HoldItem(DropItem(mouseWorldPos)); // Drop item into machine
@@ -65,7 +66,7 @@ namespace player
                     if (hit.collider != null)
                     {
                         Item_Level4 item = hit.collider.GetComponent<Item_Level4>();
-                        Machine_Level4 machine = hit.collider.GetComponent<Machine_Level4>();
+                        Machine_Base_Level4 machine = hit.collider.GetComponent<Machine_Base_Level4>();
 
                         if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius && machine.IsHoldingItem())
                         {
@@ -102,7 +103,7 @@ namespace player
             _itemHolding = item;
         }
 
-        private void TakeItemFromMachine(Machine_Level4 machine)
+        private void TakeItemFromMachine(Machine_Base_Level4 machine)
         {
             _itemHolding = machine.TakeItemFromMachine();
             _itemHolding.PickUp(holdSpot);

@@ -9,7 +9,7 @@ namespace machines
 {
     public class Machine_Level4 : Machine_Base_Level4
     {
-        public ItemManager itemManager;
+        public ItemManager_Level4 itemManager;
         public Level4_minigame miniGame;
         public List<Item_Level4> requiredItems = new List<Item_Level4>();
         public Item_Level4 outputItem;

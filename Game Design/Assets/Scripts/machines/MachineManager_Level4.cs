@@ -8,17 +8,17 @@ namespace managers
     public class MachineManager_Level4 : MonoBehaviour
     {
         public List<GameObject> machines;
-        private readonly List<Tuple<GameObject, Machine_Level4>> _machines = new List<Tuple<GameObject, Machine_Level4>>();
+        public readonly List<Tuple<GameObject, Machine_Base_Level4>> _machines = new List<Tuple<GameObject, Machine_Base_Level4>>();
 
-        private List<Tuple<GameObject, Machine_Level4>> machinesInRadius = new List<Tuple<GameObject, Machine_Level4>>();
-        private Machine_Level4 _previouslyHighlightedMachine;
-        private float dropRadius = 1.5f;
+        public List<Tuple<GameObject, Machine_Base_Level4>> machinesInRadius = new List<Tuple<GameObject, Machine_Base_Level4>>();
+        public Machine_Base_Level4 _previouslyHighlightedMachine;
+        public float dropRadius = 1.5f;
 
         private void Start()
         {
             foreach (var machine in machines)
             {
-                _machines.Add(new Tuple<GameObject, Machine_Level4>(machine, machine.GetComponent<Machine_Level4>()));
+                _machines.Add(new Tuple<GameObject, Machine_Base_Level4>(machine, machine.GetComponent<Machine_Level4>()));
             }
         }
 
@@ -49,7 +49,7 @@ namespace managers
 
             if (hit.collider != null)
             {
-                Machine_Level4 machineComponent = hit.collider.GetComponent<Machine_Level4>();
+                Machine_Base_Level4 machineComponent = hit.collider.GetComponent<Machine_Base_Level4>();
 
                 foreach (var machine in machinesInRadius)
                 {
@@ -85,7 +85,7 @@ namespace managers
             }
         }
 
-        public List<Tuple<GameObject, Machine_Level4>> getMachinesInRadius()
+        public List<Tuple<GameObject, Machine_Base_Level4>> getMachinesInRadius()
         {
             return machinesInRadius; 
         }
