@@ -7,7 +7,7 @@ namespace recipes
     {
         public string recipeName { get; set; } = "Plastic Blue Train";
         public int frequency { get; set; } = 20;
-        public int timeLimit { get; set; } = 60;
+        public int timeLimit { get; set; } = 75;
         public int points { get; set; } = 100;
         public Sprite trainIcon;
         public ItemType deliveryItem
