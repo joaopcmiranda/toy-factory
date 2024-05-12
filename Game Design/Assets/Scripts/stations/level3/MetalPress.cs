@@ -1,13 +1,22 @@
 using items;
 using items.handling;
+using UnityEngine;
 
 namespace stations
 {
     public class MetalPress : ItemHolder
     {
-        public int length = 5;
+        public int length = 2;
 
         public Timer timer;
+
+        private Animator _animator;
+        private static readonly int RunMachineAnimationTrigger = Animator.StringToHash("Run Machine");
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
 
         public override bool CanReceiveItem(Item item)
         {
@@ -30,6 +39,7 @@ namespace stations
             item.DeleteItem();
 
             timer.StartTimer(length);
+            TriggerAnimation();
             return null;
         }
 
@@ -46,6 +56,12 @@ namespace stations
         {
             var parts = itemManager.CreateItem(ItemType.MetalTrainBody, transform);
             HoldItem(parts);
+        }
+
+        // ANIMATION
+        private void TriggerAnimation()
+        {
+            _animator.SetTrigger(RunMachineAnimationTrigger);
         }
     }
 }

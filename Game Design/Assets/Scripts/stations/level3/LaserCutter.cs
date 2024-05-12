@@ -1,15 +1,13 @@
-using System;
 using items;
 using items.handling;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace stations
 {
     public class LaserCutter : ItemHolder
     {
 
-        public int length = 5;
+        public int length = 4;
         public Timer timer;
         public GameObject choiceMenu;
 
