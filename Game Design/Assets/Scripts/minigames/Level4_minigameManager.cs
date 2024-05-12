@@ -21,7 +21,7 @@ public class Level4_minigame : MonoBehaviour
         GameVisibility(false);
     }
 
-    bool IsGameObjectInRange(Level4_Machines searchMachine)
+    public bool IsGameObjectInRange(Level4_Machines searchMachine)
     {
         foreach (var tuple in machineManager.getMachinesInRadius())
         {
@@ -35,13 +35,13 @@ public class Level4_minigame : MonoBehaviour
 
     public virtual void StartGame()
     {
-        Debug.Log("Starting Minigame!!!");
+        //Debug.Log("Starting Minigame!!!");
         gameStarted = true;
     }
 
     public virtual void StopGame()
     {
-        Debug.Log("Stopping Minigame!!!");
+        //Debug.Log("Stopping Minigame!!!");
         gameStarted = false;
 
     }
@@ -52,6 +52,7 @@ public class Level4_minigame : MonoBehaviour
         {
             if (IsGameObjectInRange(machine))
             {
+                //Debug.Log("In range");
                 GameVisibility(true);
                 gameEnabled = true;
             }
@@ -60,6 +61,7 @@ public class Level4_minigame : MonoBehaviour
                 GameVisibility(false);
                 gameEnabled = false;
             }
+
             if (gameEnabled)
             {
                 minigame();    
