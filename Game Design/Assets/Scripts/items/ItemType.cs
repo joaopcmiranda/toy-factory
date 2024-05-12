@@ -64,7 +64,8 @@ namespace items
         CyanCarriage,
         PinkCarriage,
         OrangeCarriage,
-        PurpleCariage,
+        PurpleCarriage,
+        Carriage
         RedCubeParts,
         GreenCubeParts,
         BlueCubeParts,
