@@ -4,6 +4,7 @@
     {
         Plastic,
         Metal,
+        Wood,
         UnpaintedTrainParts,
         PaintedTrainParts,
         Wheels,
@@ -42,5 +43,23 @@
         TrainBody,
         WoodenTrain,
         PaintedTrain
+        UnpaintedCarriageParts,
+        RedCarriageParts,
+        GreenCarriageParts,
+        BlueCarriageParts,
+        YellowCarriageParts,
+        CyanCarriageParts,
+        PinkCarriageParts,
+        OrangeCarriageParts,
+        PurpleCarriageParts,
+        RedCarriage,
+        GreenCarriage,
+        BlueCarriage,
+        YellowCarriage,
+        CyanCarriage,
+        PinkCarriage,
+        OrangeCarriage,
+        PurpleCarriage,
+        Carriage
     }
 }
