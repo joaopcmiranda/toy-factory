@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class TutorialLevel3 : MonoBehaviour
@@ -21,6 +20,7 @@ public class TutorialLevel3 : MonoBehaviour
     private void Start()
     {
         movementPanel.SetActive(true);
+        levelTimer.PauseTimer();
     }
 
 
