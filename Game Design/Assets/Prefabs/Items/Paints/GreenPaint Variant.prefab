@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1299896484020972398
+--- !u!1001 &8025686324332584509
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -50,24 +50,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653601206381269799, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_Name
-      value: CyanTrain
+      value: GreenPaint Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2653601206381269799, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_TagString
-      value: CyanTrain
+      value: GreenPaint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182971266270928261, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3182971266270928261, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.625
+      value: 0.8125
       objectReference: {fileID: 0}
     - target: {fileID: 6874481316287052748, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: type
-      value: 42
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8505411983580614831, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1462559421, guid: e2f42d563854f1b41a9ed93758a134a3, type: 3}
+      objectReference: {fileID: -387900449, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

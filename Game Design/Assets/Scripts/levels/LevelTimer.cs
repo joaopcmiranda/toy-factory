@@ -13,7 +13,7 @@ public class LevelTimer : MonoBehaviour
     private void Start()
     {
         //StartTimer(time);
-        //level = FindObjectOfType<LevelManager>();
+        level = FindObjectOfType<LevelManager>();
         audioManager = FindObjectOfType<AudioManager>();
     }
 
