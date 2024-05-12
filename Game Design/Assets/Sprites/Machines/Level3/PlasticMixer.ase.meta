@@ -21,6 +21,21 @@ ScriptedImporter:
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
+      name: Idle-Blue
+    second: {fileID: 7400000, guid: c376ce81b751a82419d4eb718cea9d89, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Green
+    second: {fileID: 7400000, guid: 6ac7a55fd8b1b274fbd8ef6ff50009be, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Red
+    second: {fileID: 7400000, guid: 128a659cc2aed344982129d2d6e64caa, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
       name: Idle-empty
     second: {fileID: 7400000, guid: 849d9828243bd6e4db9ecec055408247, type: 2}
   serializedVersion: 2
@@ -117,7 +132,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638511514089088162
+  platformSettingsDirtyTick: 638511539913808473
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -1361,6 +1376,66 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 148, y: 308}
+  - name: PlasticMixer_Frame_61
+    originalName: 
+    pivot: {x: 0.42857146, y: -0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 346
+      width: 28
+      height: 30
+    spriteID: cd42cbd7795c5fa4fa4163cd85ca78bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 346}
+  - name: PlasticMixer_Frame_62
+    originalName: 
+    pivot: {x: 0.42857146, y: -0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 384
+      width: 28
+      height: 30
+    spriteID: 673504c37bd07f840b0536e702afecca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 384}
+  - name: PlasticMixer_Frame_63
+    originalName: 
+    pivot: {x: 0.42857146, y: -0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 422
+      width: 28
+      height: 30
+    spriteID: adaa1bd15a8b2dc49900fff7d01f6641
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 422}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -1858,6 +1933,30 @@ ScriptedImporter:
         width: 28
         height: 30
       spriteId: a87942b697ff72b48930378af0c8e0b4
+    - name: PlasticMixer_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 4
+        y: 2
+        width: 28
+        height: 30
+      spriteId: cd42cbd7795c5fa4fa4163cd85ca78bb
+    - name: PlasticMixer_Frame_62
+      frameIndex: 62
+      cellRect:
+        x: 4
+        y: 2
+        width: 28
+        height: 30
+      spriteId: 673504c37bd07f840b0536e702afecca
+    - name: PlasticMixer_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 4
+        y: 2
+        width: 28
+        height: 30
+      spriteId: adaa1bd15a8b2dc49900fff7d01f6641
     linkedCells: []
     parentIndex: -1
   platformSettings:
