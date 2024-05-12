@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -10,32 +8,38 @@ public class Timer : MonoBehaviour
     public float time;
     public TextMeshProUGUI timerText;
     public Image fill;
-    public Image outer;
-    private bool timerActive = false;
+    public GameObject timerCanvas;
     public float max;
-    private AudioManager audioManager;
+
+    private bool _timerActive;
+    private AudioManager _audioManager;
 
     private void Start()
     {
         ShowTimer(false);
-        audioManager = FindObjectOfType<AudioManager>();
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void StartTimer(float duration)
     {
         time = duration;
-        timerActive = true;
+        _timerActive = true;
         ShowTimer(true);
+    }
+
+    public bool IsActive()
+    {
+        return _timerActive;
     }
 
     public bool IsTimeUp()
     {
-        return !timerActive;
+        return time <= 0;
     }
 
     public void ResetTimer()
     {
-        timerActive = false;
+        _timerActive = false;
         time = 0;
         ShowTimer(false);
     }
@@ -43,16 +47,15 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!timerActive) return;
+        if (time <= 0) return;
 
         time -= Time.deltaTime;
         UpdateTimerUI();
 
         if (time <= 0)
         {
-            audioManager.PlayMachineComplete();
+            _audioManager.PlayMachineComplete();
             time = 0;
-            timerActive = false;
             ShowTimer(false);
         }
     }
@@ -63,10 +66,5 @@ public class Timer : MonoBehaviour
         fill.fillAmount = time / max;
     }
 
-    private void ShowTimer(bool show)
-    {
-        timerText.enabled = show;
-        fill.enabled = show;
-        outer.enabled = show;
-    }
+    private void ShowTimer(bool show) => timerCanvas.SetActive(show);
 }

@@ -3,10 +3,11 @@ using UnityEngine;
 using managers;
 using System.Collections.Generic;
 using System.Linq;
+using items.handling;
 
 namespace machines
 {
-    public class Level4_Machines : Machine
+    public class Level4_Machines : MonoBehaviour
     {
         public ItemManager itemManager;
         public Level4_minigame miniGame;
@@ -15,7 +16,15 @@ namespace machines
         public bool requiredFulfilled;
         public bool requiresMultiple; 
         public int gameOption;
-        
+
+        public Transform holdSpot;
+
+        protected SpriteRenderer spriteRenderer;
+        protected LevelManager levelManager;
+        protected Item itemHolding;
+
+        private IItemHandler _heldBy;
+
         public List<Item> itemsHeld = new List<Item>();
 
         public bool hasRequiredItems()
@@ -47,17 +56,17 @@ namespace machines
 
         }
 
-        public override void Start()
+        public void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
         }
 
-        public override void HoldItem(Item item)
+        public void HoldItem(Item item)
         {
             Debug.Log("HoldItem");
-            item.PickUp(holdSpot);
-            item.IsHeldByMachine = true;
+            item.PickUp(_heldBy, holdSpot);
+            //item.IsHeldByMachine = true;
 
             itemHolding = item;
             itemsHeld.Add(item);
@@ -73,11 +82,19 @@ namespace machines
             }
         }
 
-        public override Item TakeItemFromMachine()
+        public Item TakeItemFromMachine()
         {
             Debug.Log("TakeItemFromMachine");
             StopManualAssembly(); 
-            var item = base.TakeItemFromMachine();
+                    
+            if (!itemHolding) return null;
+            // Retrieve the item from the machine
+            var item = itemHolding;
+
+            item.Drop();
+
+            itemHolding = null;
+                 
             itemsHeld.Remove(item);
 
             requiredFulfilled = hasRequiredItems();
@@ -110,8 +127,8 @@ namespace machines
                 }
 
                 itemManager.RefreshItems();
-                itemsHeld[0].PickUp(holdSpot);
-                itemsHeld[0].IsHeldByMachine = true;
+                //itemsHeld[0].PickUp(holdSpot);
+                //itemsHeld[0].IsHeldByMachine = true;
 
                 itemHolding = item;
                 //itemsHeld.Add(item);
