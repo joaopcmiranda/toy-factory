@@ -103,11 +103,11 @@ namespace stations
 
         private void TransformItems()
         {
-            DestroyAllItems();  // From ItemHolder to remove all held items
+            DestroyAllItems();
 
             var type = GetTrainPartType();
             var item = itemManager.CreateItem(type, transform);
-            HoldItem(item);  // Store the newly created item using HoldItem from ItemHolder
+            HoldItem(item);
 
             _paintType = default;
             _paintHeld = false;
