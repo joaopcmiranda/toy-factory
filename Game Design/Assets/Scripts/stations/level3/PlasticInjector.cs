@@ -7,7 +7,6 @@ namespace stations
     public class PlasticInjector : ItemHolder
     {
         public int length = 5;
-        public Timer timer;
         public GameObject redChoiceMenu;
         public GameObject greenChoiceMenu;
         public GameObject blueChoiceMenu;
@@ -16,6 +15,7 @@ namespace stations
         private ItemType _selectedProduction;
         private bool _isSelectingProduction;
 
+        private Timer _timer;
         private Animator _animator;
         private static readonly int RunMachineAnimationTrigger = Animator.StringToHash("Run Machine");
         private static readonly int ColorNrgb = Animator.StringToHash("ColorNRGB");
@@ -23,6 +23,7 @@ namespace stations
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _timer = GetComponent<Timer>();
         }
 
 
@@ -51,7 +52,7 @@ namespace stations
 
         public override Item PutItem(Item item)
         {
-            if (!CanReceiveItem(item) || timer.IsActive()) return item;
+            if (!CanReceiveItem(item) || _timer.IsActive()) return item;
 
             _inputType = item.type;
 
@@ -78,20 +79,20 @@ namespace stations
                 CloseChoiceMenu();
                 _selectedProduction = GetOutputType(1);
                 _isSelectingProduction = false;
-                timer.StartTimer(length);
+                _timer.StartTimer(length);
                 TriggerAnimation();
             }
             else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
             {
                 _selectedProduction = GetOutputType(2);
                 _isSelectingProduction = false;
-                timer.StartTimer(length);
+                _timer.StartTimer(length);
                 TriggerAnimation();
             }
-            else if (timer.IsTimeUp() && timer.IsActive())
+            else if (_timer.IsTimeUp() && _timer.IsActive())
             {
                 Transform();
-                timer.ResetTimer();
+                _timer.ResetTimer();
             }
         }
 
