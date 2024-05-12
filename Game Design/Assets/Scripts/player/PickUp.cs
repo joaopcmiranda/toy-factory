@@ -1,112 +1,91 @@
 using items;
-using machines;
-using managers;
+using items.handling;
 using UnityEngine;
 
 namespace player
 {
-    public class PickUp : MonoBehaviour
+    public class PickUp : ItemHolder
     {
-        public Transform holdSpot;
-        public Camera mainCamera; // Assign the main camera in the Inspector       
 
-        private Item _itemHolding;
+        private AudioManager _audioManager;
         private Character _character;
-        private MachineManager _machineManager;
-        private ItemManager _itemManager;
-        private AudioManager audioManager;
+        private SelectionRayCaster _selectionRayCaster;
+        private KeyCode _actionKey = KeyCode.Q;
 
-        private float pickUpRadius = 1.3f;
-
-        private void Start()
+        private void Awake()
         {
+            _audioManager = FindObjectOfType<AudioManager>();
+            _selectionRayCaster = GetComponent<SelectionRayCaster>();
             _character = GetComponent<Character>();
-            _machineManager = GameObject.FindWithTag("MachineManager").GetComponent<MachineManager>();
-            _itemManager = GameObject.FindWithTag("ItemManager").GetComponent<ItemManager>();
-            audioManager = FindObjectOfType<AudioManager>();
-            if (!mainCamera)
-                mainCamera = Camera.main; // Ensure there is a main camera
+        }
+
+        public override void Start()
+        {
+            base.Start();
+
+            _actionKey = _character.controls == CharacterControls.Keyboard1 ? KeyCode.Q : KeyCode.O;
         }
 
         void Update()
         {
-            _machineManager.HighlightMousedOverMachineWithinRadius(transform);
-
-            if (Input.GetMouseButtonDown(0)) // Left mouse button
+            if (Input.GetKeyDown(_actionKey))
             {
-                Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, Mathf.Infinity);
-
-                if (_itemHolding)
+                if (_selectionRayCaster.IsObjectSelected())
                 {
-                    // Attempt to drop the item either on the ground or into a machine if within range
-                    if (hit.collider != null)
+                    var target = _selectionRayCaster.GetSelectedObject();
+                    var itemHandler = target.GetComponent<IItemHandler>();
+                    if (itemHandler != null)
                     {
-                        Machine machine = hit.collider.GetComponent<Machine>();
-                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius)
+                        if (IsHoldingItem())
                         {
-                            machine.HoldItem(DropItem(mouseWorldPos)); // Drop item into machine
-                            audioManager.PlayMachine();
+                            itemHandler.PutItem(GetItem());
                         }
-                        else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
+                        else
                         {
-                            DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
-                            audioManager.PlayItem();
+                            PutItem(itemHandler.GetItem());
                         }
+                        _audioManager.PlayMachine();
                     }
-                    else if ((mouseWorldPos - (Vector2)transform.position).sqrMagnitude <= Mathf.Pow(pickUpRadius, 2))
+                    else if (target.TryGetComponent<Item>(out var item))
                     {
-                        DropItem(mouseWorldPos); // Drop the item at the clicked position on the ground
-                        audioManager.PlayItem();
+                        if (IsHoldingItem())
+                        {
+                            DropItem(_character.GetFacingDirection() * 0.75f);
+                        }
+                        PutItem(item);
+                        _audioManager.PlayItem();
                     }
                 }
                 else
                 {
-                    // No item is currently being held, check for picking up items or interacting with machines directly
-                    if (hit.collider != null)
-                    {
-                        Item item = hit.collider.GetComponent<Item>();
-                        Machine machine = hit.collider.GetComponent<Machine>();
-
-                        if (machine && Vector2.Distance(machine.transform.position, transform.position) <= machine.dropRadius && machine.IsHoldingItem())
-                        {
-                            TakeItemFromMachine(machine);  // Taking item from machine
-                            audioManager.PlayItem();
-                        }
-                        else if (item && !item.IsHeldByMachine && Vector2.Distance(item.transform.position, transform.position) <= pickUpRadius)
-                        {
-                            PickUpItem(item);  // Picking up the item directly clicked
-                            audioManager.PlayItem();
-                        }
-                    }
+                    DropItem(_character.GetFacingDirection() * 0.75f);
+                    _audioManager.PlayItem();
                 }
             }
         }
 
         private Item DropItem(Vector2 dropPosition)
         {
-            if (_itemHolding)
+            if (IsHoldingItem())
             {
-                _itemHolding.transform.position = dropPosition;
-                _itemHolding.Drop();
-                var item = _itemHolding;
-                _itemHolding = null;
+                var item = ReleaseLastItem();
+                item.transform.position = transform.position + (Vector3)dropPosition;
                 return item;
             }
             return null;
         }
 
-        private void PickUpItem(Item item)
+        public override Item GetItem()
         {
-            if (item == null) return;
-            item.PickUp(holdSpot);
-            _itemHolding = item;
+            return ReleaseLastItem();
         }
 
-        private void TakeItemFromMachine(Machine machine)
+        public override Item PutItem(Item item)
         {
-            _itemHolding = machine.TakeItemFromMachine();
-            _itemHolding.PickUp(holdSpot);
+            return HoldItem(item);
         }
+
+        public override bool CanReceiveItem(Item item) => true;
+
     }
 }
