@@ -1,7 +1,8 @@
-using items;
-using UnityEngine;
 using System.Collections.Generic;
+using managers;
+using UnityEngine;
 using items.handling;
+using items;
 
 namespace stations
 {
@@ -69,7 +70,6 @@ namespace stations
                 timer.StartTimer(5);
             }
             return returnItem;
-
         }
 
         public override bool CanReceiveItem(Item item)
@@ -95,19 +95,18 @@ namespace stations
         {
             if (timer.IsTimeUp() && timer.IsActive())
             {
-                Transform();
-
+                TransformItems();
                 timer.ResetTimer();
             }
         }
 
-        private void Transform()
+        private void TransformItems()
         {
-            DestroyAllItems();
+            DestroyAllItems();  // From ItemHolder to remove all held items
 
             var type = GetTrainPartType();
             var item = itemManager.CreateItem(type, transform);
-            HoldItem(item);
+            HoldItem(item);  // Store the newly created item using HoldItem from ItemHolder
 
             _paintType = default;
             _paintHeld = false;
@@ -186,3 +185,4 @@ namespace stations
         }
     }
 }
+
