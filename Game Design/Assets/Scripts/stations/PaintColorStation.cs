@@ -1,7 +1,8 @@
-using items;
-using UnityEngine;
 using System.Collections.Generic;
+using managers;
+using UnityEngine;
 using items.handling;
+using items;
 
 namespace stations
 {
@@ -53,10 +54,11 @@ namespace stations
                 case ItemType.PinkPaint:
                 case ItemType.OrangePaint:
                 case ItemType.PurplePaint:
-                    returnItem = HoldItem(item);
+                    item.gameObject.SetActive(false);
                     _paintHeld = true;
                     _paintType = item.type;
                     SetPaintStationColor();
+                    Destroy(item.gameObject);
                     break;
                 case ItemType.UnpaintedTrainParts:
                     _trainPartsHeld = true;
@@ -69,7 +71,6 @@ namespace stations
                 timer.StartTimer(5);
             }
             return returnItem;
-
         }
 
         public override bool CanReceiveItem(Item item)
@@ -95,13 +96,12 @@ namespace stations
         {
             if (timer.IsTimeUp() && timer.IsActive())
             {
-                Transform();
-
+                TransformItems();
                 timer.ResetTimer();
             }
         }
 
-        private void Transform()
+        private void TransformItems()
         {
             DestroyAllItems();
 
@@ -186,3 +186,4 @@ namespace stations
         }
     }
 }
+

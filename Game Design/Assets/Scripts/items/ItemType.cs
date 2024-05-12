@@ -1,9 +1,10 @@
-﻿namespace items
+namespace items
 {
     public enum ItemType
     {
         Plastic,
         Metal,
+        Wood,
         UnpaintedTrainParts,
         PaintedTrainParts,
         Wheels,
@@ -37,6 +38,23 @@
         PinkTrain,
         OrangeTrain,
         PurpleTrain,
+        UnpaintedCarriageParts,
+        RedCarriageParts,
+        GreenCarriageParts,
+        BlueCarriageParts,
+        YellowCarriageParts,
+        CyanCarriageParts,
+        PinkCarriageParts,
+        OrangeCarriageParts,
+        PurpleCarriageParts,
+        RedCarriage,
+        GreenCarriage,
+        BlueCarriage,
+        YellowCarriage,
+        CyanCarriage,
+        PinkCarriage,
+        OrangeCarriage,
+        PurpleCariage,
         WoodenLog,
         WoodenBlock,
         TrainBody,
