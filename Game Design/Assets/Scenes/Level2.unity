@@ -2941,7 +2941,7 @@ MonoBehaviour:
   - {fileID: 3952283382863247433, guid: 8b686ed1c53c24c179c16aefa471d4a3, type: 3}
   - {fileID: 3952283382863247433, guid: fd72a3663c44e4328882ce7cacbab7eb, type: 3}
   - {fileID: 3952283382863247433, guid: d7b02d2c566674597a2f6e0b1d7014ed, type: 3}
-  - {fileID: 3952283382863247433, guid: b79d607e38cdd47328873477880e33fa, type: 3}
+  - {fileID: 3952283382863247433, guid: 24e279edb17284660b8ce4bd3beefdc0, type: 3}
   - {fileID: 3952283382863247433, guid: cb4e547e3ca7c4e2e80482a1f3b7ab30, type: 3}
   dropRadius: 1.5
   target: {fileID: 1244875162}
@@ -3803,11 +3803,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3276386102674179647, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: speed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4715010483402475189, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900826180625178570, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900826180625178570, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025229403979164914, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025229403979164914, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8241728911783366155, guid: a8d22deb0af664390b6cc72896ca5ef9, type: 3}
       propertyPath: m_LocalPosition.x
