@@ -134,6 +134,7 @@ namespace managers
 
         public Item CreateItem(ItemType type, Transform holdSpot)
         {
+            Debug.Log(type);
             var itemObject = Instantiate(itemPrefabs.Find(i => i.GetComponent<Item>().type == type), Vector3.zero, Quaternion.identity, holdSpot);
             var item = itemObject.GetComponent<Item>();
             _items.Add(new Tuple<GameObject, Item>(itemObject, item));

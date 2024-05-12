@@ -5,9 +5,10 @@ namespace stations
 {
     public class PaintShelf : ItemProvider
     {
+        public ItemType providedType = ItemType.Paint;
         public override ItemType itemType
         {
-            get => ItemType.Paint;
+            get => providedType;
         }
     }
 }

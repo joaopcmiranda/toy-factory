@@ -753,7 +753,7 @@ MonoBehaviour:
   time: 5
   timerText: {fileID: 1301331557614150788}
   fill: {fileID: 8326539713725808648}
-  outer: {fileID: 54387878389152575}
+  timerCanvas: {fileID: 6925898815053055468}
   max: 5
 --- !u!114 &2685635630321179793
 MonoBehaviour:
@@ -782,22 +782,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf18e01cb4cafbf45976aec097042355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdSpot: {fileID: 6706035412019480842}
-  dropRadius: 1.5
-  paintSprites:
-  - {fileID: -1282177466, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
-  - {fileID: -387900449, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
-  - {fileID: -1931448219, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
-  - {fileID: -933019203, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
-  - {fileID: 621315942, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
-  - {fileID: 541516350, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
-  - {fileID: -1280875150, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
-  - {fileID: 1169718948, guid: 632b610b14bbb044a8ecd29ba2f3b718, type: 3}
+  holdSpots: []
+  spriteRenderer: {fileID: 0}
   paintMixerSprites:
   - {fileID: -1340324585, guid: 5561f1eb95412c0458da08a74b328c05, type: 3}
   - {fileID: -1604926313, guid: 5561f1eb95412c0458da08a74b328c05, type: 3}
   timer: {fileID: 8983689008867329466}
-  itemManager: {fileID: 0}
 --- !u!1 &7687662866775526723
 GameObject:
   m_ObjectHideFlags: 0
