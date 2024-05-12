@@ -70,6 +70,28 @@ namespace items
         {
             Destroy(gameObject);
             _itemManager?.RefreshItems();
-        }        
+        }
+        
+        public SpriteRenderer getSpriteRenderer()
+        {
+            return GetComponent<SpriteRenderer>();
+        }
+
+        public Sprite getSprite()
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            return spriteRenderer.sprite; 
+        }
+
+        public Vector3 getSpriteSize()
+        {
+            return GetComponent<SpriteRenderer>().bounds.size;
+        }
+
+        public void setSpriteSize(Vector3 size)
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.transform.localScale = size; 
+        }
     }
 }

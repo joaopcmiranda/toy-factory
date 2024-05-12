@@ -84,5 +84,11 @@ namespace managers
                 }
             }
         }
+
+        public List<Tuple<GameObject, Machine>> getMachinesInRadius()
+        {
+            return machinesInRadius; 
+        }
+
     }
 }
