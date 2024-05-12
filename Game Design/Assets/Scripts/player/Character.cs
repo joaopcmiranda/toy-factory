@@ -1,7 +1,4 @@
-using System;
-using UI;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace player
 {

@@ -50,24 +50,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653601206381269799, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_Name
-      value: Carriage Parts (Painted)
+      value: MetalTrainBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182971266270928261, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3182971266270928261, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.3333334
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 3182971266270928261, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.3333334
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6874481316287052748, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: type
-      value: 6
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8505411983580614831, guid: 0a9f8cd269c51a74384deb6c255b8e38, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 687e1aa6821c043c4b0ad56a6b20123d, type: 3}
+      objectReference: {fileID: 8772635646731092485, guid: aea870a300de647449b64f44551abc25, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,5 +1,4 @@
 using items;
-using managers;
 using UnityEngine;
 namespace recipes
 {
@@ -12,10 +11,7 @@ namespace recipes
         public Sprite trainIcon;
         public ItemType deliveryItem
         {
-            get
-            {
-                return ItemType.Train;
-            }
+            get => ItemType.Train;
         }
 
         public Sprite GetIcon()

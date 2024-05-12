@@ -26,9 +26,10 @@ namespace stations
             ShowMachineName(false);
         }
 
-        private void ShowMachineName(bool show)
+        public void ShowMachineName(bool show)
         {
             stationNameCanvas.enabled = show;
+            stationNameCanvas.gameObject.SetActive(show);
         }
 
     }
