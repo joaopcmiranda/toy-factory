@@ -42,7 +42,7 @@
         WoodenBlock,
         TrainBody,
         WoodenTrain,
-        PaintedTrain
+        PaintedTrain,
         UnpaintedCarriageParts,
         RedCarriageParts,
         GreenCarriageParts,
