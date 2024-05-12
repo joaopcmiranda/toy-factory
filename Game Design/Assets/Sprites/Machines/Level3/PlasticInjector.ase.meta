@@ -1,0 +1,3430 @@
+fileFormatVersion: 2
+guid: 4945def60acd7d945a984fdc0dc34ac0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Functioning-Blue
+    second: {fileID: 7400000, guid: 3469a87ea7a30784781fabc5e499a462, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Functioning-Green
+    second: {fileID: 7400000, guid: 6773b2ebcb22d3843bb407f583d2738e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Functioning-Red
+    second: {fileID: 7400000, guid: 202922db58cdcd744be94ed7e5729bed, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Blue
+    second: {fileID: 7400000, guid: 442423143fc8b7741ba4a7ea27c26f14, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Colourless
+    second: {fileID: 7400000, guid: 714d4b8d293910c4587e6663f6660843, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Green
+    second: {fileID: 7400000, guid: 370aa920c14f2f04fb01cb197daf6b20, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Red
+    second: {fileID: 7400000, guid: 13fe372909c042340be1e2523df4c33f, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 24
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 0
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 0
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638511514089062939
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: PlasticInjector
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 64
+      height: 46
+    spriteID: b089573ea8e96c645adae236c3ae7301
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: PlasticInjector_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 58
+      width: 64
+      height: 46
+    spriteID: bab90ad6b6040be4a9eca0f910850354
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 58}
+  - name: PlasticInjector_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 112
+      width: 64
+      height: 46
+    spriteID: f127a14c34f03dc4d942b3784efcf70f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 112}
+  - name: PlasticInjector_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 166
+      width: 64
+      height: 46
+    spriteID: 9ab470b0aad0e09418b171f441b95beb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 166}
+  - name: PlasticInjector_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 220
+      width: 64
+      height: 46
+    spriteID: c861bf066074fa944a1618e7ecd6f4fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 220}
+  - name: PlasticInjector_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.08888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 706
+      width: 64
+      height: 45
+    spriteID: c0785787f28a4d94094ef6eb13fcd528
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 706}
+  - name: PlasticInjector_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 976
+      width: 64
+      height: 44
+    spriteID: dab7e9bfbc9519b49b3674640085d634
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 976}
+  - name: PlasticInjector_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 4
+      width: 64
+      height: 44
+    spriteID: 04067468aa74a7243991532ff58b909c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 4}
+  - name: PlasticInjector_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 56
+      width: 64
+      height: 44
+    spriteID: a1ca6baf202856c4dbace67b1cd8b26d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 56}
+  - name: PlasticInjector_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 108
+      width: 64
+      height: 44
+    spriteID: 881ac989ca6755e41b20cc2716f69787
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 108}
+  - name: PlasticInjector_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 160
+      width: 64
+      height: 44
+    spriteID: d106a48530650d3468771352dc750aa9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 160}
+  - name: PlasticInjector_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 212
+      width: 64
+      height: 44
+    spriteID: 28ada0f838c6d624684e6aeb903638a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 212}
+  - name: PlasticInjector_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 264
+      width: 64
+      height: 44
+    spriteID: fdaa049cdd2fd794a898c6c29c0b4efa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 264}
+  - name: PlasticInjector_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 316
+      width: 64
+      height: 44
+    spriteID: fe8e2779032a1434bb50a639fc7f9394
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 316}
+  - name: PlasticInjector_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 368
+      width: 64
+      height: 44
+    spriteID: 09c4258d564201144ab23500487b29ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 368}
+  - name: PlasticInjector_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 420
+      width: 64
+      height: 44
+    spriteID: e56b4b903c5088d43bfaa3d8451f3db8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 420}
+  - name: PlasticInjector_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 472
+      width: 64
+      height: 44
+    spriteID: ad654f7f22ddabe4198ef70af9cc55f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 472}
+  - name: PlasticInjector_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 524
+      width: 64
+      height: 44
+    spriteID: d8687ed3fea17984ca33516b79524964
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 524}
+  - name: PlasticInjector_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 576
+      width: 64
+      height: 44
+    spriteID: 3234ae212103cec45ad2ebe367fcb9c9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 576}
+  - name: PlasticInjector_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 628
+      width: 64
+      height: 44
+    spriteID: b56f2b87f6808be41aacadebfa387b95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 628}
+  - name: PlasticInjector_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 680
+      width: 64
+      height: 44
+    spriteID: 462f26a9b55a22a4b8fea1364742876d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 680}
+  - name: PlasticInjector_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 732
+      width: 64
+      height: 44
+    spriteID: 4c9b602acecc2104e89be628e3006b8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 732}
+  - name: PlasticInjector_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 784
+      width: 64
+      height: 44
+    spriteID: 1846bac04a33c7243b6a7bc65483cba9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 784}
+  - name: PlasticInjector_Frame_23
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 836
+      width: 64
+      height: 44
+    spriteID: 9684b2478cbafc74eb8ebc458bbd9904
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 836}
+  - name: PlasticInjector_Frame_24
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 888
+      width: 64
+      height: 44
+    spriteID: ba436a36dd5088648b6b808fae3d66af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 888}
+  - name: PlasticInjector_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 940
+      width: 64
+      height: 44
+    spriteID: cb579c2c25a4c484e9a042279354aab7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 940}
+  - name: PlasticInjector_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 4
+      width: 64
+      height: 44
+    spriteID: 27686a89a2ad20548a1e332e9507d055
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 4}
+  - name: PlasticInjector_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 56
+      width: 64
+      height: 44
+    spriteID: b3b11c559c7774d4f974e83e8dd2c4bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 56}
+  - name: PlasticInjector_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 108
+      width: 64
+      height: 44
+    spriteID: cffe42b9b207c2941bd8a0ad3d6eba15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 108}
+  - name: PlasticInjector_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 160
+      width: 64
+      height: 44
+    spriteID: b2d0727e6f565cb46a844d1fe7ca5c39
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 160}
+  - name: PlasticInjector_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 212
+      width: 64
+      height: 44
+    spriteID: 2d605efa52519324ebd035650b6a3a16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 212}
+  - name: PlasticInjector_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 264
+      width: 64
+      height: 44
+    spriteID: ebef7c08a44657c46946fca9b229191b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 264}
+  - name: PlasticInjector_Frame_32
+    originalName: 
+    pivot: {x: 0.5, y: -0.08888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 759
+      width: 64
+      height: 45
+    spriteID: 9547815fc0699db4b9233b794acda4c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 759}
+  - name: PlasticInjector_Frame_33
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 274
+      width: 64
+      height: 46
+    spriteID: 60753ebbce0cd2b4aa8e70068ff8a53f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 274}
+  - name: PlasticInjector_Frame_34
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 328
+      width: 64
+      height: 46
+    spriteID: 28cc8b226f3a44847b570e817923931e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 328}
+  - name: PlasticInjector_Frame_35
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 382
+      width: 64
+      height: 46
+    spriteID: 40c091eab18766f47be02420c70583a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 382}
+  - name: PlasticInjector_Frame_36
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 436
+      width: 64
+      height: 46
+    spriteID: 638cd7287463cd5469d7049bed01263d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 436}
+  - name: PlasticInjector_Frame_37
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 490
+      width: 64
+      height: 46
+    spriteID: 4fb734b67bca63f4e905cbbafbde3149
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 490}
+  - name: PlasticInjector_Frame_38
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 544
+      width: 64
+      height: 46
+    spriteID: f0ebee2b9f5127e479774ed506effaee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 544}
+  - name: PlasticInjector_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 598
+      width: 64
+      height: 46
+    spriteID: c5da193c24150414ca78eb432c733c2e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 598}
+  - name: PlasticInjector_Frame_40
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 652
+      width: 64
+      height: 46
+    spriteID: d95e18a2739d1eb42b39cbfb4142f22d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 652}
+  - name: PlasticInjector_Frame_41
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 706
+      width: 64
+      height: 46
+    spriteID: 58074ff5e090f474285e3126eaca3a43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 706}
+  - name: PlasticInjector_Frame_42
+    originalName: 
+    pivot: {x: 0.5, y: -0.08888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 812
+      width: 64
+      height: 45
+    spriteID: 1a86a1f2840f1ea4280c70e4018bb1dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 812}
+  - name: PlasticInjector_Frame_43
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 316
+      width: 64
+      height: 44
+    spriteID: c931883ebd04b694dbbe437b486be6d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 316}
+  - name: PlasticInjector_Frame_44
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 368
+      width: 64
+      height: 44
+    spriteID: 2e1878d03d3192e4b87d9d45c0adec27
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 368}
+  - name: PlasticInjector_Frame_45
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 420
+      width: 64
+      height: 44
+    spriteID: 25fd1312961f7af4798906003f189a80
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 420}
+  - name: PlasticInjector_Frame_46
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 472
+      width: 64
+      height: 44
+    spriteID: 5eeebd4031dd091498ba3d8759c8833c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 472}
+  - name: PlasticInjector_Frame_47
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 524
+      width: 64
+      height: 44
+    spriteID: b2c39d16ef8225047be208d5fb1bf45c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 524}
+  - name: PlasticInjector_Frame_48
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 576
+      width: 64
+      height: 44
+    spriteID: ca24f405fcdddfa45ad8272d53766997
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 576}
+  - name: PlasticInjector_Frame_49
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 628
+      width: 64
+      height: 44
+    spriteID: 014288f171903b7488c6050340c83c11
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 628}
+  - name: PlasticInjector_Frame_50
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 680
+      width: 64
+      height: 44
+    spriteID: 6fb2882a4ebbec54093b47bdbd704dc5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 680}
+  - name: PlasticInjector_Frame_51
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 732
+      width: 64
+      height: 44
+    spriteID: 1f3d76395f55463458ad1c8b439208a1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 732}
+  - name: PlasticInjector_Frame_52
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 784
+      width: 64
+      height: 44
+    spriteID: 389c2bf082873e2428094e51ddacdb9d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 784}
+  - name: PlasticInjector_Frame_53
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 836
+      width: 64
+      height: 44
+    spriteID: e758c89b584bd5e4dade9b3bfb36698e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 836}
+  - name: PlasticInjector_Frame_54
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 888
+      width: 64
+      height: 44
+    spriteID: 2beb1243f3155324f82ae7d433a66e64
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 888}
+  - name: PlasticInjector_Frame_55
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 940
+      width: 64
+      height: 44
+    spriteID: 46ff9db5526638e4bb840d091d62700f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 940}
+  - name: PlasticInjector_Frame_56
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 4
+      width: 64
+      height: 44
+    spriteID: b789e6ace797ecb4685d93717ef6856e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 4}
+  - name: PlasticInjector_Frame_57
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 56
+      width: 64
+      height: 44
+    spriteID: 4f3c055a2e81ed14eb515611eef6e1fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 56}
+  - name: PlasticInjector_Frame_58
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 108
+      width: 64
+      height: 44
+    spriteID: 15de7f934cbbbb044bfcc04574cf9a17
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 108}
+  - name: PlasticInjector_Frame_59
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 160
+      width: 64
+      height: 44
+    spriteID: 7752d132950e1e744aa9657c17895832
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 160}
+  - name: PlasticInjector_Frame_60
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 212
+      width: 64
+      height: 44
+    spriteID: 33d6043ddd833de4aa444f46454eaec6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 212}
+  - name: PlasticInjector_Frame_61
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 264
+      width: 64
+      height: 44
+    spriteID: 656b99097ede5ae47bac498c031b8cb3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 264}
+  - name: PlasticInjector_Frame_62
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 316
+      width: 64
+      height: 44
+    spriteID: 41d3795f7c3e19f4a8c4c2b2de749817
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 316}
+  - name: PlasticInjector_Frame_63
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 368
+      width: 64
+      height: 44
+    spriteID: b2ef90f840907aa4b999fd84aaae6d37
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 368}
+  - name: PlasticInjector_Frame_64
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 420
+      width: 64
+      height: 44
+    spriteID: dbfe75ab121cb55448ed6d0bacf94eb8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 420}
+  - name: PlasticInjector_Frame_65
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 472
+      width: 64
+      height: 44
+    spriteID: 2356a92541307da478c26801257dc8c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 472}
+  - name: PlasticInjector_Frame_66
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 524
+      width: 64
+      height: 44
+    spriteID: 908dd76f62da95c418b61dde3e4a2815
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 524}
+  - name: PlasticInjector_Frame_67
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 576
+      width: 64
+      height: 44
+    spriteID: cfbee9d25560e3b47bc2be4b7b44e346
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 576}
+  - name: PlasticInjector_Frame_68
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 628
+      width: 64
+      height: 44
+    spriteID: fcc1afc964be60240bad048e7fb13988
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 628}
+  - name: PlasticInjector_Frame_69
+    originalName: 
+    pivot: {x: 0.5, y: -0.08888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 865
+      width: 64
+      height: 45
+    spriteID: 9be5f075e474dda43aae78d5a2585a99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 865}
+  - name: PlasticInjector_Frame_70
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 760
+      width: 64
+      height: 46
+    spriteID: d640a6d485feb5440bc290593f6a6a87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 760}
+  - name: PlasticInjector_Frame_71
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 814
+      width: 64
+      height: 46
+    spriteID: 116bb84ffa9bf3e45881dce1540d4361
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 814}
+  - name: PlasticInjector_Frame_72
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 868
+      width: 64
+      height: 46
+    spriteID: ce2009f57bdc69046919fcab70e00507
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 868}
+  - name: PlasticInjector_Frame_73
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 922
+      width: 64
+      height: 46
+    spriteID: 7bf19eede1896e549ac553dfe0e12547
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 922}
+  - name: PlasticInjector_Frame_74
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 4
+      width: 64
+      height: 46
+    spriteID: 33121381a69741e468c19b632183af02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 4}
+  - name: PlasticInjector_Frame_75
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 58
+      width: 64
+      height: 46
+    spriteID: 13d71d900ed9ad944b0239357c91b573
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 58}
+  - name: PlasticInjector_Frame_76
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 112
+      width: 64
+      height: 46
+    spriteID: 205fc4d0e6a5ad94e8460a3987a92884
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 112}
+  - name: PlasticInjector_Frame_77
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 166
+      width: 64
+      height: 46
+    spriteID: 4cd5c5a451c243d49aad46824c8a9b1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 166}
+  - name: PlasticInjector_Frame_78
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 220
+      width: 64
+      height: 46
+    spriteID: 4388117c0612f7640b0eef75d208134b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 220}
+  - name: PlasticInjector_Frame_79
+    originalName: 
+    pivot: {x: 0.5, y: -0.08888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 918
+      width: 64
+      height: 45
+    spriteID: 5d01e5969243a3a41bb416573957815a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 918}
+  - name: PlasticInjector_Frame_80
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 680
+      width: 64
+      height: 44
+    spriteID: edba14c3ef9a36d44b7115ab64c37c93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 680}
+  - name: PlasticInjector_Frame_81
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 732
+      width: 64
+      height: 44
+    spriteID: 5e2a35dff8287cd4a88e050abc39120a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 732}
+  - name: PlasticInjector_Frame_82
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 784
+      width: 64
+      height: 44
+    spriteID: 7c833c8cb457e18479730f6c5e505d5c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 784}
+  - name: PlasticInjector_Frame_83
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 836
+      width: 64
+      height: 44
+    spriteID: c3a49e2d78ced9b4e9ccf935d3ac4003
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 836}
+  - name: PlasticInjector_Frame_84
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 888
+      width: 64
+      height: 44
+    spriteID: d2bab3ea5b02913469dc7979cf8d0188
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 888}
+  - name: PlasticInjector_Frame_85
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 292
+      y: 940
+      width: 64
+      height: 44
+    spriteID: f09ce42925f05e549bfa2749b6abeda2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 292, y: 940}
+  - name: PlasticInjector_Frame_86
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 4
+      width: 64
+      height: 44
+    spriteID: 7543db0953a145146b88f71ad0692ed5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 4}
+  - name: PlasticInjector_Frame_87
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 56
+      width: 64
+      height: 44
+    spriteID: 1efd61b3a9d855c4198ed9b819332584
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 56}
+  - name: PlasticInjector_Frame_88
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 108
+      width: 64
+      height: 44
+    spriteID: 2c5fb670b5af47c46b76ea72e5afd3ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 108}
+  - name: PlasticInjector_Frame_89
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 160
+      width: 64
+      height: 44
+    spriteID: 99a00fbe8687f65498413f3095fc065b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 160}
+  - name: PlasticInjector_Frame_90
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 212
+      width: 64
+      height: 44
+    spriteID: 1566f6f11bdffc94c811448245b46550
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 212}
+  - name: PlasticInjector_Frame_91
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 264
+      width: 64
+      height: 44
+    spriteID: 8b2c2a0e88fd38f4bb5896f3fde3e83a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 264}
+  - name: PlasticInjector_Frame_92
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 316
+      width: 64
+      height: 44
+    spriteID: d94afecaa9e31ba409d0fdf21f5bdd5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 316}
+  - name: PlasticInjector_Frame_93
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 368
+      width: 64
+      height: 44
+    spriteID: 9dba8860306eea941bbbfedb4f59d5a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 368}
+  - name: PlasticInjector_Frame_94
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 420
+      width: 64
+      height: 44
+    spriteID: 027bd7fb95303a14dbc2c8879c2a942f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 420}
+  - name: PlasticInjector_Frame_95
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 472
+      width: 64
+      height: 44
+    spriteID: d788bebf040820447a42e27b9a617a0a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 472}
+  - name: PlasticInjector_Frame_96
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 524
+      width: 64
+      height: 44
+    spriteID: 561931ab27d3da7489c062a8855c3f2d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 524}
+  - name: PlasticInjector_Frame_97
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 576
+      width: 64
+      height: 44
+    spriteID: cb0dc28ca87af2747b31372cb90c2d22
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 576}
+  - name: PlasticInjector_Frame_98
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 628
+      width: 64
+      height: 44
+    spriteID: ac262aafc92cfbc49b4a40ed39aeb3c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 628}
+  - name: PlasticInjector_Frame_99
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 680
+      width: 64
+      height: 44
+    spriteID: 238baaf8430ab7847b0483f31c5d6bf0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 680}
+  - name: PlasticInjector_Frame_100
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 732
+      width: 64
+      height: 44
+    spriteID: 718f39b2bf9a3134182638bb8e07b95e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 732}
+  - name: PlasticInjector_Frame_101
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 784
+      width: 64
+      height: 44
+    spriteID: e82f1e17cf6510a40b60f799ffeac424
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 784}
+  - name: PlasticInjector_Frame_102
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 836
+      width: 64
+      height: 44
+    spriteID: 89c6950ed12ec704d8e0bbf0710fb243
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 836}
+  - name: PlasticInjector_Frame_103
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 888
+      width: 64
+      height: 44
+    spriteID: ec37e6556a1486b4d9c84cf0742c9f43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 888}
+  - name: PlasticInjector_Frame_104
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 940
+      width: 64
+      height: 44
+    spriteID: 7283613612eb30e4aa432bc65cd5fbdc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 940}
+  - name: PlasticInjector_Frame_105
+    originalName: 
+    pivot: {x: 0.5, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 436
+      y: 4
+      width: 64
+      height: 44
+    spriteID: c5cf301cea4407b4487ec0cb9d39042f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 436, y: 4}
+  - name: PlasticInjector_Frame_106
+    originalName: 
+    pivot: {x: 0.5, y: -0.08888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 971
+      width: 64
+      height: 45
+    spriteID: b136eac4852a0b84794294bd02802cdf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 971}
+  - name: PlasticInjector_Frame_107
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 274
+      width: 64
+      height: 46
+    spriteID: b6b7e7a7a7532a340aff57ae50b58258
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 274}
+  - name: PlasticInjector_Frame_108
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 328
+      width: 64
+      height: 46
+    spriteID: 8f9af676caa6e8e4f8ac4125a178dcda
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 328}
+  - name: PlasticInjector_Frame_109
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 382
+      width: 64
+      height: 46
+    spriteID: 00d724dfc8fe5bd43ab5153776f166cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 382}
+  - name: PlasticInjector_Frame_110
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 436
+      width: 64
+      height: 46
+    spriteID: e10b2289fb9ee7a4ea6aaf7a2340a0bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 436}
+  - name: PlasticInjector_Frame_111
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 490
+      width: 64
+      height: 46
+    spriteID: 95ddfd430c711eb499cb210581a50dc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 490}
+  - name: PlasticInjector_Frame_112
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 544
+      width: 64
+      height: 46
+    spriteID: cb8de1e4df3afc948b011678986858bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 544}
+  - name: PlasticInjector_Frame_113
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 598
+      width: 64
+      height: 46
+    spriteID: 8154bc49ccd298146809a47643c828c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 598}
+  - name: PlasticInjector_Frame_114
+    originalName: 
+    pivot: {x: 0.5, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 652
+      width: 64
+      height: 46
+    spriteID: d2b5ff97e1179d74b80d6d4641a24cf9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 652}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -711772174
+    name: PlasticInjector
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: PlasticInjector_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: b089573ea8e96c645adae236c3ae7301
+    - name: PlasticInjector_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: bab90ad6b6040be4a9eca0f910850354
+    - name: PlasticInjector_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: f127a14c34f03dc4d942b3784efcf70f
+    - name: PlasticInjector_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 9ab470b0aad0e09418b171f441b95beb
+    - name: PlasticInjector_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: c861bf066074fa944a1618e7ecd6f4fc
+    - name: PlasticInjector_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 45
+      spriteId: c0785787f28a4d94094ef6eb13fcd528
+    - name: PlasticInjector_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: dab7e9bfbc9519b49b3674640085d634
+    - name: PlasticInjector_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 04067468aa74a7243991532ff58b909c
+    - name: PlasticInjector_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: a1ca6baf202856c4dbace67b1cd8b26d
+    - name: PlasticInjector_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 881ac989ca6755e41b20cc2716f69787
+    - name: PlasticInjector_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: d106a48530650d3468771352dc750aa9
+    - name: PlasticInjector_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 28ada0f838c6d624684e6aeb903638a3
+    - name: PlasticInjector_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: fdaa049cdd2fd794a898c6c29c0b4efa
+    - name: PlasticInjector_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: fe8e2779032a1434bb50a639fc7f9394
+    - name: PlasticInjector_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 09c4258d564201144ab23500487b29ed
+    - name: PlasticInjector_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: e56b4b903c5088d43bfaa3d8451f3db8
+    - name: PlasticInjector_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: ad654f7f22ddabe4198ef70af9cc55f1
+    - name: PlasticInjector_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: d8687ed3fea17984ca33516b79524964
+    - name: PlasticInjector_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 3234ae212103cec45ad2ebe367fcb9c9
+    - name: PlasticInjector_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: b56f2b87f6808be41aacadebfa387b95
+    - name: PlasticInjector_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 462f26a9b55a22a4b8fea1364742876d
+    - name: PlasticInjector_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 4c9b602acecc2104e89be628e3006b8f
+    - name: PlasticInjector_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 1846bac04a33c7243b6a7bc65483cba9
+    - name: PlasticInjector_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 9684b2478cbafc74eb8ebc458bbd9904
+    - name: PlasticInjector_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: ba436a36dd5088648b6b808fae3d66af
+    - name: PlasticInjector_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: cb579c2c25a4c484e9a042279354aab7
+    - name: PlasticInjector_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 27686a89a2ad20548a1e332e9507d055
+    - name: PlasticInjector_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: b3b11c559c7774d4f974e83e8dd2c4bb
+    - name: PlasticInjector_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: cffe42b9b207c2941bd8a0ad3d6eba15
+    - name: PlasticInjector_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: b2d0727e6f565cb46a844d1fe7ca5c39
+    - name: PlasticInjector_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 2d605efa52519324ebd035650b6a3a16
+    - name: PlasticInjector_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: ebef7c08a44657c46946fca9b229191b
+    - name: PlasticInjector_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 45
+      spriteId: 9547815fc0699db4b9233b794acda4c7
+    - name: PlasticInjector_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 60753ebbce0cd2b4aa8e70068ff8a53f
+    - name: PlasticInjector_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 28cc8b226f3a44847b570e817923931e
+    - name: PlasticInjector_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 40c091eab18766f47be02420c70583a5
+    - name: PlasticInjector_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 638cd7287463cd5469d7049bed01263d
+    - name: PlasticInjector_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 4fb734b67bca63f4e905cbbafbde3149
+    - name: PlasticInjector_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: f0ebee2b9f5127e479774ed506effaee
+    - name: PlasticInjector_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: c5da193c24150414ca78eb432c733c2e
+    - name: PlasticInjector_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: d95e18a2739d1eb42b39cbfb4142f22d
+    - name: PlasticInjector_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 58074ff5e090f474285e3126eaca3a43
+    - name: PlasticInjector_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 45
+      spriteId: 1a86a1f2840f1ea4280c70e4018bb1dd
+    - name: PlasticInjector_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: c931883ebd04b694dbbe437b486be6d6
+    - name: PlasticInjector_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 2e1878d03d3192e4b87d9d45c0adec27
+    - name: PlasticInjector_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 25fd1312961f7af4798906003f189a80
+    - name: PlasticInjector_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 5eeebd4031dd091498ba3d8759c8833c
+    - name: PlasticInjector_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: b2c39d16ef8225047be208d5fb1bf45c
+    - name: PlasticInjector_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: ca24f405fcdddfa45ad8272d53766997
+    - name: PlasticInjector_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 014288f171903b7488c6050340c83c11
+    - name: PlasticInjector_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 6fb2882a4ebbec54093b47bdbd704dc5
+    - name: PlasticInjector_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 1f3d76395f55463458ad1c8b439208a1
+    - name: PlasticInjector_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 389c2bf082873e2428094e51ddacdb9d
+    - name: PlasticInjector_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: e758c89b584bd5e4dade9b3bfb36698e
+    - name: PlasticInjector_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 2beb1243f3155324f82ae7d433a66e64
+    - name: PlasticInjector_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 46ff9db5526638e4bb840d091d62700f
+    - name: PlasticInjector_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: b789e6ace797ecb4685d93717ef6856e
+    - name: PlasticInjector_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 4f3c055a2e81ed14eb515611eef6e1fc
+    - name: PlasticInjector_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 15de7f934cbbbb044bfcc04574cf9a17
+    - name: PlasticInjector_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 7752d132950e1e744aa9657c17895832
+    - name: PlasticInjector_Frame_60
+      frameIndex: 60
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 33d6043ddd833de4aa444f46454eaec6
+    - name: PlasticInjector_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 656b99097ede5ae47bac498c031b8cb3
+    - name: PlasticInjector_Frame_62
+      frameIndex: 62
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 41d3795f7c3e19f4a8c4c2b2de749817
+    - name: PlasticInjector_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: b2ef90f840907aa4b999fd84aaae6d37
+    - name: PlasticInjector_Frame_64
+      frameIndex: 64
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: dbfe75ab121cb55448ed6d0bacf94eb8
+    - name: PlasticInjector_Frame_65
+      frameIndex: 65
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 2356a92541307da478c26801257dc8c4
+    - name: PlasticInjector_Frame_66
+      frameIndex: 66
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 908dd76f62da95c418b61dde3e4a2815
+    - name: PlasticInjector_Frame_67
+      frameIndex: 67
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: cfbee9d25560e3b47bc2be4b7b44e346
+    - name: PlasticInjector_Frame_68
+      frameIndex: 68
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: fcc1afc964be60240bad048e7fb13988
+    - name: PlasticInjector_Frame_69
+      frameIndex: 69
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 45
+      spriteId: 9be5f075e474dda43aae78d5a2585a99
+    - name: PlasticInjector_Frame_70
+      frameIndex: 70
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: d640a6d485feb5440bc290593f6a6a87
+    - name: PlasticInjector_Frame_71
+      frameIndex: 71
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 116bb84ffa9bf3e45881dce1540d4361
+    - name: PlasticInjector_Frame_72
+      frameIndex: 72
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: ce2009f57bdc69046919fcab70e00507
+    - name: PlasticInjector_Frame_73
+      frameIndex: 73
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 7bf19eede1896e549ac553dfe0e12547
+    - name: PlasticInjector_Frame_74
+      frameIndex: 74
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 33121381a69741e468c19b632183af02
+    - name: PlasticInjector_Frame_75
+      frameIndex: 75
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 13d71d900ed9ad944b0239357c91b573
+    - name: PlasticInjector_Frame_76
+      frameIndex: 76
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 205fc4d0e6a5ad94e8460a3987a92884
+    - name: PlasticInjector_Frame_77
+      frameIndex: 77
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 4cd5c5a451c243d49aad46824c8a9b1b
+    - name: PlasticInjector_Frame_78
+      frameIndex: 78
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 4388117c0612f7640b0eef75d208134b
+    - name: PlasticInjector_Frame_79
+      frameIndex: 79
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 45
+      spriteId: 5d01e5969243a3a41bb416573957815a
+    - name: PlasticInjector_Frame_80
+      frameIndex: 80
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: edba14c3ef9a36d44b7115ab64c37c93
+    - name: PlasticInjector_Frame_81
+      frameIndex: 81
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 5e2a35dff8287cd4a88e050abc39120a
+    - name: PlasticInjector_Frame_82
+      frameIndex: 82
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 7c833c8cb457e18479730f6c5e505d5c
+    - name: PlasticInjector_Frame_83
+      frameIndex: 83
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: c3a49e2d78ced9b4e9ccf935d3ac4003
+    - name: PlasticInjector_Frame_84
+      frameIndex: 84
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: d2bab3ea5b02913469dc7979cf8d0188
+    - name: PlasticInjector_Frame_85
+      frameIndex: 85
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: f09ce42925f05e549bfa2749b6abeda2
+    - name: PlasticInjector_Frame_86
+      frameIndex: 86
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 7543db0953a145146b88f71ad0692ed5
+    - name: PlasticInjector_Frame_87
+      frameIndex: 87
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 1efd61b3a9d855c4198ed9b819332584
+    - name: PlasticInjector_Frame_88
+      frameIndex: 88
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 2c5fb670b5af47c46b76ea72e5afd3ba
+    - name: PlasticInjector_Frame_89
+      frameIndex: 89
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 99a00fbe8687f65498413f3095fc065b
+    - name: PlasticInjector_Frame_90
+      frameIndex: 90
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 1566f6f11bdffc94c811448245b46550
+    - name: PlasticInjector_Frame_91
+      frameIndex: 91
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 8b2c2a0e88fd38f4bb5896f3fde3e83a
+    - name: PlasticInjector_Frame_92
+      frameIndex: 92
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: d94afecaa9e31ba409d0fdf21f5bdd5b
+    - name: PlasticInjector_Frame_93
+      frameIndex: 93
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 9dba8860306eea941bbbfedb4f59d5a3
+    - name: PlasticInjector_Frame_94
+      frameIndex: 94
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 027bd7fb95303a14dbc2c8879c2a942f
+    - name: PlasticInjector_Frame_95
+      frameIndex: 95
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: d788bebf040820447a42e27b9a617a0a
+    - name: PlasticInjector_Frame_96
+      frameIndex: 96
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 561931ab27d3da7489c062a8855c3f2d
+    - name: PlasticInjector_Frame_97
+      frameIndex: 97
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: cb0dc28ca87af2747b31372cb90c2d22
+    - name: PlasticInjector_Frame_98
+      frameIndex: 98
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: ac262aafc92cfbc49b4a40ed39aeb3c2
+    - name: PlasticInjector_Frame_99
+      frameIndex: 99
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 238baaf8430ab7847b0483f31c5d6bf0
+    - name: PlasticInjector_Frame_100
+      frameIndex: 100
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 718f39b2bf9a3134182638bb8e07b95e
+    - name: PlasticInjector_Frame_101
+      frameIndex: 101
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: e82f1e17cf6510a40b60f799ffeac424
+    - name: PlasticInjector_Frame_102
+      frameIndex: 102
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 89c6950ed12ec704d8e0bbf0710fb243
+    - name: PlasticInjector_Frame_103
+      frameIndex: 103
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: ec37e6556a1486b4d9c84cf0742c9f43
+    - name: PlasticInjector_Frame_104
+      frameIndex: 104
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: 7283613612eb30e4aa432bc65cd5fbdc
+    - name: PlasticInjector_Frame_105
+      frameIndex: 105
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 44
+      spriteId: c5cf301cea4407b4487ec0cb9d39042f
+    - name: PlasticInjector_Frame_106
+      frameIndex: 106
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 45
+      spriteId: b136eac4852a0b84794294bd02802cdf
+    - name: PlasticInjector_Frame_107
+      frameIndex: 107
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: b6b7e7a7a7532a340aff57ae50b58258
+    - name: PlasticInjector_Frame_108
+      frameIndex: 108
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 8f9af676caa6e8e4f8ac4125a178dcda
+    - name: PlasticInjector_Frame_109
+      frameIndex: 109
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 00d724dfc8fe5bd43ab5153776f166cb
+    - name: PlasticInjector_Frame_110
+      frameIndex: 110
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: e10b2289fb9ee7a4ea6aaf7a2340a0bf
+    - name: PlasticInjector_Frame_111
+      frameIndex: 111
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 95ddfd430c711eb499cb210581a50dc6
+    - name: PlasticInjector_Frame_112
+      frameIndex: 112
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: cb8de1e4df3afc948b011678986858bb
+    - name: PlasticInjector_Frame_113
+      frameIndex: 113
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: 8154bc49ccd298146809a47643c828c1
+    - name: PlasticInjector_Frame_114
+      frameIndex: 114
+      cellRect:
+        x: 0
+        y: 4
+        width: 64
+        height: 46
+      spriteId: d2b5ff97e1179d74b80d6d4641a24cf9
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

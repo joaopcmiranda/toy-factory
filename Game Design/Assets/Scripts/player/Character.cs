@@ -1,7 +1,4 @@
-using System;
-using UI;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace player
 {
@@ -50,8 +47,6 @@ namespace player
 
                 _lastDirection = _movement.normalized; // Update lastDirection when the player moves
 
-                _rb.MovePosition(_rb.position + _movement.normalized * (speed * Time.deltaTime));
-
                 _rayCaster.CastTorwards(_movement);
             }
             else if (_isWalking)
@@ -59,6 +54,11 @@ namespace player
                 StopWalking();
             }
 
+        }
+
+        private void FixedUpdate()
+        {
+            _rb.MovePosition(_rb.position + _movement.normalized * (speed * Time.deltaTime));
         }
 
         private void StopWalking()
