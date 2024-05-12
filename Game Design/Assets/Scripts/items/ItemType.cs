@@ -8,7 +8,7 @@ namespace items
         Wheels,
         MetalSheet,
         Slinky,
-        ToyCube,
+        PuzzleCube,
         PlasticChips,
         Plastic,
         RedPlastic,

@@ -1,8 +1,9 @@
 using items;
+using managers;
 using UnityEngine;
 namespace recipes
 {
-    public class Level0TrainRecipe : MonoBehaviour, IRecipe
+    public class Level3TrainRecipe : MonoBehaviour, IRecipe
     {
         public string recipeName { get; set; } = "Plastic Train";
         public int frequency { get; set; } = 1;

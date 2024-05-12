@@ -782,6 +782,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1965789092928267039, guid: b482a841d7413cb4387f561afd5d0622, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
+    - target: {fileID: 5697203902921582492, guid: b482a841d7413cb4387f561afd5d0622, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
     - target: {fileID: 6101272038733659741, guid: b482a841d7413cb4387f561afd5d0622, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.57
@@ -1468,6 +1476,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 457773972632596366, guid: 81fad4faf5c35774d8b5453037dedae8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
+    - target: {fileID: 3021112025170994375, guid: 81fad4faf5c35774d8b5453037dedae8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
     - target: {fileID: 6943828876130392453, guid: 81fad4faf5c35774d8b5453037dedae8, type: 3}
       propertyPath: m_Name
       value: PlasticMixer
@@ -1599,6 +1615,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1463690722384222878, guid: a3342e53f5f07bd4fa4c11162ea3b8b8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
+    - target: {fileID: 4801708158451532818, guid: a3342e53f5f07bd4fa4c11162ea3b8b8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
     - target: {fileID: 8119857475315194459, guid: a3342e53f5f07bd4fa4c11162ea3b8b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.45
@@ -2379,7 +2403,9 @@ GameObject:
   m_Component:
   - component: {fileID: 936069633}
   - component: {fileID: 936069632}
-  - component: {fileID: 936069631}
+  - component: {fileID: 936069636}
+  - component: {fileID: 936069635}
+  - component: {fileID: 936069634}
   m_Layer: 0
   m_Name: OrderSystem
   m_TagString: Untagged
@@ -2387,19 +2413,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &936069631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936069630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ad02e448364a2b98aa13a5c45e6e0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trainIcon: {fileID: 21300000, guid: 16559db39cff6436dad6aee997391c62, type: 3}
 --- !u!114 &936069632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2414,7 +2427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderPrefab: {fileID: 2586038345392437876, guid: 69766cd0e87ea2f438325887022a33ea, type: 3}
   orderEntryPoint: {fileID: 1966819161}
-  singleOrderLevel: 1
+  singleOrderLevel: 0
   queueSize: 6
   queueStopX: 0
 --- !u!4 &936069633
@@ -2434,6 +2447,45 @@ Transform:
   - {fileID: 590835490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &936069634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936069630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a9e218b7084d51866862e3ca6ab862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeIcon: {fileID: 0}
+--- !u!114 &936069635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936069630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7287cc4cab4a3f9acef0922713d83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slinkyIcon: {fileID: 0}
+--- !u!114 &936069636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936069630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbec4be9621f4b369d72b42fb81f0a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainIcon: {fileID: 0}
 --- !u!1 &983121584
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,6 +5449,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2676111106636280213, guid: 536f5901722e0754f99b78b27c5f3719, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
+    - target: {fileID: 3633453975557402013, guid: 536f5901722e0754f99b78b27c5f3719, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 98753133}
     - target: {fileID: 5037260915950710800, guid: 536f5901722e0754f99b78b27c5f3719, type: 3}
       propertyPath: m_Name
       value: LaserCutter
