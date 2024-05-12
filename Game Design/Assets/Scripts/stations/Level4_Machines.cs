@@ -7,7 +7,7 @@ using items.handling;
 
 namespace machines
 {
-    public class Level4_Machines : ItemHolder
+    public class Level4_Machines : MonoBehaviour
     {
         public ItemManager itemManager;
         public Level4_minigame miniGame;
@@ -48,19 +48,19 @@ namespace machines
 
         }
 
-        public override void Start()
+        public void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
         }
 
-        public override void HoldItem(Item item)
+        public void HoldItem(Item item)
         {
             Debug.Log("HoldItem");
             item.PickUp(holdSpot);
-            item.IsHeldByMachine = true;
+            //item.IsHeldByMachine = true;
 
-            itemHolding = item;
+            //itemHolding = item;
             itemsHeld.Add(item);
 
             requiredFulfilled = hasRequiredItems();

@@ -8,16 +8,16 @@ namespace managers
     public class MachineManager : MonoBehaviour
     {
         public List<GameObject> machines;
-        private readonly List<Tuple<GameObject, Machine>> _machines = new List<Tuple<GameObject, Machine>>();
+        private readonly List<Tuple<GameObject, Level4_Machines>> _machines = new List<Tuple<GameObject, Level4_Machines>>();
 
-        private List<Tuple<GameObject, Machine>> machinesInRadius = new List<Tuple<GameObject, Machine>>();
+        private List<Tuple<GameObject, Level4_Machines>> machinesInRadius = new List<Tuple<GameObject, Level4_Machines>>();
         private float dropRadius = 1.5f;
 
         private void Start()
         {
             foreach (var machine in machines)
             {
-                _machines.Add(new Tuple<GameObject, Machine>(machine, machine.GetComponent<Machine>()));
+                _machines.Add(new Tuple<GameObject, Level4_Machines>(machine, machine.GetComponent<Level4_Machines>()));
             }
         }
 
@@ -36,7 +36,7 @@ namespace managers
             }
         }
 
-        public List<Tuple<GameObject, Machine>> getMachinesInRadius()
+        public List<Tuple<GameObject, Level4_Machines>> getMachinesInRadius()
         {
             return machinesInRadius;
         }
