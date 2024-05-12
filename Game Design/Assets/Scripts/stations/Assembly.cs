@@ -10,6 +10,7 @@ namespace stations
         public bool handAssembly;
         public bool tutorial;
 
+        private bool _isHoldingCarriageParts;
         private bool _isHoldingParts;
         private bool _isHoldingWheels;
         private bool isHoldingTrainItems
@@ -52,6 +53,7 @@ namespace stations
             {
                 _isHoldingParts = true;
                 _trainPartsType = item.type;
+                _isHoldingCarriageParts = item.type.ToString().Contains("Carriage");
             }
 
             var returnItem = HoldItem(item);
@@ -75,6 +77,7 @@ namespace stations
         {
             switch (item.type)
             {
+                //train parts
                 case ItemType.PaintedTrainParts:
                 case ItemType.RedTrainParts:
                 case ItemType.GreenTrainParts:
@@ -84,6 +87,15 @@ namespace stations
                 case ItemType.PinkTrainParts:
                 case ItemType.OrangeTrainParts:
                 case ItemType.PurpleTrainParts:
+                //carriage parts
+                case ItemType.RedCarriageParts:
+                case ItemType.GreenCarriageParts:
+                case ItemType.BlueCarriageParts:
+                case ItemType.YellowCarriageParts:
+                case ItemType.CyanCarriageParts:
+                case ItemType.PinkCarriageParts:
+                case ItemType.OrangeCarriageParts:
+                case ItemType.PurpleCarriageParts:
                     return !_isHoldingParts;
                 case ItemType.Wheels:
                     return !_isHoldingWheels;
@@ -91,6 +103,7 @@ namespace stations
                     return false;
             }
         }
+
 
         public override void Start()
         {
@@ -147,39 +160,27 @@ namespace stations
 
         private ItemType GetTrainType()
         {
-            ItemType trainType;
             switch (_trainPartsType)
             {
                 case ItemType.RedTrainParts:
-                    trainType = ItemType.RedTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.RedCarriage : ItemType.RedTrain;
                 case ItemType.GreenTrainParts:
-                    trainType = ItemType.GreenTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.GreenCarriage : ItemType.GreenTrain;
                 case ItemType.BlueTrainParts:
-                    trainType = ItemType.BlueTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.BlueCarriage : ItemType.BlueTrain;
                 case ItemType.YellowTrainParts:
-                    trainType = ItemType.YellowTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.YellowCarriage : ItemType.YellowTrain;
                 case ItemType.CyanTrainParts:
-                    trainType = ItemType.CyanTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.CyanCarriage : ItemType.CyanTrain;
                 case ItemType.PinkTrainParts:
-                    trainType = ItemType.PinkTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.PinkCarriage : ItemType.PinkTrain;
                 case ItemType.OrangeTrainParts:
-                    trainType = ItemType.OrangeTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.OrangeCarriage : ItemType.OrangeTrain;
                 case ItemType.PurpleTrainParts:
-                    trainType = ItemType.PurpleTrain;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.PurpleCarriage : ItemType.PurpleTrain;
                 default:
-                    trainType = ItemType.Train;
-                    break;
+                    return _isHoldingCarriageParts ? ItemType.Carriage : ItemType.Train;
             }
-
-            return trainType;
         }
 
         private void ManualAssembly()
