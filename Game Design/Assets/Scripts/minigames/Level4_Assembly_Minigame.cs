@@ -87,7 +87,7 @@ public class Level4_Assembly_Minigame : Level4_minigame
         }
     }
 
-    IEnumerator RandomSpeedChange()
+    IEnumerator RandomSpeedChange() 
     {
         while (true)
         {
@@ -119,10 +119,6 @@ public class Level4_Assembly_Minigame : Level4_minigame
                 successes++;
                 MoveIndicator();
             }
-        }
-        else
-        {
-            audioManager.PlayBreakItem();          
         }
 
         movingBar.transform.Translate(0, barSpeed * Time.deltaTime, 0);

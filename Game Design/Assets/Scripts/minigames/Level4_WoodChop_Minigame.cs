@@ -10,10 +10,6 @@ public class CraftingStation : Level4_minigame
     public GameObject indicator;
     public GameObject background;
 
-    private float barSpeed = 2f;
-    private float minY = -0.42f;
-    private float maxY = 0.25f;
-
     public int requiredSuccesses = 3; // Number of successful completions required
 
     public int successes = 0;
