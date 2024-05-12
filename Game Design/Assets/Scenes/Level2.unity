@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderPrefab: {fileID: 2586038345392437876, guid: 69766cd0e87ea2f438325887022a33ea, type: 3}
   orderEntryPoint: {fileID: 1848117062}
-  singleOrderLevel: 0
+  singleOrderLevel: 1
   queueSize: 7
   queueStopX: 5
 --- !u!4 &745942218
@@ -3205,7 +3205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -122, y: 267}
+  m_AnchoredPosition: {x: -122.000015, y: 267}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966395724
@@ -8008,6 +8008,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1682174770}
     m_Modifications:
+    - target: {fileID: 6048129776317172367, guid: 9489a42a886d54e53b63c08a7e00a517, type: 3}
+      propertyPath: providedType
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2698434485252701801, guid: 5a4144baf1bea4b4f937101897a2dfb5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -8087,10 +8091,6 @@ PrefabInstance:
     - target: {fileID: 9076823979471022664, guid: 5a4144baf1bea4b4f937101897a2dfb5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6048129776317172367, guid: 9489a42a886d54e53b63c08a7e00a517, type: 3}
-      propertyPath: providedType
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6048129776317172367, guid: 9489a42a886d54e53b63c08a7e00a517, type: 3}
