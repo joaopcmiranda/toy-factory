@@ -3,16 +3,16 @@ using managers;
 using UnityEngine;
 namespace recipes
 {
-    public class Level3TrainRecipe : MonoBehaviour, IRecipe
+    public class Level3RedTrainRecipe : MonoBehaviour, IRecipe
     {
         public string recipeName { get; set; } = "Plastic Train";
-        public int frequency { get; set; } = 1;
-        public int timeLimit { get; set; } = 60;
-        public int points { get; set; } = 100;
+        public int frequency { get; set; } = 4;
+        public int timeLimit { get; set; } = 90;
+        public int points { get; set; } = 250;
         public Sprite trainIcon;
         public ItemType deliveryItem
         {
-            get => ItemType.Train;
+            get => ItemType.RedTrain;
         }
 
         public Sprite GetIcon()

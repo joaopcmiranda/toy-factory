@@ -55,9 +55,9 @@ namespace stations
 
         public override Item GetItem()
         {
-            var item = ReleaseLastItem();
             if (IsHoldingItem())
             {
+                var item = ReleaseLastItem();
                 if (IsOutput(item))
                 {
                     _timer.ResetTimer();

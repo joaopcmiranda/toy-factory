@@ -84,6 +84,7 @@ namespace stations
             }
             else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
             {
+                CloseChoiceMenu();
                 _selectedProduction = GetOutputType(2);
                 _isSelectingProduction = false;
                 _timer.StartTimer(length);
@@ -135,7 +136,7 @@ namespace stations
         {
             switch (option)
             {
-                case 1:
+                case 2:
                     switch (_inputType)
                     {
                         case ItemType.RedPlastic:
@@ -147,7 +148,7 @@ namespace stations
                         default:
                             return ItemType.None;
                     }
-                case 2:
+                case 1:
                     switch (_inputType)
                     {
                         case ItemType.RedPlastic:

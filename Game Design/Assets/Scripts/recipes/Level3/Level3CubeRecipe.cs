@@ -6,9 +6,9 @@ namespace recipes
     public class Level3CubeRecipe : MonoBehaviour, IRecipe
     {
         public string recipeName { get; set; } = "Puzzle Cube";
-        public int frequency { get; set; } = 1;
+        public int frequency { get; set; } = 10;
         public int timeLimit { get; set; } = 60;
-        public int points { get; set; } = 100;
+        public int points { get; set; } = 150;
         public Sprite cubeIcon;
         public ItemType deliveryItem
         {

@@ -46,7 +46,7 @@ public class OrderManager : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(2);
             CreateNewOrder();
         }
     }
