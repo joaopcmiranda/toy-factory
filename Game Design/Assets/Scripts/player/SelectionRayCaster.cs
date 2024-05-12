@@ -23,8 +23,7 @@ namespace player
         public void CastTorwards(Vector2 direction)
         {
             Vector2 origin = rayCaster.position;
-                // debug ray
-                Debug.DrawRay(origin, direction * interactionRadius, Color.red, 0.1f);
+            Debug.DrawRay(origin, direction * interactionRadius, Color.red, 0.1f);
 
             var results = new RaycastHit2D[1];
             if (Physics2D.Raycast(origin, direction, _contactFilter, results, interactionRadius) > 0)
@@ -37,7 +36,11 @@ namespace player
                 {
                     if (_selectedObject)
                     {
-                        _selectedObject.GetComponent<Selectable>().Deselect();
+                        var previousSelectable = _selectedObject.GetComponent<Selectable>();
+                        if (previousSelectable)
+                        {
+                            previousSelectable.Deselect();
+                        }
                     }
 
                     _selectedObject = selectableObject;
@@ -46,7 +49,14 @@ namespace player
             }
             else
             {
-                _selectedObject?.GetComponent<Selectable>().Deselect();
+                if (_selectedObject)
+                {
+                    var selectable = _selectedObject.GetComponent<Selectable>();
+                    if (selectable)
+                    {
+                        selectable.Deselect();
+                    }
+                }
                 _selectedObject = null;
             }
         }
