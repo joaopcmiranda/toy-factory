@@ -5,72 +5,68 @@ namespace menu
 {
     public class Menu : MonoBehaviour
     {
-        private LevelManager level;
+        private LevelManager levelManager;
 
         void Start()
         {
-            level = GameObject.Find("Managers").GetComponent<LevelManager>();
+            levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
+            if (levelManager == null)
+            {
+                Debug.LogError("LevelManager component not found on 'Managers' GameObject!");
+            }
         }
 
-        void Update() {}
+        void Update() { }
 
         public void OnTutorialButton()
         {
-            level.LoadLevel0();
+            levelManager.LoadLevel(0);
         }
 
         public void OnLevel1Button()
         {
-            level.LoadLevel1();
+            levelManager.LoadLevel(1); 
         }
 
         public void OnLevel2Button()
         {
-            level.LoadLevel2();
+            levelManager.LoadLevel(2);
         }
 
         public void OnLevel3Button()
         {
-            level.LoadLevel3();
+            levelManager.LoadLevel(3);
         }
 
         public void OnLevel4Button()
         {
-            level.LoadLevel4();
+            levelManager.LoadLevel(4);
         }
 
-        public void OnOptionsButton() {}
+        public void OnOptionsButton()
+        {
+            // Implement options menu functionality here
+        }
 
         public void OnExitButton()
         {
-            //it doesn't work in unity, but probably works in the real game
+            // This function properly works when built as a standalone application
             Application.Quit();
         }
 
         public void OnNextLevelButton()
         {
-            switch (level.GetLevelScene())
+            int currentLevel = levelManager.GetLevelScene();
+            if (currentLevel >= 0 && currentLevel < 4)  // Ensure there is a next level to load
             {
-                case 0:
-                    level.LoadLevel1();
-                    break;
-                case 1:
-                    level.LoadLevel2();
-                    break;
-                case 2:
-                    level.LoadLevel3();
-                    break;
-                case 3:
-                    level.LoadLevel4();
-                    break;
-                default:
-                    break;
+                levelManager.LoadLevel(currentLevel + 1);
             }
         }
 
         public void OnMenuButton()
         {
-            level.LoadMainMenu();
+            levelManager.LoadMainMenu();
         }
     }
 }
+
