@@ -1,4 +1,5 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,21 +7,39 @@ namespace managers
 {
     public class LevelManager : MonoBehaviour
     {
-
         private int _currentScene;
         private int _overlayScene;
-        private int _levelScene; //level that the player is or have played in
+        private int _levelScene; 
+
+        // Lists to manage scene indices
+        private List<int> levelScenes;
+        private List<int> cutSceneIndices;
+        private List<int> levelEndSceneIndices;
 
         private void Start()
         {
+            InitializeSceneIndices();
             LoadMainMenu();
+        }
+
+        private void InitializeSceneIndices()
+        {
+            levelScenes = new List<int> { 2, 4, 6, 8, 10 };
+            cutSceneIndices = new List<int> { 3, 5, 7, 9, 11 };
+            levelEndSceneIndices = new List<int> { 12, 12, 12, 12, 12 };
+        }
+
+        public int GetLevelScene()
+        {
+            return _levelScene;
         }
 
         private void Update()
         {
-            //can be deleted but just to short-cut the game
-            //instant win the level by pressing the 'Return' key
-            if (Input.GetKeyUp(KeyCode.Escape) && _levelScene > -1)  LoadAfterLevelPlayed();
+            if (Input.GetKeyUp(KeyCode.Escape) && _levelScene > -1)
+            {
+                LoadAfterLevelPlayed();
+            }
         }
 
         private void UnloadCurrentScene()
@@ -39,90 +58,62 @@ namespace managers
         public void LoadMainMenu()
         {
             UnloadCurrentScene();
-
             SceneManager.LoadScene(1, LoadSceneMode.Additive);
             _currentScene = 1;
             _levelScene = -1;
         }
 
-        public void LoadLevel0()
+        public void LoadLevel(int levelIndex)
         {
             UnloadCurrentScene();
-
-            SceneManager.LoadScene(2, LoadSceneMode.Additive);
-            _currentScene = 2;
-            _levelScene = 0;
-        }
-
-        public void LoadLevel1()
-        {
-            UnloadCurrentScene();
-
-            SceneManager.LoadScene(3, LoadSceneMode.Additive);
-            _currentScene = 3;
-            _levelScene = 1;
-        }
-
-        public void LoadLevel2()
-        {
-            UnloadCurrentScene();
-
-            SceneManager.LoadScene(4, LoadSceneMode.Additive);
-            _currentScene = 4;
-            _levelScene = 2;
-        }
-
-        public void LoadLevel3()
-        {
-            UnloadCurrentScene();
-
-            SceneManager.LoadScene(5, LoadSceneMode.Additive);
-            _currentScene = 5;
-            _levelScene = 3;
-        }
-
-        public void LoadLevel4()
-        {
-            UnloadCurrentScene();
-
-            SceneManager.LoadScene(6, LoadSceneMode.Additive);
-            _currentScene = 6;
-            _levelScene = 4;
+            int sceneIndex = levelScenes[levelIndex];
+            SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
+            _currentScene = sceneIndex;
+            _levelScene = levelIndex;
         }
 
         public void LoadAfterLevelPlayed()
         {
             if (_levelScene == 4)
             {
-                //loads the end of the game after the final level
-
-                //meant to change the canvas of the final LevelEnd Scene to have only a
-                //'Back to Menu' and 'Exit', but i can't get the canvas objects for some
-                //reason so here's the alternative
                 LoadGameEnd();
             }
             else
             {
-                LoadLevelEnd();
+                StartCoroutine(LoadLevelCutscene());
             }
+        }
+
+        private IEnumerator LoadLevelCutscene()
+        {
+            UnloadCurrentScene();
+
+            int cutSceneIndex = cutSceneIndices[_levelScene];
+            SceneManager.LoadScene(cutSceneIndex, LoadSceneMode.Additive);
+            _currentScene = cutSceneIndex;
+
+            yield return new WaitForSeconds(5);  // Wait for 5 seconds before unloading
+
+            SceneManager.UnloadSceneAsync(_currentScene);
+            LoadLevelEnd();
         }
 
         private void LoadLevelEnd()
         {
             UnloadCurrentScene();
 
-            SceneManager.LoadScene(7, LoadSceneMode.Additive);
-            _currentScene = 7;
+            int levelEndSceneIndex = levelEndSceneIndices[_levelScene];
+            SceneManager.LoadScene(levelEndSceneIndex, LoadSceneMode.Additive);
+            _currentScene = levelEndSceneIndex;
         }
 
         private void LoadGameEnd()
         {
             UnloadCurrentScene();
-
-            SceneManager.LoadScene(8, LoadSceneMode.Additive);
-            _currentScene = 8;
+            SceneManager.LoadScene(13, LoadSceneMode.Additive);
+            _currentScene = 13;
         }
-
-        public int GetLevelScene() {  return _levelScene; }
     }
 }
+
+

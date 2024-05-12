@@ -7,7 +7,7 @@ namespace stations
     {
         public override ItemType itemType
         {
-            get => ItemType.Paint;
+            get => ItemType.PaintMixture;
         }
     }
 }
