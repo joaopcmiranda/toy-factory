@@ -1,4 +1,4 @@
-﻿using items.handling;
+using items.handling;
 using UnityEngine;
 using managers;
 
@@ -80,6 +80,30 @@ namespace items
         {
             Destroy(gameObject);
             _itemManager?.RefreshItems();
+        }
+        
+        public SpriteRenderer getSpriteRenderer()
+        {
+            return GetComponent<SpriteRenderer>();
+        }
+
+        public Sprite getSprite()
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            return spriteRenderer.sprite; 
+        }
+
+        public Vector3 getSpriteSize()
+        {
+            return GetComponent<SpriteRenderer>().bounds.size;
+        }
+
+        public void setItemSize(Vector3 size)
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+            spriteRenderer.transform.localScale = size; 
+            boxCollider.size = new Vector2(.5f ,.5f);
         }
     }
 }

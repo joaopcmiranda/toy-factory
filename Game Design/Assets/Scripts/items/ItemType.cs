@@ -1,4 +1,4 @@
-﻿namespace items
+namespace items
 {
     public enum ItemType
     {
@@ -55,6 +55,12 @@
         PinkCarriage,
         OrangeCarriage,
         PurpleCarriage,
-        Carriage
+        Carriage,
+        PurpleCariage,
+        WoodenLog,
+        WoodenBlock,
+        TrainBody,
+        WoodenTrain,
+        PaintedTrain,
     }
 }
