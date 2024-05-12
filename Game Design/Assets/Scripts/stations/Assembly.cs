@@ -2,6 +2,7 @@ using items;
 using UnityEngine;
 using items.handling;
 using stations.minigames;
+using System;
 
 namespace stations
 {
@@ -160,28 +161,28 @@ namespace stations
 
         private ItemType GetTrainType()
         {
-            switch (_trainPartsType)
+            string typeName = _trainPartsType.ToString();
+            int colorNameEndPos = typeName.IndexOf("TrainParts");
+            if (colorNameEndPos == -1)
             {
-                case ItemType.RedTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.RedCarriage : ItemType.RedTrain;
-                case ItemType.GreenTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.GreenCarriage : ItemType.GreenTrain;
-                case ItemType.BlueTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.BlueCarriage : ItemType.BlueTrain;
-                case ItemType.YellowTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.YellowCarriage : ItemType.YellowTrain;
-                case ItemType.CyanTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.CyanCarriage : ItemType.CyanTrain;
-                case ItemType.PinkTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.PinkCarriage : ItemType.PinkTrain;
-                case ItemType.OrangeTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.OrangeCarriage : ItemType.OrangeTrain;
-                case ItemType.PurpleTrainParts:
-                    return _isHoldingCarriageParts ? ItemType.PurpleCarriage : ItemType.PurpleTrain;
-                default:
-                    return _isHoldingCarriageParts ? ItemType.Carriage : ItemType.Train;
+                colorNameEndPos = typeName.IndexOf("CarriageParts");
             }
+
+            if (colorNameEndPos > -1)
+            {
+                string colorName = typeName.Substring(0, colorNameEndPos);
+                if (_isHoldingCarriageParts)
+                {
+                    return (ItemType)Enum.Parse(typeof(ItemType), colorName + "Carriage");
+                }
+                else
+                {
+                    return (ItemType)Enum.Parse(typeof(ItemType), colorName + "Train");
+                }
+            }
+            return _isHoldingCarriageParts ? ItemType.Carriage : ItemType.Train;
         }
+
 
         private void ManualAssembly()
         {

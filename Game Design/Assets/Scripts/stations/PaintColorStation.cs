@@ -65,7 +65,7 @@ namespace stations
                 case ItemType.UnpaintedCarriageParts:
                     _trainPartsHeld = true;
                     _lastReceivedType = item.type;
-                    item.DeleteItem();
+                    HoldItem(item);
                     break;
             }
 
