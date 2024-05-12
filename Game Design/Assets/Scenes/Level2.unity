@@ -1357,6 +1357,10 @@ PrefabInstance:
       propertyPath: dropRadius
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1951821809424079773, guid: 69ce415637d4c48efaffb9607034cbc8, type: 3}
+      propertyPath: outputType
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 2678930610607484856, guid: 69ce415637d4c48efaffb9607034cbc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2736,7 +2740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefabs:
-  - {fileID: 3952283382863247433, guid: dc1a8f2b1d7d25c4085bd3f4dbf87a9e, type: 3}
   - {fileID: 3952283382863247433, guid: 428ff1bceee7f09418db1342fe9cfae5, type: 3}
   - {fileID: 3952283382863247433, guid: b31a26bdd3a045147a1ef81aa560599e, type: 3}
   - {fileID: 3952283382863247433, guid: 3dc30044571dafd479b02723c149d8ab, type: 3}
@@ -2752,7 +2755,11 @@ MonoBehaviour:
   - {fileID: 7412469292424240735, guid: 7443a0450c72eb94789786f111d97770, type: 3}
   - {fileID: 5930159297195550574, guid: 14544f481201fee42a1b6f6d95b3f37d, type: 3}
   - {fileID: 5106552861535914360, guid: 3792ef902310f3642b3304f44e9497d8, type: 3}
-  - {fileID: 5106552861535914360, guid: 3792ef902310f3642b3304f44e9497d8, type: 3}
+  - {fileID: 3952283382863247433, guid: cb4e547e3ca7c4e2e80482a1f3b7ab30, type: 3}
+  - {fileID: 3952283382863247433, guid: b79d607e38cdd47328873477880e33fa, type: 3}
+  - {fileID: 3952283382863247433, guid: 31379fd0706e74863a407c9156ddeb44, type: 3}
+  - {fileID: 3952283382863247433, guid: 31379fd0706e74863a407c9156ddeb44, type: 3}
+  - {fileID: 3952283382863247433, guid: 938d5636bc39644e8956e3f4d3a0570b, type: 3}
   dropRadius: 1.5
   target: {fileID: 1244875162}
 --- !u!4 &808758392
