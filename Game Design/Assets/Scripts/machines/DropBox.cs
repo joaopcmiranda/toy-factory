@@ -16,7 +16,7 @@ namespace machines
         {
 
             //if item == train complete the level
-            if (item)
+            if (item.type == ItemType.PaintedTrain)
             {
                 scoreManager.IncreaseScore(100); 
             }
