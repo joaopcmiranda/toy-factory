@@ -2895,7 +2895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96, y: -80}
+  m_AnchoredPosition: {x: 96, y: 0}
   m_SizeDelta: {x: 163.1888, y: 36.3777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &517025653
@@ -2919,8 +2919,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 071200fbed497b548af05775662388f7, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7561,7 +7561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1869301619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9162,7 +9162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -264, y: -80}
+  m_AnchoredPosition: {x: -264, y: 0}
   m_SizeDelta: {x: 163.1888, y: 36.3777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959791716
@@ -9186,8 +9186,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 071200fbed497b548af05775662388f7, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -11002,6 +11002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1129926549}
     m_Modifications:
+    - target: {fileID: 1951821809424079773, guid: 69ce415637d4c48efaffb9607034cbc8, type: 3}
+      propertyPath: outputType
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3796868545963420640, guid: 69ce415637d4c48efaffb9607034cbc8, type: 3}
       propertyPath: m_Name
       value: Molding Machine
