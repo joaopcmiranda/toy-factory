@@ -15,7 +15,16 @@ namespace stations
         private ItemType _pigment;
         private bool _isHoldingPigment;
 
+        private Animator _animator;
+        private static readonly int MachineRunning = Animator.StringToHash("Running");
+        private static readonly int ColorNrgb = Animator.StringToHash("ColorNRGB");
+
         // LIFE CYCLE
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
 
         private void Update()
         {
@@ -23,6 +32,7 @@ namespace stations
             {
                 GeneratePlastic();
                 timer.ResetTimer();
+                StopAnimation();
             }
         }
 
@@ -148,11 +158,13 @@ namespace stations
         {
             _pigment = item.type;
             _isHoldingPigment = true;
+            SetAnimationColor(_pigment);
         }
 
         private void StartMixing(int penalty = 0)
         {
             timer.StartTimer(length + penalty);
+            StartAnimation();
         }
 
         private void GeneratePlastic()
@@ -205,6 +217,33 @@ namespace stations
                         return ItemType.RedPlastic;
                 }
             }
+        }
+
+        // ANIMATION
+        private void SetAnimationColor(ItemType type)
+        {
+            switch (type)
+            {
+                case ItemType.RedPigment:
+                    _animator.SetInteger(ColorNrgb, 1);
+                    break;
+                case ItemType.GreenPigment:
+                    _animator.SetInteger(ColorNrgb, 2);
+                    break;
+                case ItemType.BluePigment:
+                    _animator.SetInteger(ColorNrgb, 3);
+                    break;
+            }
+        }
+
+        private void StartAnimation()
+        {
+            _animator.SetBool(MachineRunning, true);
+        }
+
+        private void StopAnimation()
+        {
+            _animator.SetBool(MachineRunning, false);
         }
     }
 }

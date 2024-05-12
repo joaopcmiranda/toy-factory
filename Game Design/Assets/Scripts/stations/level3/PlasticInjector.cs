@@ -16,6 +16,16 @@ namespace stations
         private ItemType _selectedProduction;
         private bool _isSelectingProduction;
 
+        private Animator _animator;
+        private static readonly int RunMachineAnimationTrigger = Animator.StringToHash("Run Machine");
+        private static readonly int ColorNrgb = Animator.StringToHash("ColorNRGB");
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+
         public override bool CanReceiveItem(Item item)
         {
             switch (item.type)
@@ -45,6 +55,8 @@ namespace stations
 
             _inputType = item.type;
 
+            SetAnimationColor(_inputType);
+
             OpenChoiceMenu();
 
             _isSelectingProduction = true;
@@ -67,12 +79,14 @@ namespace stations
                 _selectedProduction = GetOutputType(1);
                 _isSelectingProduction = false;
                 timer.StartTimer(length);
+                TriggerAnimation();
             }
             else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
             {
                 _selectedProduction = GetOutputType(2);
                 _isSelectingProduction = false;
                 timer.StartTimer(length);
+                TriggerAnimation();
             }
             else if (timer.IsTimeUp() && timer.IsActive())
             {
@@ -149,6 +163,26 @@ namespace stations
             }
         }
 
+        // ANIMATION
+        private void SetAnimationColor(ItemType type)
+        {
+            switch (type)
+            {
+                case ItemType.RedPlastic:
+                    _animator.SetInteger(ColorNrgb, 1);
+                    break;
+                case ItemType.BluePlastic:
+                    _animator.SetInteger(ColorNrgb, 3);
+                    break;
+                case ItemType.GreenPlastic:
+                    _animator.SetInteger(ColorNrgb, 2);
+                    break;
+            }
+        }
 
+        private void TriggerAnimation()
+        {
+            _animator.SetTrigger(RunMachineAnimationTrigger);
+        }
     }
 }
