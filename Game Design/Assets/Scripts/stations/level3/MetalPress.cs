@@ -8,14 +8,15 @@ namespace stations
     {
         public int length = 2;
 
-        public Timer timer;
 
+        private Timer _timer;
         private Animator _animator;
         private static readonly int RunMachineAnimationTrigger = Animator.StringToHash("Run Machine");
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _timer = GetComponent<Timer>();
         }
 
         public override bool CanReceiveItem(Item item)
@@ -38,17 +39,17 @@ namespace stations
             if (!CanReceiveItem(item)) return item;
             item.DeleteItem();
 
-            timer.StartTimer(length);
+            _timer.StartTimer(length);
             TriggerAnimation();
             return null;
         }
 
         private void Update()
         {
-            if (timer.IsTimeUp() && timer.IsActive())
+            if (_timer.IsTimeUp() && _timer.IsActive())
             {
                 Transform();
-                timer.ResetTimer();
+                _timer.ResetTimer();
             }
         }
 

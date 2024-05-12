@@ -8,9 +8,9 @@ namespace stations
     {
 
         public int length = 4;
-        public Timer timer;
         public GameObject choiceMenu;
 
+        private Timer _timer;
         private Animator _animator;
         private static readonly int RunMachineAnimationTrigger = Animator.StringToHash("Run Machine");
 
@@ -20,6 +20,7 @@ namespace stations
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _timer = GetComponent<Timer>();
         }
 
         public override bool CanReceiveItem(Item item)
@@ -39,7 +40,7 @@ namespace stations
 
         public override Item PutItem(Item item)
         {
-            if (!CanReceiveItem(item) || timer.IsActive()) return item;
+            if (!CanReceiveItem(item) || _timer.IsActive()) return item;
 
             _isSelectingProduction = true;
 
@@ -62,20 +63,20 @@ namespace stations
                 CloseChoiceMenu();
                 _selectedProduction = ItemType.Wheels;
                 _isSelectingProduction = false;
-                timer.StartTimer(length);
+                _timer.StartTimer(length);
                 TriggerAnimation();
             }
             else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
             {
                 _selectedProduction = ItemType.Slinky;
                 _isSelectingProduction = false;
-                timer.StartTimer(length);
+                _timer.StartTimer(length);
                 TriggerAnimation();
             }
-            else if (timer.IsTimeUp() && timer.IsActive())
+            else if (_timer.IsTimeUp() && _timer.IsActive())
             {
                 Transform();
-                timer.ResetTimer();
+                _timer.ResetTimer();
             }
         }
 
