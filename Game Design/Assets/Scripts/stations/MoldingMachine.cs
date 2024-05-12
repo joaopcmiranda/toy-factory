@@ -7,6 +7,7 @@ namespace stations
     {
         public Timer moldingTimer;
         public ItemType outputType = ItemType.Wheels;
+        public ItemType inputType = ItemType.Metal;
 
         public override Item GetItem()
         {
@@ -40,7 +41,7 @@ namespace stations
 
         public override bool CanReceiveItem(Item item)
         {
-            return item.type == ItemType.Metal;
+            return item.type == inputType;
         }
     }
 }
