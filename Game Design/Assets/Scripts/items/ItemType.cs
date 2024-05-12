@@ -54,6 +54,7 @@
         CyanCarriage,
         PinkCarriage,
         OrangeCarriage,
-        PurpleCariage
+        PurpleCarriage,
+        Carriage
     }
 }

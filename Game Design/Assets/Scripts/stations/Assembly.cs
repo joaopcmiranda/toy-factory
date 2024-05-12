@@ -2,6 +2,7 @@ using items;
 using UnityEngine;
 using items.handling;
 using stations.minigames;
+using System;
 
 namespace stations
 {
@@ -10,6 +11,7 @@ namespace stations
         public bool handAssembly;
         public bool tutorial;
 
+        private bool _isHoldingCarriageParts;
         private bool _isHoldingParts;
         private bool _isHoldingWheels;
         private bool isHoldingTrainItems
@@ -52,6 +54,7 @@ namespace stations
             {
                 _isHoldingParts = true;
                 _trainPartsType = item.type;
+                _isHoldingCarriageParts = item.type.ToString().Contains("Carriage");
             }
 
             var returnItem = HoldItem(item);
@@ -75,6 +78,7 @@ namespace stations
         {
             switch (item.type)
             {
+                //train parts
                 case ItemType.PaintedTrainParts:
                 case ItemType.RedTrainParts:
                 case ItemType.GreenTrainParts:
@@ -84,6 +88,15 @@ namespace stations
                 case ItemType.PinkTrainParts:
                 case ItemType.OrangeTrainParts:
                 case ItemType.PurpleTrainParts:
+                //carriage parts
+                case ItemType.RedCarriageParts:
+                case ItemType.GreenCarriageParts:
+                case ItemType.BlueCarriageParts:
+                case ItemType.YellowCarriageParts:
+                case ItemType.CyanCarriageParts:
+                case ItemType.PinkCarriageParts:
+                case ItemType.OrangeCarriageParts:
+                case ItemType.PurpleCarriageParts:
                     return !_isHoldingParts;
                 case ItemType.Wheels:
                     return !_isHoldingWheels;
@@ -91,6 +104,7 @@ namespace stations
                     return false;
             }
         }
+
 
         public override void Start()
         {
@@ -147,40 +161,28 @@ namespace stations
 
         private ItemType GetTrainType()
         {
-            ItemType trainType;
-            switch (_trainPartsType)
+            string typeName = _trainPartsType.ToString();
+            int colorNameEndPos = typeName.IndexOf("TrainParts");
+            if (colorNameEndPos == -1)
             {
-                case ItemType.RedTrainParts:
-                    trainType = ItemType.RedTrain;
-                    break;
-                case ItemType.GreenTrainParts:
-                    trainType = ItemType.GreenTrain;
-                    break;
-                case ItemType.BlueTrainParts:
-                    trainType = ItemType.BlueTrain;
-                    break;
-                case ItemType.YellowTrainParts:
-                    trainType = ItemType.YellowTrain;
-                    break;
-                case ItemType.CyanTrainParts:
-                    trainType = ItemType.CyanTrain;
-                    break;
-                case ItemType.PinkTrainParts:
-                    trainType = ItemType.PinkTrain;
-                    break;
-                case ItemType.OrangeTrainParts:
-                    trainType = ItemType.OrangeTrain;
-                    break;
-                case ItemType.PurpleTrainParts:
-                    trainType = ItemType.PurpleTrain;
-                    break;
-                default:
-                    trainType = ItemType.Train;
-                    break;
+                colorNameEndPos = typeName.IndexOf("CarriageParts");
             }
 
-            return trainType;
+            if (colorNameEndPos > -1)
+            {
+                string colorName = typeName.Substring(0, colorNameEndPos);
+                if (_isHoldingCarriageParts)
+                {
+                    return (ItemType)Enum.Parse(typeof(ItemType), colorName + "Carriage");
+                }
+                else
+                {
+                    return (ItemType)Enum.Parse(typeof(ItemType), colorName + "Train");
+                }
+            }
+            return _isHoldingCarriageParts ? ItemType.Carriage : ItemType.Train;
         }
+
 
         private void ManualAssembly()
         {
