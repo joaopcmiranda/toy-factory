@@ -4,11 +4,10 @@ using UnityEngine;
 using machines;
 using managers;
 using items;
+using UnityEngine.UIElements;
 
 public class Level4_minigame : MonoBehaviour
 {
-    private Item item;
-
     public Level4_Machines machine;
     public MachineManager machineManager;
 
@@ -17,7 +16,7 @@ public class Level4_minigame : MonoBehaviour
 
     public AudioManager audioManager;
 
-    private void Start()
+    public virtual void Start()
     {
         GameVisibility(false);
     }
@@ -34,20 +33,20 @@ public class Level4_minigame : MonoBehaviour
         return false;
     }
 
-    public void StartGame()
+    public virtual void StartGame()
     {
         Debug.Log("Starting Minigame!!!");
         gameStarted = true;
     }
 
-    public void StopGame()
+    public virtual void StopGame()
     {
         Debug.Log("Stopping Minigame!!!");
         gameStarted = false;
 
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (gameStarted)
         {
@@ -73,31 +72,24 @@ public class Level4_minigame : MonoBehaviour
         }      
     }
 
-    private void minigame()
+    public virtual void minigame()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             machine.TransformItem(machine.getItem());
             Debug.Log("Chop!");
             machine.requiredFulfilled = false;
-        }
+        } 
     }
 
-    private void EndGame()
+    public virtual void EndGame()
     {
         GameVisibility(false);
         gameEnabled = false;
     }
 
-    private void BreakItem()
+    public virtual void GameVisibility(bool isGameVisible)
     {
-        EndGame();
-        machine.BreakItems();
-        audioManager.PlayBreakItem();
-    }
-
-    private void GameVisibility(bool isGameVisible)
-    {
-        Debug.Log("Game " + isGameVisible + ".");
+        //Debug.Log("Game: " + isGameVisible + ".");
     }
 }
