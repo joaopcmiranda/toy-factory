@@ -45,7 +45,7 @@ namespace machines
         {
             if (itemHolding) return;
 
-            item.PickUp(_heldby, holdSpot);
+            item.PickUp(holdSpot);
             item.IsHeldByMachine = true;
 
             itemHolding = item;

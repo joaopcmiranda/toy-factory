@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace stations
+namespace machines
 {
     public class RevealStationName : MonoBehaviour
     {
@@ -9,24 +9,29 @@ namespace stations
         public TextMeshProUGUI stationNameText;
         public string stationName = "";
 
-        private void Start()
+        void Start()
         {
+            //string highlightedText = "<mark=#FFFFFF>" + stationName + "</mark>";
             stationNameText.SetText(stationName);
 
             ShowMachineName(false);
+            //Debug.Log("stationName: " + stationName);
         }
 
+        // onMouseSomething requires a collider to detect the mouse
         public void OnMouseOver()
         {
+            //Debug.Log("over " + stationName);
             ShowMachineName(true);
         }
 
         public void OnMouseExit()
         {
+            //Debug.Log("exit " + stationName);
             ShowMachineName(false);
         }
 
-        private void ShowMachineName(bool show)
+        public void ShowMachineName(bool show)
         {
             stationNameCanvas.enabled = show;
         }
