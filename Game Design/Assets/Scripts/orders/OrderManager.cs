@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using items;
+using managers;
 using recipes;
 using score;
 using UnityEngine;
@@ -19,14 +20,16 @@ public class OrderManager : MonoBehaviour
 
     private readonly List<IRecipe> _recipes = new List<IRecipe>();
     private ScoreManager _scoreManager;
+    private LevelManager _levelManager;
 
 
     public void Start()
     {
+        _levelManager = FindObjectOfType<LevelManager>();
         _scoreManager = FindObjectOfType<ScoreManager>();
         if (singleOrderLevel)
         {
-            CreateNewOrder();
+            CreateNewOrder(true);
         }
         else
         {
@@ -46,7 +49,7 @@ public class OrderManager : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(2);
             CreateNewOrder();
         }
     }
@@ -101,6 +104,10 @@ public class OrderManager : MonoBehaviour
 
         _scoreManager.IncreaseScore(order.remainingPoints);
         RemoveOrder(order);
+        if (_levelManager && _levelManager.GetLevelScene() == 0)
+        {
+            _levelManager.LoadAfterLevelPlayed();
+        }
 
         return true;
     }

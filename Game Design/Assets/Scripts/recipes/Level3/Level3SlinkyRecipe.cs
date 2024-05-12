@@ -6,9 +6,9 @@ namespace recipes
     public class Level3SlinkyRecipe : MonoBehaviour, IRecipe
     {
         public string recipeName { get; set; } = "Metal Slinky";
-        public int frequency { get; set; } = 1;
-        public int timeLimit { get; set; } = 60;
-        public int points { get; set; } = 100;
+        public int frequency { get; set; } = 15;
+        public int timeLimit { get; set; } = 30;
+        public int points { get; set; } = 50;
         public Sprite slinkyIcon;
         public ItemType deliveryItem
         {

@@ -68,6 +68,7 @@ namespace stations
             }
             else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
             {
+                CloseChoiceMenu();
                 _selectedProduction = ItemType.Slinky;
                 _isSelectingProduction = false;
                 _timer.StartTimer(length);

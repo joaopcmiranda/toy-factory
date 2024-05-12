@@ -2978,6 +2978,7 @@ MonoBehaviour:
   - {fileID: 2745317025690044426, guid: 85a96e31bc9054c48a452a42844e5e17, type: 3}
   - {fileID: 8970687554044541099, guid: d4308438efea59b45a836b84b02239d0, type: 3}
   - {fileID: 5454856458563390746, guid: 11f0056eaf9d14e4fa9325cac0d1f0e2, type: 3}
+  - {fileID: 3952283382863247433, guid: d0641d09f66814c89818b0441f37ca52, type: 3}
   dropRadius: 1.5
   target: {fileID: 1244875162}
 --- !u!4 &808758392
@@ -8486,10 +8487,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1682174770}
     m_Modifications:
-    - target: {fileID: 6048129776317172367, guid: 9489a42a886d54e53b63c08a7e00a517, type: 3}
-      propertyPath: providedType
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 2698434485252701801, guid: 5a4144baf1bea4b4f937101897a2dfb5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -8573,6 +8570,10 @@ PrefabInstance:
     - target: {fileID: 9076823979471022664, guid: 5a4144baf1bea4b4f937101897a2dfb5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048129776317172367, guid: 9489a42a886d54e53b63c08a7e00a517, type: 3}
+      propertyPath: providedType
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6048129776317172367, guid: 9489a42a886d54e53b63c08a7e00a517, type: 3}
