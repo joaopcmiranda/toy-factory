@@ -1,68 +1,154 @@
 using items;
 using items.handling;
-using managers;
+using UnityEngine;
 
 namespace stations
 {
     public class PlasticInjector : ItemHolder
     {
-
+        public int length = 5;
         public Timer timer;
+        public GameObject redChoiceMenu;
+        public GameObject greenChoiceMenu;
+        public GameObject blueChoiceMenu;
 
-        private LevelManager _levelManager;
+        private ItemType _inputType;
+        private ItemType _selectedProduction;
+        private bool _isSelectingProduction;
 
         public override bool CanReceiveItem(Item item)
         {
-            return item.type == ItemType.Plastic;
-        }
-
-        public override void Start()
-        {
-            base.Start();
-            _levelManager = FindObjectOfType<LevelManager>();
+            switch (item.type)
+            {
+                case ItemType.RedPlastic:
+                case ItemType.BluePlastic:
+                case ItemType.GreenPlastic:
+                    return true;
+                default:
+                    return false;
+            }
         }
 
         public override Item GetItem()
         {
-            timer.ResetTimer();
-            return ReleaseLastItem();
+            if (IsHoldingItem() && !_isSelectingProduction)
+            {
+                return ReleaseLastItem();
+            }
+
+            return null;
         }
 
         public override Item PutItem(Item item)
         {
-            if (!CanReceiveItem(item)) return item;
+            if (!CanReceiveItem(item) || timer.IsActive()) return item;
 
-            timer.StartTimer(5);
-            return HoldItem(item);
+            _inputType = item.type;
+
+            OpenChoiceMenu();
+
+            _isSelectingProduction = true;
+
+            item.DeleteItem();
+
+            if (IsHoldingItem())
+            {
+                return GetItem();
+            }
+
+            return null;
         }
 
         private void Update()
         {
-            if (timer.IsTimeUp() && timer.IsActive())
+            if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CloseChoiceMenu();
+                _selectedProduction = GetOutputType(1);
+                _isSelectingProduction = false;
+                timer.StartTimer(length);
+            }
+            else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                _selectedProduction = GetOutputType(2);
+                _isSelectingProduction = false;
+                timer.StartTimer(length);
+            }
+            else if (timer.IsTimeUp() && timer.IsActive())
             {
                 Transform();
                 timer.ResetTimer();
             }
         }
 
-        private void Transform()
+        // CHOICE MENU
+        private void OpenChoiceMenu()
         {
-            ReleaseLastItem()
-                ?.DeleteItem();
-
-            ItemType outputType;
-            //you will need to start from the Game scene
-            switch (_levelManager.GetLevelScene())
+            switch (_inputType)
             {
-                case 1:
-                    outputType = ItemType.UnpaintedTrainParts;
+                case ItemType.RedPlastic:
+                    redChoiceMenu.SetActive(true);
                     break;
-                default:
-                    outputType = ItemType.PaintedTrainParts;
+                case ItemType.BluePlastic:
+                    blueChoiceMenu.SetActive(true);
+                    break;
+                case ItemType.GreenPlastic:
+                    greenChoiceMenu.SetActive(true);
                     break;
             }
-            var parts = itemManager.CreateItem(outputType, transform);
-            HoldItem(parts);
         }
+
+        private void CloseChoiceMenu()
+        {
+            redChoiceMenu.SetActive(false);
+            blueChoiceMenu.SetActive(false);
+            greenChoiceMenu.SetActive(false);
+        }
+
+        // TRANSFORM
+
+        private void Transform()
+        {
+            var parts = itemManager.CreateItem(_selectedProduction, transform);
+            HoldItem(parts);
+            _selectedProduction = ItemType.None;
+        }
+
+        // UTILS
+
+        private ItemType GetOutputType(int option)
+        {
+            switch (option)
+            {
+                case 1:
+                    switch (_inputType)
+                    {
+                        case ItemType.RedPlastic:
+                            return ItemType.RedTrainParts;
+                        case ItemType.BluePlastic:
+                            return ItemType.BlueTrainParts;
+                        case ItemType.GreenPlastic:
+                            return ItemType.GreenTrainParts;
+                        default:
+                            return ItemType.None;
+                    }
+                case 2:
+                    switch (_inputType)
+                    {
+                        case ItemType.RedPlastic:
+                            return ItemType.RedCubeParts;
+                        case ItemType.BluePlastic:
+                            return ItemType.BlueCubeParts;
+                        case ItemType.GreenPlastic:
+                            return ItemType.GreenCubeParts;
+                        default:
+                            return ItemType.None;
+                    }
+                default:
+                    return ItemType.None;
+            }
+        }
+
+
     }
 }

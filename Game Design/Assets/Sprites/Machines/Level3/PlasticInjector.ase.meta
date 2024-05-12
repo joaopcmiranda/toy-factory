@@ -2,7 +2,42 @@ fileFormatVersion: 2
 guid: 4945def60acd7d945a984fdc0dc34ac0
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Functioning-Blue
+    second: {fileID: 7400000, guid: 3469a87ea7a30784781fabc5e499a462, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Functioning-Green
+    second: {fileID: 7400000, guid: 6773b2ebcb22d3843bb407f583d2738e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Functioning-Red
+    second: {fileID: 7400000, guid: 202922db58cdcd744be94ed7e5729bed, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Blue
+    second: {fileID: 7400000, guid: 442423143fc8b7741ba4a7ea27c26f14, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Colourless
+    second: {fileID: 7400000, guid: 714d4b8d293910c4587e6663f6660843, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Green
+    second: {fileID: 7400000, guid: 370aa920c14f2f04fb01cb197daf6b20, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle-Red
+    second: {fileID: 7400000, guid: 13fe372909c042340be1e2523df4c33f, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -80,7 +115,7 @@ ScriptedImporter:
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 1
+    generateAnimationClips: 0
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
@@ -93,11 +128,11 @@ ScriptedImporter:
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 1
+    generateAnimationClips: 0
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638511375928648226
+  platformSettingsDirtyTick: 638511514089062939
   textureAssetName: 
   singleSpriteImportData:
   - name: 

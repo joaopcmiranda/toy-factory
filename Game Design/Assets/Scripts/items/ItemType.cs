@@ -2,6 +2,7 @@ namespace items
 {
     public enum ItemType
     {
+        None,
         Metal,
         Wood,
         Wheels,

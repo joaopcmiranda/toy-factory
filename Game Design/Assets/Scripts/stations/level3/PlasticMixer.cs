@@ -1,15 +1,30 @@
 using items;
 using items.handling;
 using managers;
+using UnityEngine.Serialization;
 
 namespace stations
 {
     public class PlasticMixer : ItemHolder
     {
         public Timer timer;
+        public int length = 2;
+        public int penaltyForChangingPigment = 1;
 
         private ItemType _pigment;
         private bool _isHoldingPigment;
+
+        // LIFE CYCLE
+        private void Update()
+        {
+            if (timer.IsTimeUp() && timer.IsActive())
+            {
+                GeneratePlastic();
+                timer.ResetTimer();
+            }
+        }
+
+        // IItemHolder
 
         public override bool CanReceiveItem(Item item)
         {
@@ -27,10 +42,15 @@ namespace stations
 
         public override Item GetItem()
         {
+            var item = ReleaseLastItem();
             if (IsHoldingItem())
             {
-                timer.ResetTimer();
-                return ReleaseLastItem();
+                if (IsOutput(item))
+                {
+                    timer.ResetTimer();
+                    StartMixing(); // restart machine to produce more
+                }
+                return item;
             }
             return null;
         }
@@ -39,34 +59,26 @@ namespace stations
         {
             if (!CanReceiveItem(item)) return item;
 
-            if (!IsHoldingItem() && !_isHoldingPigment) // Machine empty and has not mixed anything
+            var isPigment = IsPigment(item);
+            var isMachineHoldingChips = IsHoldingItem() && itemsHeld[0].type == ItemType.PlasticChips;
+            var isMachineHoldingOutput = IsHoldingItem() && IsOutput(itemsHeld[0]);
+
+            if (timer.IsActive()) // Machine is mixing
             {
-                if (IsPigment(item)) // Apply the pigment
+                if (isPigment) // Reset mixing with time penalty
                 {
-                    SetPigment(item);
-                    return null;
+                    timer.ResetTimer();
+                    StartMixing(penaltyForChangingPigment);
+                    return item;
                 }
-                else // Hold the plastic chips until pigment is applied
+                else // Reject chips while mixing
                 {
-                    return HoldPlasticChips(item);
+                    return item;
                 }
             }
-            else if (IsHoldingItem() && itemsHeld[0].type == ItemType.PlasticChips) // Machine has chips but no pigment
+            else if (isMachineHoldingOutput) // Machine has finished mixing, will produce more once it's emptied. Has Pigment
             {
-                if (IsPigment(item)) // Apply the pigment and start mixing
-                {
-                    SetPigment(item);
-                    StartMixing();
-                    return null;
-                }
-                else // Swap the chips in case this was unintentional to prevent them from falling on the floor
-                {
-                    return HoldPlasticChips(item);
-                }
-            }
-            else if (IsHoldingItem() && IsOutput(itemsHeld[0])) // Machine has finished mixing, will produce more once it's emptied. Has Pigment
-            {
-                if (IsPigment(item)) // Apply the new pigment
+                if (isPigment) // Apply the new pigment
                 {
                     SetPigment(item);
                 }
@@ -76,9 +88,23 @@ namespace stations
                 }
                 return GetItem(); // GetItem also restarts the mixing process
             }
+            else if (isMachineHoldingChips) // Machine has chips but no pigment
+            {
+                if (isPigment) // Apply the pigment and start mixing
+                {
+                    SetPigment(item);
+                    ReleaseLastItem().DeleteItem();
+                    StartMixing();
+                    return null;
+                }
+                else // Swap the chips in case this was unintentional to prevent them from falling on the floor
+                {
+                    return HoldPlasticChips(item);
+                }
+            }
             else if (_isHoldingPigment) // Machine has pigment but no chips or output
             {
-                if (IsPigment(item)) // Apply the new pigment
+                if (isPigment) // Apply the new pigment
                 {
                     SetPigment(item);
                     return null;
@@ -89,8 +115,51 @@ namespace stations
                     StartMixing();
                 }
             }
+            else // Machine empty and has not mixed anything
+            {
+                if (isPigment) // Apply the pigment
+                {
+                    SetPigment(item);
+                    return null;
+                }
+                else // Hold the plastic chips until pigment is applied
+                {
+                    return HoldPlasticChips(item);
+                }
+            }
             return item;
         }
+
+        // OPERATIONS
+
+        private Item HoldPlasticChips(Item item)
+        {
+            if (_isHoldingPigment)
+            {
+                item.DeleteItem();
+                return null;
+            }
+            return HoldItem(item);
+        }
+
+        private void SetPigment(Item item)
+        {
+            _pigment = item.type;
+            _isHoldingPigment = true;
+        }
+
+        private void StartMixing(int penalty = 0)
+        {
+            timer.StartTimer(length + penalty);
+        }
+
+        private void GeneratePlastic()
+        {
+            var plastic = itemManager.CreateItem(outputType, transform);
+            HoldItem(plastic);
+        }
+
+        // UTILS
 
         private bool IsPigment(Item item)
         {
@@ -118,55 +187,22 @@ namespace stations
             }
         }
 
-        private Item HoldPlasticChips(Item item)
+        private ItemType outputType
         {
-            if (!_isHoldingPigment)
+            get
             {
-                HoldItem(item);
-                return null;
+                switch (_pigment)
+                {
+                    case ItemType.RedPigment:
+                        return ItemType.RedPlastic;
+                    case ItemType.BluePigment:
+                        return ItemType.BluePlastic;
+                    case ItemType.GreenPigment:
+                        return ItemType.GreenPlastic;
+                    default:
+                        return ItemType.RedPlastic;
+                }
             }
-            return HoldItem(item);
-        }
-
-        private void SetPigment(Item item)
-        {
-            _pigment = item.type;
-            _isHoldingPigment = true;
-            return null;
-        }
-
-        private void StartMixing()
-        {
-            timer.StartTimer(5);
-        }
-
-        private void Update()
-        {
-            if (timer.IsTimeUp() && timer.IsActive())
-            {
-                Transform();
-                timer.ResetTimer();
-            }
-        }
-
-        private void Transform()
-        {
-            ReleaseLastItem()
-                ?.DeleteItem();
-
-            ItemType outputType;
-            //you will need to start from the Game scene
-            switch (_levelManager.GetLevelScene())
-            {
-                case 1:
-                    outputType = ItemType.UnpaintedTrainParts;
-                    break;
-                default:
-                    outputType = ItemType.PaintedTrainParts;
-                    break;
-            }
-            var parts = itemManager.CreateItem(outputType, transform);
-            HoldItem(parts);
         }
     }
 }

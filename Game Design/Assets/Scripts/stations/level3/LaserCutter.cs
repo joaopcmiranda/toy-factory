@@ -1,59 +1,90 @@
 using items;
 using items.handling;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace stations
 {
     public class LaserCutter : ItemHolder
     {
 
+        public int length = 5;
         public Timer timer;
+        public GameObject choiceMenu;
+
+        private ItemType _selectedProduction;
+        private bool _isSelectingProduction;
 
         public override bool CanReceiveItem(Item item)
         {
-            return item.type == ItemType.Plastic;
+            return item.type == ItemType.MetalSheet;
         }
 
         public override Item GetItem()
         {
-            timer.ResetTimer();
-            return ReleaseLastItem();
+            if (IsHoldingItem() && !_isSelectingProduction)
+            {
+                return ReleaseLastItem();
+            }
+
+            return null;
         }
 
         public override Item PutItem(Item item)
         {
-            if (!CanReceiveItem(item)) return item;
+            if (!CanReceiveItem(item) || timer.IsActive()) return item;
 
-            timer.StartTimer(5);
-            return HoldItem(item);
+            _isSelectingProduction = true;
+
+            OpenChoiceMenu();
+
+            item.DeleteItem();
+
+            if (IsHoldingItem())
+            {
+                return GetItem();
+            }
+
+            return null;
         }
 
         private void Update()
         {
-            if (timer.IsTimeUp() && timer.IsActive())
+            if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CloseChoiceMenu();
+                _selectedProduction = ItemType.Wheels;
+                _isSelectingProduction = false;
+                timer.StartTimer(length);
+            }
+            else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                _selectedProduction = ItemType.Slinky;
+                _isSelectingProduction = false;
+                timer.StartTimer(length);
+            }
+            else if (timer.IsTimeUp() && timer.IsActive())
             {
                 Transform();
                 timer.ResetTimer();
             }
         }
 
+        // CHOICE MENU
+        private void OpenChoiceMenu()
+        {
+            choiceMenu.SetActive(true);
+        }
+        private void CloseChoiceMenu()
+        {
+            choiceMenu.SetActive(false);
+        }
+
         private void Transform()
         {
-            ReleaseLastItem()
-                ?.DeleteItem();
-
-            ItemType outputType;
-            //you will need to start from the Game scene
-            switch (_levelManager.GetLevelScene())
-            {
-                case 1:
-                    outputType = ItemType.UnpaintedTrainParts;
-                    break;
-                default:
-                    outputType = ItemType.PaintedTrainParts;
-                    break;
-            }
-            var parts = itemManager.CreateItem(outputType, transform);
+            var parts = itemManager.CreateItem(_selectedProduction, transform);
             HoldItem(parts);
+            _selectedProduction = ItemType.None;
         }
     }
 }

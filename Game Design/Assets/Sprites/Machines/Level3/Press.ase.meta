@@ -2,7 +2,17 @@ fileFormatVersion: 2
 guid: 744fd421485a389458265f77e61cce5b
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Functioning
+    second: {fileID: 7400000, guid: d85da591878246f40be2a8d62950918f, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle
+    second: {fileID: 7400000, guid: 54b3a6a116a80924b8fff10c91b944ef, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -80,7 +90,7 @@ ScriptedImporter:
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 1
+    generateAnimationClips: 0
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
@@ -93,11 +103,11 @@ ScriptedImporter:
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 1
+    generateAnimationClips: 0
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638511375928693513
+  platformSettingsDirtyTick: 638511514089103174
   textureAssetName: 
   singleSpriteImportData:
   - name: 
