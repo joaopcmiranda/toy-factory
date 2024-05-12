@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,11 +16,9 @@ public class CraftingStation : Level4_minigame
 
     public int requiredSuccesses = 3; // Number of successful completions required
 
-    private bool holdingKey = false;
-    private float holdTimer = 0f;
-    private int successes = 0;
+    public int successes = 0;
 
-    private bool isClickable; 
+    public bool isClickable; 
 
 
     public override void Start()
@@ -77,17 +76,61 @@ public class CraftingStation : Level4_minigame
         {
             //update position of indicator
             Debug.Log("Holding!");
+            //float randomY = Random.Range(0.3f, -0.43f);
+            //indicator.transform.localPosition = new Vector3(indicator.transform.localPosition.x, 1f, indicator.transform.localPosition.z);
+            StartCoroutine(MoveIndicatorCoroutine());
         }
 
         if (Input.GetKeyUp(KeyCode.E))
         {
-            //if isclickable increment successes 
-            //reset position 
-            //else reset position 
+            if (isClickable)
+            {
+                StopAllCoroutines(); // Stop the coroutine if E is released
+                ResetIndicatorPosition();
+                successes++;
+                audioManager.PlayNailHammer();
+                if (successes >= 3)
+                {
+                    machine.TransformItem(machine.getItem());
+                    audioManager.PlayMachineComplete();
+
+                    EndGame(); 
+                }
+                //indicator.transform.localPosition = new Vector3(indicator.transform.localPosition.x, -0.43f, indicator.transform.localPosition.z);
+                //reset position
+            }
+            else
+            {
+                StopAllCoroutines(); // Stop the coroutine if E is released
+                ResetIndicatorPosition();
+                //indicator.transform.localPosition = new Vector3(indicator.transform.localPosition.x, -0.43f, indicator.transform.localPosition.z);
+                //reset position 
+            }    
 
             Debug.Log("Released");
         }
 
+    }
+
+    IEnumerator MoveIndicatorCoroutine()
+    {
+        float elapsedTime = 0f;
+        Vector3 startPosition = indicator.transform.localPosition;
+        Vector3 targetPosition = new Vector3(startPosition.x, 0.3f, startPosition.z);
+        float moveDuration = 1f; // Adjust the duration as needed
+
+        while (elapsedTime < moveDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / moveDuration);
+            indicator.transform.localPosition = Vector3.Lerp(startPosition, targetPosition, t);
+            yield return null;
+        }
+    }
+
+    void ResetIndicatorPosition()
+    {
+        indicator.transform.localPosition = new Vector3(indicator.transform.localPosition.x, -0.43f, indicator.transform.localPosition.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

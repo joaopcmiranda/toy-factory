@@ -6291,7 +6291,7 @@ MonoBehaviour:
   levelComplete: {fileID: 8300000, guid: c34dd645306fb4dabb2a7b1ff2113d09, type: 3}
   machineFinished: {fileID: 8300000, guid: aa92c19b83dd744ebb2a7440e5bc8db5, type: 3}
   negativeScore: {fileID: 8300000, guid: c332b84a65b03451fb028299456994b2, type: 3}
-  nailHammer: {fileID: 0}
+  nailHammer: {fileID: 8300000, guid: e865fd307ce7449eeb7b7fdb80178ee4, type: 3}
 --- !u!4 &1219663219
 Transform:
   m_ObjectHideFlags: 0
@@ -12334,6 +12334,8 @@ MonoBehaviour:
   indicator: {fileID: 1128352306}
   background: {fileID: 577603596}
   requiredSuccesses: 3
+  successes: 0
+  isClickable: 0
 --- !u!50 &1999726155
 Rigidbody2D:
   serializedVersion: 4
@@ -12546,7 +12548,7 @@ PrefabInstance:
     - target: {fileID: 4199527370676320113, guid: 9dd1a47d18399264d93af94582764919, type: 3}
       propertyPath: miniGame
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1568272357}
     - target: {fileID: 4199527370676320113, guid: 9dd1a47d18399264d93af94582764919, type: 3}
       propertyPath: outputItem
       value: 

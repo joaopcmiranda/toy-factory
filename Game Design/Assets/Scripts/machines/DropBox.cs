@@ -3,9 +3,11 @@ using items;
 using score;
 
 namespace machines
-{
+{ 
     public class DropBox : Machine
     {
+        public ScoreManager scoreManager;
+
         public override void Start()
         {
             base.Start();
@@ -16,8 +18,7 @@ namespace machines
             //if item == train complete the level
             if (item)
             {
-                Debug.Log("He Loves it...");
-                Debug.Log("Cause he loves you");
+                scoreManager.IncreaseScore(100); 
             }
             item.DeleteItem();
         }
