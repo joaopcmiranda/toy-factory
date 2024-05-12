@@ -1,3 +1,4 @@
+using System;
 using items;
 using items.handling;
 using UnityEngine;
@@ -12,8 +13,16 @@ namespace stations
         public Timer timer;
         public GameObject choiceMenu;
 
+        private Animator _animator;
+        private static readonly int RunMachineAnimationTrigger = Animator.StringToHash("Run Machine");
+
         private ItemType _selectedProduction;
         private bool _isSelectingProduction;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
 
         public override bool CanReceiveItem(Item item)
         {
@@ -56,12 +65,14 @@ namespace stations
                 _selectedProduction = ItemType.Wheels;
                 _isSelectingProduction = false;
                 timer.StartTimer(length);
+                TriggerAnimation();
             }
             else if (_isSelectingProduction && Input.GetKeyDown(KeyCode.Alpha2))
             {
                 _selectedProduction = ItemType.Slinky;
                 _isSelectingProduction = false;
                 timer.StartTimer(length);
+                TriggerAnimation();
             }
             else if (timer.IsTimeUp() && timer.IsActive())
             {
@@ -80,11 +91,18 @@ namespace stations
             choiceMenu.SetActive(false);
         }
 
+        // TRANSFORM
         private void Transform()
         {
             var parts = itemManager.CreateItem(_selectedProduction, transform);
             HoldItem(parts);
             _selectedProduction = ItemType.None;
+        }
+
+        // ANIMATION
+        private void TriggerAnimation()
+        {
+            _animator.SetTrigger(RunMachineAnimationTrigger);
         }
     }
 }
