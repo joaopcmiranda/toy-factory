@@ -3,21 +3,25 @@ using UnityEngine;
 using managers;
 using System.Collections.Generic;
 using System.Linq;
-using items.handling;
 
 namespace machines
 {
     public class Level4_Machines : MonoBehaviour
     {
-        public ItemManager itemManager;
+        public ItemManager_Level4 itemManager;
         public Level4_minigame miniGame;
-        public List<Item> requiredItems = new List<Item>();
-        public Item outputItem;
+        public List<Item_Level4> requiredItems = new List<Item_Level4>();
+        public Item_Level4 outputItem;
         public bool requiredFulfilled;
         public bool requiresMultiple;
-        public int gameOption;
 
-        public List<Item> itemsHeld = new List<Item>();
+        public Transform holdSpot; 
+
+        protected SpriteRenderer spriteRenderer;
+        protected LevelManager levelManager;
+        protected Item_Level4 itemHolding;
+
+        public List<Item_Level4> itemsHeld = new List<Item_Level4>();
 
         public bool hasRequiredItems()
         {
@@ -54,7 +58,7 @@ namespace machines
             levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
         }
 
-        public void HoldItem(Item item)
+        public void HoldItem(Item_Level4 item)
         {
             Debug.Log("HoldItem");
             item.PickUp(holdSpot);
@@ -74,11 +78,21 @@ namespace machines
             }
         }
 
-        public override Item TakeItemFromMachine()
+        public Item_Level4 TakeItemFromMachine()
         {
             Debug.Log("TakeItemFromMachine");
             StopManualAssembly();
-            var item = base.TakeItemFromMachine();
+
+            if (!itemHolding) return null;
+            // Retrieve the item from the machine
+            var item = itemHolding;
+
+            item.IsHeldByMachine = false;
+
+            item.Drop();
+
+            itemHolding = null;
+
             itemsHeld.Remove(item);
 
             requiredFulfilled = hasRequiredItems();
@@ -88,7 +102,7 @@ namespace machines
             return item;
         }
 
-        public void TransformItem(Item item)
+        public void TransformItem(Item_Level4 item)
         {
             Debug.Log("TransformItem");
             itemsHeld[0].tag = outputItem.type.ToString();
@@ -153,7 +167,7 @@ namespace machines
             TransformItem(itemHolding);
         }
 
-        public Item getItem()
+        public Item_Level4 getItem()
         {
             return itemsHeld[0];
         }

@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class Level4_minigame : MonoBehaviour
 {
     public Level4_Machines machine;
-    public MachineManager machineManager;
+    public MachineManager_Level4 machineManager;
 
     public bool gameEnabled = false;
     public bool gameStarted = false; 
