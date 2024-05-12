@@ -70,6 +70,7 @@ namespace items
         {
             Destroy(gameObject);
             _itemManager?.RefreshItems();
+<<<<<<< HEAD
         }
         
         public SpriteRenderer getSpriteRenderer()
@@ -95,5 +96,8 @@ namespace items
             spriteRenderer.transform.localScale = size; 
             boxCollider.size = new Vector2(.5f ,.5f);
         }
+=======
+        }        
+>>>>>>> parent of bfd92dc8 ([WIP] A lot of stuff (#63))
     }
 }

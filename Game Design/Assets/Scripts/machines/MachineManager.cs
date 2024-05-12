@@ -84,11 +84,14 @@ namespace managers
                 }
             }
         }
+<<<<<<< HEAD
 
         public List<Tuple<GameObject, Machine>> getMachinesInRadius()
         {
             return machinesInRadius; 
         }
 
+=======
+>>>>>>> parent of bfd92dc8 ([WIP] A lot of stuff (#63))
     }
 }
