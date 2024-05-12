@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -17,6 +18,10 @@ public class Tutorial : MonoBehaviour
     private int _currentPanel = 0;
 
 
+    private void Start()
+    {
+        movementPanel.SetActive(true);
+    }
 
 
     // Update is called once per frame
