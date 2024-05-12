@@ -14,6 +14,7 @@ namespace stations
         private ItemType _paintType;
         private bool _paintHeld;
         private bool _trainPartsHeld;
+        private ItemType _lastReceivedType;
 
         private SpriteRenderer _spriteRenderer;
 
@@ -61,8 +62,10 @@ namespace stations
                     Destroy(item.gameObject);
                     break;
                 case ItemType.UnpaintedTrainParts:
+                case ItemType.UnpaintedCarriageParts:
                     _trainPartsHeld = true;
-                    item.DeleteItem();
+                    _lastReceivedType = item.type;
+                    HoldItem(item);
                     break;
             }
 
@@ -72,6 +75,7 @@ namespace stations
             }
             return returnItem;
         }
+
 
         public override bool CanReceiveItem(Item item)
         {
@@ -86,6 +90,7 @@ namespace stations
                 case ItemType.OrangePaint:
                 case ItemType.PurplePaint:
                 case ItemType.UnpaintedTrainParts:
+                case ItemType.UnpaintedCarriageParts:
                     return true;
                 default:
                     return false;
@@ -117,38 +122,28 @@ namespace stations
 
         private ItemType GetTrainPartType()
         {
-            ItemType colorTrainPartsType;
+            bool isCarriage = _trainPartsHeld && _lastReceivedType == ItemType.UnpaintedCarriageParts;
             switch (_paintType)
             {
                 case ItemType.RedPaint:
-                    colorTrainPartsType = ItemType.RedTrainParts;
-                    break;
+                    return isCarriage ? ItemType.RedCarriageParts : ItemType.RedTrainParts;
                 case ItemType.GreenPaint:
-                    colorTrainPartsType = ItemType.GreenTrainParts;
-                    break;
+                    return isCarriage ? ItemType.GreenCarriageParts : ItemType.GreenTrainParts;
                 case ItemType.BluePaint:
-                    colorTrainPartsType = ItemType.BlueTrainParts;
-                    break;
+                    return isCarriage ? ItemType.BlueCarriageParts : ItemType.BlueTrainParts;
                 case ItemType.YellowPaint:
-                    colorTrainPartsType = ItemType.YellowTrainParts;
-                    break;
+                    return isCarriage ? ItemType.YellowCarriageParts : ItemType.YellowTrainParts;
                 case ItemType.CyanPaint:
-                    colorTrainPartsType = ItemType.CyanTrainParts;
-                    break;
+                    return isCarriage ? ItemType.CyanCarriageParts : ItemType.CyanTrainParts;
                 case ItemType.PinkPaint:
-                    colorTrainPartsType = ItemType.PinkTrainParts;
-                    break;
+                    return isCarriage ? ItemType.PinkCarriageParts : ItemType.PinkTrainParts;
                 case ItemType.OrangePaint:
-                    colorTrainPartsType = ItemType.OrangeTrainParts;
-                    break;
+                    return isCarriage ? ItemType.OrangeCarriageParts : ItemType.OrangeTrainParts;
                 case ItemType.PurplePaint:
-                    colorTrainPartsType = ItemType.PurpleTrainParts;
-                    break;
+                    return isCarriage ? ItemType.PurpleCarriageParts : ItemType.PurpleTrainParts;
                 default:
-                    colorTrainPartsType = ItemType.UnpaintedTrainParts;
-                    break;
+                    return isCarriage ? ItemType.UnpaintedCarriageParts : ItemType.UnpaintedTrainParts;
             }
-            return colorTrainPartsType;
         }
 
         private void SetPaintStationColor()

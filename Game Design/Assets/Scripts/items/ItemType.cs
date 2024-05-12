@@ -59,6 +59,8 @@ namespace items
         WoodenBlock,
         TrainBody,
         WoodenTrain,
-        PaintedTrain
+        PaintedTrain,
+        PurpleCarriage,
+        Carriage
     }
 }
