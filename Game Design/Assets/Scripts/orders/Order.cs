@@ -11,6 +11,8 @@ public class Order : MonoBehaviour
     public List<Sprite> progressSprites;
     public SpriteRenderer progressSpriteRenderer;
     private int _currentSpriteIndex = 0;
+    public double x = 0;
+    public double queuepod = 0;
 
     public TextMeshProUGUI orderNameText;
     public Canvas itemNameCanvas;
@@ -64,7 +66,7 @@ public class Order : MonoBehaviour
             _orderManager.OrderExpired(this);
         }
 
-        if (transform.position.x > queuePosition + queueStopX)
+        if (transform.localPosition.x > queuePosition + queueStopX)
         {
             _transform.position += Vector3.left * (speed * deltaTime);
         }
@@ -91,5 +93,5 @@ public class Order : MonoBehaviour
     private void ShowItemName(bool show)
     {
         itemNameCanvas.enabled = show;
-    }
+    }           
 }
