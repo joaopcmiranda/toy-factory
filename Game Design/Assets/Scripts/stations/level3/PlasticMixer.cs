@@ -8,13 +8,13 @@ namespace stations
 {
     public class PlasticMixer : ItemHolder
     {
-        public Timer timer;
         public int length = 2;
         public int penaltyForChangingPigment = 1;
 
         private ItemType _pigment;
         private bool _isHoldingPigment;
 
+        private Timer _timer;
         private Animator _animator;
         private static readonly int MachineRunning = Animator.StringToHash("Running");
         private static readonly int ColorNrgb = Animator.StringToHash("ColorNRGB");
@@ -24,14 +24,15 @@ namespace stations
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _timer = GetComponent<Timer>();
         }
 
         private void Update()
         {
-            if (timer.IsTimeUp() && timer.IsActive())
+            if (_timer.IsTimeUp() && _timer.IsActive())
             {
                 GeneratePlastic();
-                timer.ResetTimer();
+                _timer.ResetTimer();
                 StopAnimation();
             }
         }
@@ -59,7 +60,7 @@ namespace stations
             {
                 if (IsOutput(item))
                 {
-                    timer.ResetTimer();
+                    _timer.ResetTimer();
                     StartMixing(); // restart machine to produce more
                 }
                 return item;
@@ -75,11 +76,11 @@ namespace stations
             var isMachineHoldingChips = IsHoldingItem() && itemsHeld[0].type == ItemType.PlasticChips;
             var isMachineHoldingOutput = IsHoldingItem() && IsOutput(itemsHeld[0]);
 
-            if (timer.IsActive()) // Machine is mixing
+            if (_timer.IsActive()) // Machine is mixing
             {
                 if (isPigment) // Reset mixing with time penalty
                 {
-                    timer.ResetTimer();
+                    _timer.ResetTimer();
                     StartMixing(penaltyForChangingPigment);
                     return item;
                 }
@@ -164,7 +165,7 @@ namespace stations
 
         private void StartMixing(int penalty = 0)
         {
-            timer.StartTimer(length + penalty);
+            _timer.StartTimer(length + penalty);
             StartAnimation();
         }
 
