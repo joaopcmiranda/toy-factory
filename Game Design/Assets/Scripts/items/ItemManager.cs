@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using items;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace managers
 {
     public class ItemManager : MonoBehaviour
     {
-        public List<GameObject> itemPrefabs;
+        public List<GameObject> items;
         private readonly List<Tuple<GameObject, Item>> _items = new List<Tuple<GameObject, Item>>();
         public float dropRadius;
 
@@ -21,7 +20,7 @@ namespace managers
 
         private void Start()
         {
-            foreach (var item in itemPrefabs)
+            foreach (var item in items)
             {
                 _items.Add(new Tuple<GameObject, Item>(item, item.GetComponent<Item>()));
             }
@@ -75,7 +74,7 @@ namespace managers
                 foreach (var item in itemsInRadius)
                 {
                     if (item.Item2 == null) continue;
-
+                    
                     foundItemInRadius = true;
                     if (item.Item2 != _previouslyHighlightedItem)
                     {
@@ -87,7 +86,7 @@ namespace managers
                         item.Item2.SetItemColor(Color.grey);
                         _previouslyHighlightedItem = item.Item2;
                     }
-
+                    
                     else
                     {
                         item.Item2.SetItemColor(Color.white);
@@ -112,7 +111,7 @@ namespace managers
             var allItems = FindObjectsOfType<Item>();
             foreach (var item in allItems)
             {
-                if (item  && item.gameObject ) // Ensure the item and its GameObject are not null
+                if (item != null && item.gameObject != null) // Ensure the item and its GameObject are not null
                 {
                     _items.Add(new Tuple<GameObject, Item>(item.gameObject, item));
                 }
@@ -130,14 +129,6 @@ namespace managers
             itemsInRadius.RemoveAll(t => t.Item2 == item);
 
             RefreshItems();
-        }
-
-        public Item CreateItem(ItemType type, Transform holdSpot)
-        {
-            var itemObject = Instantiate(itemPrefabs.Find(i => i.GetComponent<Item>().type == type), Vector3.zero, Quaternion.identity, holdSpot);
-            var item = itemObject.GetComponent<Item>();
-            _items.Add(new Tuple<GameObject, Item>(itemObject, item));
-            return item;
         }
 
     }

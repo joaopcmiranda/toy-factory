@@ -1,27 +1,18 @@
-using System;
-using UI;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace player
 {
-    public enum CharacterControls
-    {
-        Keyboard1,
-        Keyboard2,
-    }
-
     public class Character : MonoBehaviour
     {
-        public float speed = 5.0f;
-        public CharacterControls controls = CharacterControls.Keyboard1;
 
-        private SelectionRayCaster _rayCaster;
+        public bool active = true;
+
+        public float speed = 5.0f;
         private Rigidbody2D _rb;
         private Vector2 _movement;
         private Vector2 _lastDirection = Vector2.right;
         private Animator _animator;
-        private bool _isWalking;
+        private bool _isWalking = false;
 
         private static readonly int AnimX = Animator.StringToHash("X");
         private static readonly int AnimY = Animator.StringToHash("Y");
@@ -31,43 +22,51 @@ namespace player
         {
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _rayCaster = GetComponent<SelectionRayCaster>();
         }
+
 
         // Update is called once per frame
         private void Update()
         {
-            _movement.x = Input.GetAxisRaw(controls == CharacterControls.Keyboard1 ? "Horizontal" : "Horizontal2");
-            _movement.y = Input.GetAxisRaw(controls == CharacterControls.Keyboard1 ? "Vertical" : "Vertical2");
-
-            if (_movement != Vector2.zero)
+            if (active)
             {
-                _isWalking = true;
-                _animator.SetFloat(AnimX, _movement.x);
-                _animator.SetFloat(AnimY, _movement.y);
+                _movement.x = Input.GetAxisRaw("Horizontal");
+                _movement.y = Input.GetAxisRaw("Vertical");
 
-                _animator.SetBool(AnimIsWalking, true);
+                if (_movement != Vector2.zero)
+                {
+                    _isWalking = true;
+                    _animator.SetFloat(AnimX, _movement.x);
+                    _animator.SetFloat(AnimY, _movement.y);
 
-                _lastDirection = _movement.normalized; // Update lastDirection when the player moves
+                    _animator.SetBool(AnimIsWalking, true);
 
-                _rb.MovePosition(_rb.position + _movement.normalized * (speed * Time.deltaTime));
-
-                _rayCaster.CastTorwards(_movement);
+                    _lastDirection = _movement.normalized; // Update lastDirection when the player moves
+                }
+                else if (_isWalking)
+                {
+                    _isWalking = false;
+                    _animator.SetBool(AnimIsWalking, false);
+                    _animator.SetFloat(AnimX, 0);
+                    _animator.SetFloat(AnimY, 0);
+                    _lastDirection = _movement.normalized;
+                    _movement = Vector2.zero;
+                }
             }
             else if (_isWalking)
             {
-                StopWalking();
+                _isWalking = false;
+                _animator.SetBool(AnimIsWalking, false);
+                _animator.SetFloat(AnimX, 0);
+                _animator.SetFloat(AnimY, 0);
+                _lastDirection = _movement.normalized;
+                _movement = Vector2.zero;
             }
-
         }
 
-        private void StopWalking()
+        private void FixedUpdate()
         {
-            _isWalking = false;
-            _animator.SetBool(AnimIsWalking, false);
-            _animator.SetFloat(AnimX, _lastDirection.x);
-            _animator.SetFloat(AnimY, _lastDirection.y);
-            _movement = Vector2.zero;
+            _rb.MovePosition(_rb.position + _movement * (speed * Time.fixedDeltaTime));
         }
 
         public Vector2 GetFacingDirection()
