@@ -41,30 +41,26 @@ public class OrderManager : MonoBehaviour
 
     private IEnumerator LaunchOrderLoop()
     {
+        yield return new WaitForSeconds(1);
+        CreateNewOrder(true);
+
         while (true)
         {
-            yield return new WaitForSeconds(1); // Wait for 1 second
-
+            yield return new WaitForSeconds(20);
             CreateNewOrder();
         }
     }
 
     private IRecipe GetRecipe(bool force = false)
     {
-        // Recipes in _recipes have a frequency (per minute) property. should pick from the list of recipes based on frequency
-        // Example:
-        // R1 - 1 ( /60 )
-        // R2 - 2 ( /60 )
-        // R3 - 1 ( /60 )
-        // Frequencies per call of this function should be 1/60, 2/60, 1/60 and the rest return nothing;
-
         int totalFrequency = _recipes.Sum(recipe => recipe.frequency);
-
         int random = Random.Range(0, force ? totalFrequency : 60);
+        int threshold = 0;
+
         foreach (var recipe in _recipes)
         {
-            random -= recipe.frequency;
-            if (random <= 0)
+            threshold += recipe.frequency;
+            if (random < threshold)
             {
                 return recipe;
             }
@@ -79,14 +75,14 @@ public class OrderManager : MonoBehaviour
         {
             return;
         }
-        var recipe = singleOrderLevel ? _recipes.First() : GetRecipe(force);
+        var recipe = GetRecipe(force);
 
         if (recipe == null)
         {
             return;
         }
 
-        var orderObj = Instantiate(orderPrefab, orderEntryPoint.position, orderEntryPoint.rotation, transform);
+        var orderObj = Instantiate(orderPrefab, orderEntryPoint.position, Quaternion.identity, transform);
         var order = orderObj.GetComponent<Order>();
         order.SetRecipe(recipe);
         order.queuePosition = _orders.Count;
