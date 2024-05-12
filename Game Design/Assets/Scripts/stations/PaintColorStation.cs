@@ -54,10 +54,11 @@ namespace stations
                 case ItemType.PinkPaint:
                 case ItemType.OrangePaint:
                 case ItemType.PurplePaint:
-                    returnItem = HoldItem(item);
+                    item.gameObject.SetActive(false);
                     _paintHeld = true;
                     _paintType = item.type;
                     SetPaintStationColor();
+                    Destroy(item.gameObject);
                     break;
                 case ItemType.UnpaintedTrainParts:
                     _trainPartsHeld = true;
