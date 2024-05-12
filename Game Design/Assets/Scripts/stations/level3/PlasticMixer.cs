@@ -159,6 +159,7 @@ namespace stations
             _pigment = item.type;
             _isHoldingPigment = true;
             SetAnimationColor(_pigment);
+            item.DeleteItem();
         }
 
         private void StartMixing(int penalty = 0)

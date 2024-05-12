@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour
     public void StartTimer(float duration)
     {
         time = duration;
+        max = duration;
         _timerActive = true;
         ShowTimer(true);
     }

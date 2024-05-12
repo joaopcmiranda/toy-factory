@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eeaf77039c54fcb4ab2353dc9137ba43
+guid: aea870a300de647449b64f44551abc25
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638511652346495342
+  platformSettingsDirtyTick: 638511652346510355
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: BluePlastic
+  - name: MetalTrainBody
     originalName: 
-    pivot: {x: 0.5, y: -0.033333335}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 26
-      height: 30
-    spriteID: bac31453de5baff4c8a3c8c68aebfac8
+      width: 32
+      height: 18
+    spriteID: da77741805180e142b0c40972b5d54d9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,20 +144,20 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -373780898
-    name: BluePlastic
+    guid: -870522763
+    name: MetalTrainBody
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: BluePlastic
+    - name: MetalTrainBody
       frameIndex: 0
       cellRect:
-        x: 3
-        y: 1
-        width: 26
-        height: 30
-      spriteId: bac31453de5baff4c8a3c8c68aebfac8
+        x: 0
+        y: 9
+        width: 32
+        height: 18
+      spriteId: da77741805180e142b0c40972b5d54d9
     linkedCells: []
     parentIndex: -1
   platformSettings:
