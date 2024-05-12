@@ -4,7 +4,7 @@ using items;
 namespace machines
 {
 
-    public class MaterialStation_Level4 : Machine_Level4
+    public class MaterialStation_Level4 : Machine_Base_Level4
     {
 
         public Item_Level4 rawMaterialType;

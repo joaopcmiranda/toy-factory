@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class Level4_minigame : MonoBehaviour
 {
-    public Level4_Machines machine;
+    public Machine_Level4 machine;
     public MachineManager_Level4 machineManager;
 
     public bool gameEnabled = false;
@@ -21,7 +21,7 @@ public class Level4_minigame : MonoBehaviour
         GameVisibility(false);
     }
 
-    public bool IsGameObjectInRange(Level4_Machines searchMachine)
+    public bool IsGameObjectInRange(Machine_Level4 searchMachine)
     {
         foreach (var tuple in machineManager.getMachinesInRadius())
         {

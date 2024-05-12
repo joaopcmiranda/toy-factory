@@ -2,7 +2,6 @@ using items;
 using machines;
 using managers;
 using UnityEngine;
-
 namespace player
 {
     public class PickUp_Level4 : MonoBehaviour

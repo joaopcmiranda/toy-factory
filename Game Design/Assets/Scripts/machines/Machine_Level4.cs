@@ -3,7 +3,7 @@ using managers;
 using UnityEngine;
 namespace machines
 {
-    public abstract class Machine_Level4 : MonoBehaviour
+    public abstract class Machine_Base_Level4 : MonoBehaviour
     {
         public Transform holdSpot;
         public float dropRadius = 1.5f;

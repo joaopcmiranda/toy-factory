@@ -3,23 +3,19 @@ using UnityEngine;
 using managers;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 namespace machines
 {
-    public class Level4_Machines : MonoBehaviour
+    public class Machine_Level4 : Machine_Base_Level4
     {
-        public ItemManager_Level4 itemManager;
+        public ItemManager itemManager;
         public Level4_minigame miniGame;
         public List<Item_Level4> requiredItems = new List<Item_Level4>();
         public Item_Level4 outputItem;
         public bool requiredFulfilled;
         public bool requiresMultiple;
-
-        public Transform holdSpot; 
-
-        protected SpriteRenderer spriteRenderer;
-        protected LevelManager levelManager;
-        protected Item_Level4 itemHolding;
+        public int gameOption;
 
         public List<Item_Level4> itemsHeld = new List<Item_Level4>();
 
@@ -52,47 +48,38 @@ namespace machines
 
         }
 
-        public void Start()
+        public override void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             levelManager = GameObject.Find("Managers").GetComponent<LevelManager>();
         }
 
-        public void HoldItem(Item_Level4 item)
+        public override void HoldItem(Item_Level4 item)
         {
             Debug.Log("HoldItem");
             item.PickUp(holdSpot);
-            //item.IsHeldByMachine = true;
+            item.IsHeldByMachine = true;
 
-            //itemHolding = item;
+            itemHolding = item;
             itemsHeld.Add(item);
 
             requiredFulfilled = hasRequiredItems();
 
-            if(requiredFulfilled)
+            if (requiredFulfilled)
             {
                 StartManualAssembly();
-            } else
+            }
+            else
             {
                 StopManualAssembly();
             }
         }
 
-        public Item_Level4 TakeItemFromMachine()
+        public override Item_Level4 TakeItemFromMachine()
         {
             Debug.Log("TakeItemFromMachine");
             StopManualAssembly();
-
-            if (!itemHolding) return null;
-            // Retrieve the item from the machine
-            var item = itemHolding;
-
-            item.IsHeldByMachine = false;
-
-            item.Drop();
-
-            itemHolding = null;
-
+            var item = base.TakeItemFromMachine();
             itemsHeld.Remove(item);
 
             requiredFulfilled = hasRequiredItems();
@@ -107,8 +94,8 @@ namespace machines
             Debug.Log("TransformItem");
             itemsHeld[0].tag = outputItem.type.ToString();
 
-            //Set sprite
-            //Set sprite size
+            //Set sprite 
+            //Set sprite size 
 
             itemsHeld[0].SetSprite(outputItem.getSpriteRenderer().sprite);
             itemsHeld[0].setItemSize(new Vector3(2f, 2f, 2f));
