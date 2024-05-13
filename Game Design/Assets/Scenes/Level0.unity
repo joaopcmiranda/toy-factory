@@ -5501,7 +5501,7 @@ GameObject:
   - component: {fileID: 1412683007}
   - component: {fileID: 1412683006}
   - component: {fileID: 1412683005}
-  - component: {fileID: 1412683004}
+  - component: {fileID: 1412683008}
   m_Layer: 5
   m_Name: Order Book Button
   m_TagString: Untagged
@@ -5528,20 +5528,6 @@ RectTransform:
   m_AnchoredPosition: {x: -7.299999, y: -0.4}
   m_SizeDelta: {x: 40.5187, y: 42.4669}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1412683004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412683002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba1c053a0eff447dd82e5331df46db31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orderBook: {fileID: 698922134}
-  secondaryOrder: {fileID: 0}
 --- !u!114 &1412683005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5586,8 +5572,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1412683004}
-        m_TargetAssemblyTypeName: OrderBookButton, Assembly-CSharp
+      - m_Target: {fileID: 1412683008}
+        m_TargetAssemblyTypeName: OrderBookButtonLevel2, Assembly-CSharp
         m_MethodName: ClickButton
         m_Mode: 1
         m_Arguments:
@@ -5636,6 +5622,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412683002}
   m_CullTransparentMesh: 1
+--- !u!114 &1412683008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412683002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635185c5ab5af45fcb356f1aff5c5c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderBook: {fileID: 698922134}
+  secondaryOrder: {fileID: 0}
 --- !u!1 &1413219137
 GameObject:
   m_ObjectHideFlags: 0
