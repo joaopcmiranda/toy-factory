@@ -74,14 +74,7 @@ namespace managers
 
         public void LoadAfterLevelPlayed()
         {
-            if (_levelScene == 4)
-            {
-                LoadGameEnd();
-            }
-            else
-            {
-                StartCoroutine(LoadLevelCutscene());
-            }
+            StartCoroutine(LoadLevelCutscene());
         }
 
         private IEnumerator LoadLevelCutscene()
@@ -95,7 +88,15 @@ namespace managers
             yield return new WaitForSeconds(5);  // Wait for 5 seconds before unloading
 
             SceneManager.UnloadSceneAsync(_currentScene);
-            LoadLevelEnd();
+
+            if (_levelScene == 4)
+            {
+                LoadGameEnd();
+            }
+            else
+            {
+                LoadLevelEnd();
+            }
         }
 
         private void LoadLevelEnd()
